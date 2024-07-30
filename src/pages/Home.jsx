@@ -82,7 +82,7 @@ function Home () {
                 return <PokeCard key={pokeAttributes.name} name={pokeAttributes.name} image={pokeAttributes.image}/>
             })}
         </div> */}
-
+        <Form />
         </>
     );
 }
