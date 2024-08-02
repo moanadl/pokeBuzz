@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import PokeCard from "../components/PokeCard";
 import './Home.css'
-import { GetAPIData } from "../services";
+import { GetAPIData } from "../services/APIData";
 import Form from "../components/Form";
 
 function Home () {    

@@ -1,6 +1,7 @@
 import {useState } from "react";
 import './Form.css'
 import Question from "../Question";
+import { getResults } from "../../services/results";
 
 function Form () {
 
@@ -19,7 +20,8 @@ function Form () {
 
 	const sendFormData = (e) => {
 		e.preventDefault();
-		console.log(formData)
+		getResults(formData);
+		
 	}
 
 	const getFormData = (color, transportation, setting, naturalPhenomenon, activity, placeToChill, taylorAlbum) => {

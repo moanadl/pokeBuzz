@@ -52,10 +52,10 @@ function Question (props) {
                 <legend>{props.label}</legend>
                 {Object.values(options)[props.index].map(option => 
                     <Option 
-                        key={`option-${option.toLowerCase()}`} 
-                        id={`option-${option.toLowerCase()}`} 
+                        key={`option-${option.toLowerCase().replace(/\s/g, '')}`} 
+                        id={`option-${option.toLowerCase().replace(/\s/g, '')}`} 
                         name={Object.keys(options)[props.index]} 
-                        value={option.toLowerCase()} 
+                        value={option.toLowerCase().replace(/\s/g, '')} 
                         content={option} 
                         getData={getSelectionValue} />
                 )}
