@@ -1,5 +1,6 @@
 import './Option.css'
 
+// ---------- Renders each option for each Question of the Form ---------- //
 function Option (props) {
 	
 	return (

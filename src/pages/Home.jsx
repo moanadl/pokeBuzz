@@ -1,88 +1,111 @@
 import { useEffect, useState } from "react";
-import PokeCard from "../components/PokeCard";
-import './Home.css'
 import { GetAPIData } from "../services/APIData";
 import Form from "../components/Form";
+import PokemonResults from "../components/PokemonResults";
+import './Home.css'
 
+// ---------- Renders the Form and the final results ---------- //
 function Home () {    
     
-    const [pokemonEndpoints, setPokemonEndpoints] = useState([]);
-    const [speciesEndpoints,setSpeciesEndpoints] = useState([]);
-    const [evolutionsEndpoints, setEvolutionEndpoints] = useState([]);
-    const [attributes, setAttributes] = useState([]);
+    // ----- Creating the state for the constants that will be used -----
+    const [APIDataPokemon, setAPIDataPokemon] = useState([]);
+    const [APIDataSpecies, setAPIDataSpecies] = useState([]);
+    const [APIDataEvolutions, setAPIDataEvolutions] = useState([]);
+    const [evolutionsGroups, setEvolutionsGroups] = useState([]);
+    const [pokemonAttributes, setPokemonAttributes] = useState([]);
+    const [finalScore, setfinalScore] = useState([]);
+    const [formAnswers, setFormAnswers] = useState([]);
     
+    // ----- On page load -----
     useEffect(() => {
-            const fetchData = async () => {
-            const dataAPI = await GetAPIData();
-            setPokemonEndpoints(dataAPI.dataPokemon[0]);
-            setSpeciesEndpoints(dataAPI.dataSpecies[0]);
-            // const pokeEvolutions = dataAPI.dataEvolution[0].map(groups => {
-            //     return (
-            //         {
-            //             first: groups.data.chain.species.name ? groups.data.chain.species.name : null,
-            //             second: groups.data.chain.evolves_to[0].species.name ? groups.data.chain.evolves_to[0].species.name : null,
-            //             third: groups.data.chain.evolves_to[0].evolves_to[0] ? groups.data.chain.evolves_to[0].evolves_to[0].species.name : null
-            //         }
-            //     )
-            // })
-            // setEvolutionGroups(pokeEvolutions);
-            setEvolutionEndpoints(dataAPI.dataEvolution[0])
+        // ----- Calls the function GetAPIData imported from APIData.jsx to set pokemon, species and evolution data -----
+        const fetchData = async () => {
+            const APIData = await GetAPIData();
+
+            setAPIDataPokemon(APIData.pokemon[0]);
+            setAPIDataSpecies(APIData.species[0]);
+            setAPIDataEvolutions(APIData.evolutions[0]);
         };
 
         fetchData();
-    }, [])
+    }, []);
 
+    // ----- On APIDataPokemon, APIDataSpecies or APIDataEvolutions update... -----
     useEffect(() => {
-        if (pokemonEndpoints.length > 0 
-            && speciesEndpoints.length > 0 
-            && evolutionsEndpoints.length > 0) {
-                getAttributes();
+        // ----- If the data returned alright... -----
+        if (APIDataPokemon.length > 0 && APIDataSpecies.length > 0 && APIDataEvolutions.length > 0) {
+            // ----- Creates an array with information/attributes of all pokemon -----
+            getPokemonAttributes();
+
+            // ----- Creates an array grouping all evolutions of an especies -----
+            const evolutions = APIDataEvolutions.map(groups => {
+                return {
+                        first: groups.data.chain.species.name ? groups.data.chain.species.name : null,
+                        second: groups.data.chain.evolves_to.length > 0 ? groups.data.chain.evolves_to[0].species.name : null,
+                        third: groups.data.chain.evolves_to.length > 0 && groups.data.chain.evolves_to[0].evolves_to.length > 0 ? groups.data.chain.evolves_to[0].evolves_to[0].species.name : null
+                    }
+                
+            })
+            setEvolutionsGroups(evolutions);
+        } else {
+            console.log('No data available yet.');
         }
-    }, [pokemonEndpoints, speciesEndpoints, evolutionsEndpoints]);
+    }, [APIDataPokemon, APIDataSpecies, APIDataEvolutions]);
 
-    const getAttributes = () => {
+    // ----- Gathers information on each pokemon and species on one single array -----
+    const getPokemonAttributes = () => {
 
-        const pokemonAttributes = pokemonEndpoints.map((endpoint) => {
-            const pokemonData = endpoint.data;
+        const dataExtractionPokemon = APIDataPokemon.map((data) => {
             return {
-                id: pokemonData.id,
-                name: pokemonData.name,
-                height: pokemonData.height,
-                weight: pokemonData.weight,
-                type1: pokemonData.types[0].type.name,
-                type2: pokemonData.types[1] ? pokemonData.types[1].type.name : null,
-                image: pokemonData.sprites.other.dream_world.front_default,
+                id: data.data.id,
+                name: data.data.name,
+                height: data.data.height,
+                weight: data.data.weight,
+                type1: data.data.types[0].type.name,
+                type2: data.data.types[1] ? data.data.types[1].type.name : null,
+                image: data.data.sprites.other.dream_world.front_default,
             }
         })
 
-        const speciesAttributes = speciesEndpoints.map(endpoint => {
-            const speciesData = endpoint.data;
+        const dataExtractionSpecies = APIDataSpecies.map(data => {
             return {
-                color: speciesData.color.name,
-                habitat: speciesData.habitat.name
+                color: data.data.color.name,
+                habitat: data.data.habitat.name
             }
         })
 
-        const attr = pokemonAttributes.map((pokemonAttr, index) => {
-            const speciesAttr = speciesAttributes[index] || {};
+        const attributesAll = dataExtractionPokemon.map((pokemonInfo, index) => {
+            const speciesInfo = dataExtractionSpecies[index] || {};
             return {
-                ...pokemonAttr,
-                ...speciesAttr,
+                ...pokemonInfo,
+                ...speciesInfo
             }
         })
 
-        setAttributes(attr);
-
+        setPokemonAttributes(attributesAll);
     }
 
+    // ----- Sets the form anwsers and the calculated results for type/habitat received from the Form component -----
+    const getFormResults = (finalScore, formAnswers) => {
+        setfinalScore(finalScore);
+        setFormAnswers(formAnswers)
+    }
+
+    // ----- If the form hasn't been submitted, return Form. If it has, return results. -----
 	return (
-        <>
-        {/* <div className="card-container">
-            {attributes.map(pokeAttributes => {
-                return <PokeCard key={pokeAttributes.name} name={pokeAttributes.name} image={pokeAttributes.image}/>
-            })}
-        </div> */}
-        <Form />
+        <> 
+        {finalScore.length > 0 ? 
+            <PokemonResults 
+                finalScore={finalScore} 
+                pokemonAttributes={pokemonAttributes} 
+                evolutionsGroups={evolutionsGroups} 
+                formAnswers={formAnswers} 
+            /> 
+                :
+            <Form 
+                getFormResults={getFormResults} 
+            />
+        }
         </>
     );
 }

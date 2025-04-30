@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Option from "../Option";
 
+// ---------- Renders each question of the Form ---------- //
 function Question (props) {
 
     const options = {
@@ -8,11 +9,12 @@ function Question (props) {
         transportationOptions: ['Car', 'Airplane', 'Ship', 'Train', 'By foot'],
         settingOptions: ['Countryside', 'Beach', 'Mountain', 'City', 'Cave'],
         naturalPhenomenonOptions: ['Volcano', 'Earthquake', 'Tsunami', 'Hurricane', 'Storm', 'Sand storm', 'Blizzard'],
-        activityOptions: ['Pool party', 'Work out', 'Circus', 'Stay in and chill', 'Rally', 'Hiking'],
+        activityOptions: ['Pool party', 'Work out', 'Circus', 'Camping', 'Stay in and chill', 'Rally', 'Hiking'],
         chillOptions: ['Gym', 'Cemetery', 'Mall', 'Pool', 'Library', 'Park', 'Sauna'],
         taylorOptions: ['Debut', 'Fearless TV', 'Speak Now TV', 'Red TV', '1989 TV', 'Reputation', 'Lover', 'Folklore', 'Evermore', 'Midnights', 'The Tortured Poets Department']
     }
 
+    // ----- Creating the state for the constants that will be used to set each question -----
     const [color, setColor] = useState('');
 	const [transportation, setTransportation] = useState('');
 	const [setting, setSetting] = useState('');
@@ -21,11 +23,12 @@ function Question (props) {
 	const [placeToChill, setPlaceToChill] = useState('');
 	const [taylorAlbum, setTaylorAlbum] = useState('');
 
+    // ----- Gets the value of each radio button on the Option component for each question -----
 	const getSelectionValue = (e) => {
         const {name, value} = e.target;
 
 		if (name === 'colorOptions') {
-			setColor(value);
+			setColor(value)
 		} else if (name === 'transportationOptions') {
 			setTransportation(value);
 		} else if (name === 'settingOptions') {
@@ -42,8 +45,10 @@ function Question (props) {
     
 	}
 
+    // ----- On any selected radio button uptade -----
     useEffect(() => {
-        props.getFormData(color, transportation, setting, naturalPhenomenon, activity, placeToChill, taylorAlbum)
+        // ----- Calls the prop function getFormData with the value on the radio button selected for each question -----
+        props.getFormAnswers(color, transportation, setting, naturalPhenomenon, activity, placeToChill, taylorAlbum)
     }, [color, transportation, setting, naturalPhenomenon, activity, placeToChill, taylorAlbum]
     );
 

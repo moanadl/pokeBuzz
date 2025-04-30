@@ -2,38 +2,37 @@ import axios from "axios";
 
 export const GetAPIData = async () => {
         try {
-            const endpoints = {
-                dataPokemon: [],
-                dataSpecies: [],
-                dataEvolution: [],
+            const APIData = {
+                pokemon: [],
+                species: [],
+                evolutions: [],
             };
 
-            const endpointsPokemons = [];
+            const endpointsPokemon = [];
             const endpointsSpecies = [];
-            const endpointsEvolution = [];
+            const endpointsEvolutions = [];
             
-            for (let i = 1; i <= 151; i++) {
-                endpointsPokemons.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
+            for (let i = 1; i <= 149; i++) {
+                endpointsPokemon.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
                 endpointsSpecies.push(`https://pokeapi.co/api/v2/pokemon-species/${i}`)
             }
             
-            for (let i = 1; i <= 78; i++) { //78
-                endpointsEvolution.push(`https://pokeapi.co/api/v2/evolution-chain/${i}`)
+            for (let i = 1; i <= 76; i++) {
+                endpointsEvolutions.push(`https://pokeapi.co/api/v2/evolution-chain/${i}`)
             }
 
+            const axiosPokemon = await axios.all(endpointsPokemon.map(endpointPokemon => axios.get(endpointPokemon)));
+            const axiosSpecies = await axios.all(endpointsSpecies.map(endpointSpecies => axios.get(endpointSpecies)));
+            const axiosEvolutions = await axios.all(endpointsEvolutions.map(endpointEvolutions => axios.get(endpointEvolutions)));
             
-            const resultsPokemon = await axios.all(endpointsPokemons.map(endpointPokemon => axios.get(endpointPokemon)));
-            const resultsSpecies = await axios.all(endpointsSpecies.map(endpointSpecies => axios.get(endpointSpecies)));
-            const resultsEvolution = await axios.all(endpointsEvolution.map(endpointEvolution => axios.get(endpointEvolution)));
+            APIData.pokemon.push(axiosPokemon);
+            APIData.species.push(axiosSpecies);
+            APIData.evolutions.push(axiosEvolutions);
             
-            endpoints.dataPokemon.push(resultsPokemon);
-            endpoints.dataSpecies.push(resultsSpecies);
-            endpoints.dataEvolution.push(resultsEvolution);
-            
-            return endpoints;
+            return APIData;
             
         } catch (error) {
-            console.log('An error occured:', error);
+            console.log('An error occurred:', error);
         }
 
   };
