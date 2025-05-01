@@ -4,7 +4,7 @@ import PokeCard from "../PokeCard";
 function PokemonResults (props) {
     
     let chosenPokemon = [];
-    const chosenPokemonControl = [];
+    const chosenPokemonEvolutionsIndex = [];
     let indexFinalScore = 0;
     
     // ----- While the number of pokemon is smaller than 6, do the loop -----
@@ -30,32 +30,42 @@ function PokemonResults (props) {
         }; 
 
         const possiblePokemonShuffled = shuffle(possiblePokemonCopy);
+        console.log('possiblePokemonShuffled', possiblePokemonShuffled)
 
         for (let pokemonIndex in possiblePokemonShuffled) {
-            // console.log('pokemonIndex', pokemonIndex)
             let currentPokemon = possiblePokemonShuffled[pokemonIndex].name;
-            // console.log(currentPokemon);
+            let pokemonID = possiblePokemonShuffled[pokemonIndex].id;
+            console.log('currentPokemon', currentPokemon);
             let evolutionsIndex = props.evolutionsGroups.findIndex(evolution => evolution.first === currentPokemon || evolution.second === currentPokemon || evolution.third === currentPokemon );
-            // console.log('índice da evolução', evolutionsIndex);
-            // console.log('chosenPokemonControl', props.evolutionsGroups[evolutionsIndex])
-            // console.log('chosenPokemonControl second', props.evolutionsGroups[evolutionsIndex].second)
-            if (chosenPokemonControl.includes(props.evolutionsGroups[evolutionsIndex].first || props.evolutionsGroups[evolutionsIndex].second || props.evolutionsGroups[evolutionsIndex].third)) {
-                //console.log('Já tem uma evolução!')
+  
+            if (pokemonID === 144 || pokemonID === 145 || pokemonID === 146 || pokemonID === 149) {
+                console.log('Pokemon muito raro!!');
                 continue
             }
 
-            if (chosenPokemon.length >= 6) {
+            if (evolutionsIndex !== -1) { 
+                if (chosenPokemonEvolutionsIndex.includes(evolutionsIndex)) {
+                    console.log('Já tem uma evolução!')
+                    continue
+                }
+            } else {
+                if (chosenPokemonEvolutionsIndex.includes(currentPokemon)) {
+                    console.log('Já tem esse Pokémon!')
+                    continue
+                }
+            }
+
+            chosenPokemon = [...chosenPokemon, possiblePokemonShuffled[pokemonIndex]]
+            chosenPokemonEvolutionsIndex.push(evolutionsIndex);
+            
+            if (chosenPokemon.length === 6) {
                 break
             }
-            
-            // !!!!! Ajeitar condicional para jolteon, vaporeon, etc.
-            chosenPokemon = [...chosenPokemon, possiblePokemonShuffled[pokemonIndex]]
 
-            chosenPokemonControl.push(possiblePokemonShuffled[pokemonIndex].name)
-    
         }
         indexFinalScore++
     }
+    console.log('SAIU DO WHILE!!!!!!!')
 
 
 	return (
