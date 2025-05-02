@@ -6,16 +6,25 @@ function PokemonResults (props) {
     let chosenPokemon = [];
     const chosenPokemonEvolutionsIndex = [];
     let indexFinalScore = 0;
+    let numOfColors = 9;
+    const colors = ['Black', 'Blue', 'Brown', 'Gray', 'Green', 'Pink', 'Purple', 'Red', 'Yellow', 'White'];
+
+    const randomColor = () => {
+        let rdmNum = Math.floor(Math.random() * numOfColors);
+        return colors[rdmNum];
+    }
     
     // ----- While the number of pokemon is smaller than 6, do the loop -----
     while (chosenPokemon.length < 6 ) {
+
+        let alternativeColor = randomColor();
 
         const possiblePokemon = props.pokemonAttributes.filter(
             attr => attr.type1 === props.finalScore[indexFinalScore].type_habitat || 
             attr.type2 === props.finalScore[indexFinalScore].type_habitat || 
             attr.habitat === props.finalScore[indexFinalScore].type_habitat)
             .filter(pokeColor => pokeColor.color === props.formAnswers.color ||
-            pokeColor.color === 'yellow');
+            pokeColor.color === alternativeColor);
 
         // colocar para shuffle cores tbm
 

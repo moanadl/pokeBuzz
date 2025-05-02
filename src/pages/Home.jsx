@@ -47,6 +47,7 @@ function Home () {
                 
             })
             setEvolutionsGroups(evolutions);
+            
         } else {
             console.log('No data available yet.');
         }
@@ -83,6 +84,7 @@ function Home () {
         })
 
         setPokemonAttributes(attributesAll);
+        
     }
 
     // ----- Sets the form anwsers and the calculated results for type/habitat received from the Form component -----
