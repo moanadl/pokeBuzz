@@ -1,10 +1,6 @@
-import PokeCard from "../PokeCard";
-import { findPokemon } from "../../utils/findPokemon";
-
-// ---------- Finds the final 6 pokemons and render them ---------- //
-function PokemonResults (props) {
-    
-/*    let chosenPokemon = [];
+export const findPokemon = (props) => {
+ 
+    let chosenPokemon = [];
     const chosenPokemonEvolutionsIndex = [];
     let indexFinalScore = 0;
     let numOfColors = 9;
@@ -18,7 +14,14 @@ function PokemonResults (props) {
     // ----- While the number of pokemon is smaller than 6, do the loop -----
     while (chosenPokemon.length < 6 ) {
 
-        let alternativeColor = randomColor();
+        let alternativeColor = randomColor().toLowerCase();
+
+        while (alternativeColor === props.formAnswers.color) {
+            alternativeColor = randomColor();
+        }
+
+        //console.log('attr', props.pokemonAttributes);
+        console.log(alternativeColor)
 
         const possiblePokemon = props.pokemonAttributes.filter(
             attr => attr.type1 === props.finalScore[indexFinalScore].type_habitat || 
@@ -27,7 +30,8 @@ function PokemonResults (props) {
             .filter(pokeColor => pokeColor.color === props.formAnswers.color ||
             pokeColor.color === alternativeColor);
 
-        // colocar para shuffle cores tbm
+            
+    console.log('possiblePokemon', possiblePokemon)  
 
         let possiblePokemonCopy = possiblePokemon.map((x) => x);
            
@@ -67,6 +71,7 @@ function PokemonResults (props) {
 
             chosenPokemon = [...chosenPokemon, possiblePokemonShuffled[pokemonIndex]]
             chosenPokemonEvolutionsIndex.push(evolutionsIndex);
+            console.log(chosenPokemon)
             
             if (chosenPokemon.length === 6) {
                 break
@@ -75,19 +80,8 @@ function PokemonResults (props) {
         }
         indexFinalScore++
     }
-    console.log('SAIU DO WHILE!!!!!!!')*/
+    console.log('SAIU DO WHILE!!!!!!!')
 
-    const chosenPokemon = findPokemon(props);
 
-	return (
-		<section>
-                <div className="card-container">
-                {chosenPokemon.map(attr => {
-                return <PokeCard key={attr.name} name={attr.name} image={attr.image}/>
-                })}
-                </div>
-		</section>
-	)
+	return chosenPokemon;
 }
-
-export default PokemonResults;

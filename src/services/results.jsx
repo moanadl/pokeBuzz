@@ -214,5 +214,6 @@ export const getResults = (formAnswers) => {
 		return 0;
 	  });
 
+	  console.log(score);
 	  return score;
 };
