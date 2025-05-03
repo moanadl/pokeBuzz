@@ -1,5 +1,6 @@
 export const findPokemon = (props) => {
  
+    console.log('FUNÇÃO RODOU!!')
     let chosenPokemon = [];
     const chosenPokemonEvolutionsIndex = [];
     let indexFinalScore = 0;

@@ -91,6 +91,7 @@ function Home () {
     const getFormResults = (finalScore, formAnswers) => {
         setfinalScore(finalScore);
         setFormAnswers(formAnswers)
+        console.log(formAnswers)
     }
 
     // ----- If the form hasn't been submitted, return Form. If it has, return results. -----
