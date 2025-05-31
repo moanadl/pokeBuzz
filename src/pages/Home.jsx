@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { GetAPIData } from "../services/APIData";
 import Form from "../components/Form";
+import Pokedex from "../components/Pokedex";
 import PokemonResults from "../components/PokemonResults";
 import './Home.css'
 
@@ -96,20 +97,22 @@ function Home () {
 
     // ----- If the form hasn't been submitted, return Form. If it has, return results. -----
 	return (
-        <> 
-        {finalScore.length > 0 ? 
-            <PokemonResults 
-                finalScore={finalScore} 
-                pokemonAttributes={pokemonAttributes} 
-                evolutionsGroups={evolutionsGroups} 
-                formAnswers={formAnswers} 
-            /> 
-                :
-            <Form 
-                getFormResults={getFormResults} 
-            />
-        }
-        </>
+        <div className="background">
+            <Pokedex> 
+                {finalScore.length > 0 ? 
+                    <PokemonResults 
+                    finalScore={finalScore} 
+                    pokemonAttributes={pokemonAttributes} 
+                    evolutionsGroups={evolutionsGroups} 
+                    formAnswers={formAnswers} 
+                    /> 
+                    :
+                    <Form 
+                    getFormResults={getFormResults} 
+                    />
+                }
+            </Pokedex>
+        </div>
     );
 }
 

@@ -1,0 +1,202 @@
+$red: #dc0a2d;
+$darkRed: #89061c;
+$grey: #dedede;
+$borderRadius: 20px;
+$screenColor: #232323;
+$topHeight: 177px;
+$pokedexWidth: 550px;
+$pokedexHeight: 800px;
+$borderWidth: 2px;
+$screenHeight: 270px;
+$screenWidth: 320px;
+
+.pokedex {
+    z-index: 1;
+    position: relative;
+}
+
+.red-frame {
+    background: $red;
+    width: $pokedexWidth;
+    height: $pokedexHeight;
+    border-radius: $borderRadius;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: $borderWidth solid black;
+    
+    &::after {
+        position: absolute;
+        content: "";
+        background: $darkRed;
+        bottom: -20px;
+        left: 0;
+        right: 0;
+        height: 40px;
+        z-index: -1;
+        border: $borderWidth solid black;
+        border-radius: 0 0 $borderRadius $borderRadius;
+    }
+}
+
+@mixin whiteFrameCurve() {
+    clip-path: shape(
+        from 0% 0%,
+        hline to 100%,
+        vline to 100%,
+        hline to 10%,
+        line to 0% 90%,
+        vline to 0%,
+        close
+    );
+}
+
+.white-frame-wrapper {
+    position: relative;
+    width: 400px;
+    height: 370px;
+}
+
+.white-frame,
+.white-frame-shadow {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.white-frame {
+    position: absolute;
+    background: $grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: $borderWidth solid black;
+    border-radius: 8px;
+    @include whiteFrameCurve();
+    z-index: 1;
+}
+
+.white-frame-shadow {
+    top: 2px;
+    position: absolute;
+    background-color: black;
+    @include whiteFrameCurve();
+    z-index: 0;
+}
+
+.screen {
+    background: $screenColor;
+    height: $screenHeight;
+    width: $screenWidth;
+    overflow: scroll;
+    border-radius: 8px;
+
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    
+    &::-webkit-scrollbar {
+        display: none;  /* Safari and Chrome */
+    }
+}
+
+.display-wrapper {
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    &__right {
+        width: 50px;
+    }
+    
+    &__left {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        outline: $borderWidth solid black;
+        border-radius: $borderRadius;
+        outline-offset: -15px;
+    }
+}
+
+@mixin cameraWrapperCurve($heightLeft, $heightRight, $leftOffset: $borderWidth, $rightOffset: $borderWidth) {
+    clip-path: shape(
+        from calc(0% + $leftOffset) 0,
+        hline to calc(100% - $rightOffset),
+        vline to calc($heightRight),
+        hline to 65%,
+        smooth to 63% calc($heightRight + 3px), 
+        line to 47% calc($heightLeft - 3px),
+        smooth to 45% calc($heightLeft),
+        hline to calc(0% + $leftOffset),
+        close
+    );
+}
+
+.camera-wrapper {
+    position: absolute;
+    height: $topHeight;
+    width: 100%;
+    left: 0;
+    background: transparent;
+    border-radius: $borderRadius $borderRadius 0 0;
+
+    &__top-portion,
+    &__border-top-curve,
+    &__shadow,
+    &__border-bottom-curve,
+    &__outline-outside-layer,
+    &__outline-inside-layer {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: $borderRadius $borderRadius 0 0;
+    }
+
+    &__border-top-curve,
+    &__border-bottom-curve,
+    &__outline-inside-layer {
+        background-color: black;
+    }
+
+    &__top-portion,
+    &__outline-outside-layer {
+        background-color: $red;
+    }
+
+    &__top-portion {
+        z-index: 5;
+        background: $red;
+        @include cameraWrapperCurve(138px, 73px);
+    }
+
+    &__border-top-curve {
+        @include cameraWrapperCurve(140px, 75px);
+        z-index: 4;
+    }
+    
+    &__shadow {
+        background-color: $darkRed;
+        @include cameraWrapperCurve(158px, 93px);
+        z-index: 3;
+    }
+    
+
+    &__border-bottom-curve {
+        @include cameraWrapperCurve(160px, 95px);
+        z-index: 2;
+    }
+    
+    &__outline-outside-layer {
+        @include cameraWrapperCurve(175px, 110px);
+        z-index: 1;
+
+    }
+
+    &__outline-inside-layer {
+        @include cameraWrapperCurve(177px, 112px, 17px, 65px);
+        z-index: 0;
+    }
+
+}
