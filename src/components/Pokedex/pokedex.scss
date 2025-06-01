@@ -241,14 +241,15 @@ $screenWidth: 320px;
         width: 95%;
         height: 95%;
         background: #19699e;
-        transform: translate(2px, 5px);
+        top: 7%;
+        left: 7%;
     }
 
     &__regular-color {
         width: 50%;
         height: 50%;
-        left: 50%;
-        transform: translate(-52%, 2px);
+        top: 11%;
+        left: 11%;
         background: #28abfc;
     }
 
@@ -256,8 +257,8 @@ $screenWidth: 320px;
         width: 20%;
         height: 20%;
         background: #9fdbff;
-        left: 50%;
-        transform: translate(-50%, 7px);
+        top: 20%;
+        left: 20%;
     }
 }
 
@@ -303,7 +304,7 @@ $screenWidth: 320px;
     &__shade {
         width: 95%;
         height: 95%;
-        transform: translate(2.5%, 5%);
+        transform: translate(5%, 5%);
         
         &--red {   
             background: #a0011b;
@@ -321,8 +322,8 @@ $screenWidth: 320px;
     &__regular-color {
         width: 75%;
         height: 75%;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 5%;
+        top: 5%;
         
         &--red {   
             background: #ea1b3f;
@@ -340,8 +341,8 @@ $screenWidth: 320px;
     &__light {
         width: 35%;
         height: 35%;
-        left: 50%;
-        transform: translate(-50%, 30%);
+        top: 15%;
+        left: 15%;
         
         &--red {   
             background: #ffabbc;
