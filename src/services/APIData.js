@@ -2,11 +2,7 @@ import axios from "axios";
 
 export const GetAPIData = async () => {
         try {
-            const APIData = {
-                pokemon: [],
-                species: [],
-                evolutions: [],
-            };
+            const APIData = {};
 
             const endpointsPokemon = [];
             const endpointsSpecies = [];
@@ -21,18 +17,21 @@ export const GetAPIData = async () => {
                 endpointsEvolutions.push(`https://pokeapi.co/api/v2/evolution-chain/${i}`)
             }
 
-            const axiosPokemon = await axios.all(endpointsPokemon.map(endpointPokemon => axios.get(endpointPokemon)));
-            const axiosSpecies = await axios.all(endpointsSpecies.map(endpointSpecies => axios.get(endpointSpecies)));
-            const axiosEvolutions = await axios.all(endpointsEvolutions.map(endpointEvolutions => axios.get(endpointEvolutions)));
+            const [axiosPokemon, axiosSpecies, axiosEvolutions] = await Promise.all([
+                Promise.all(endpointsPokemon.map((url) => axios.get(url))),
+                Promise.all(endpointsSpecies.map((url) => axios.get(url))),
+                Promise.all(endpointsEvolutions.map((url) => axios.get(url))),  
+            ]);
             
-            APIData.pokemon.push(axiosPokemon);
-            APIData.species.push(axiosSpecies);
-            APIData.evolutions.push(axiosEvolutions);
+            APIData.APIPokemon = axiosPokemon;
+            APIData.APISpecies = axiosSpecies;
+            APIData.APIEvolutions = axiosEvolutions;
             
             return APIData;
             
         } catch (error) {
             console.log('An error occurred:', error);
-        }
+            return null;
+        };
 
   };

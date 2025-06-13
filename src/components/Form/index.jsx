@@ -1,40 +1,24 @@
 import {useState } from "react";
-import { getResults } from "../../services/results";
+import { getResults } from "../../utils/results";
 import Question from "../Question";
+import questions from '../../data/questionsData.json';
 import './Form.css'
 
 // ---------- Renders the Form ---------- //
 function Form (props) {
 
-	const questionsContent = ['Choose a color', 'Choose a transportation', 'Choose a setting', 'Choose a natural phenomenon', 'Choose something to do', 'Choose a place to chill', 'Choose a Taylor Swift album'];
-	const questionsKeys = ['colorChoice', 'transportationChoice', 'settingChoice', 'phenomenonChoice', 'activityChoice', 'chillChoice', 'taylorChoice'];
-
-	// ----- Creating the state for the user's answers -----
-	const [formAnswers, setFormAnswers] = useState({
-	    color: '',
-	    transportation: '',
-	    setting: '',
-	    naturalPhenomenon: '',
-	    activity: '',
-	    placeToChill: '',
-	    taylorAlbum: ''
+	// ----- Creating the state for the form answers -----
+	const [formAnswers, setFormAnswers] = useState(() => {
+		Object.fromEntries(questions.map(key => [key, '']));
 	});
 
 	// ----- Gets the value of each radio button from the component Question to set the formAnswers -----
-	const getFormAnswers = (color, transportation, setting, naturalPhenomenon, activity, placeToChill, taylorAlbum) => {
-		        
-        setFormAnswers((prevData) => ({
-            ...prevData,
-            color: color ? color : prevData.color,
-            transportation: transportation ? transportation : prevData.transportation,
-            setting: setting ? setting : prevData.setting,
-            naturalPhenomenon: naturalPhenomenon ? naturalPhenomenon : prevData.naturalPhenomenon,
-            activity: activity ? activity : prevData.activity,
-            placeToChill: placeToChill ? placeToChill : prevData.placeToChill,
-            taylorAlbum: taylorAlbum ? taylorAlbum : prevData.taylorAlbum
+	const getFormAnswers = (partialAnswer) => {
+        setFormAnswers((prev) => ({
+            ...prev,
+			...partialAnswer
         }));
-		
-	}
+	};
 
 	// ----- On form submission -----
 	const sendFormAnswers = (e) => {
@@ -47,17 +31,21 @@ function Form (props) {
     
 	return (
 		<section>
-			<h1>PokeBuzz - Find which pokemons you'd carry with you!</h1>
+			<h1 className="form-title">
+				Find out your six
+                <img src="images/logo-pokemon.png" alt="Pokémon logo" />
+            </h1>
+
 			<form onSubmit={sendFormAnswers}>
-				{questionsContent.map((questionContent, index) => 
+				{questions.map((question, index) => 
 					<Question 
-						key={questionsKeys[index]} 
-						label={`${questionContent}:`} 
+						key={question.key} 
+						label={`${question.label}:`} 
 						index={index}
-						getFormAnswers={getFormAnswers}/> 
+						getFormAnswers={getFormAnswers} /> 
 				)}
 
-				<button>Submit!</button>
+				<button>Catch 'em!</button>
 			</form>
 		</section>
 	)

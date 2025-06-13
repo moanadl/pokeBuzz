@@ -1,0 +1,9 @@
+[
+    { "key": "color", "label": "Choose a color"},
+    { "key": "transportation", "label": "Choose a transportation"},
+    { "key": "setting", "label": "Choose a setting"},
+    { "key": "naturalPhenomenon", "label": "Choose a natural phenomenon"},
+    { "key": "activity", "label": "Choose something to do"},
+    { "key": "placeToChill", "label": "Choose a place to chill"},
+    { "key": "taylorAlbum", "label": "Choose a Taylor Swift album"}
+]
