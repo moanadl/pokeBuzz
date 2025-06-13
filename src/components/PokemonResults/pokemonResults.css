@@ -1,0 +1,9 @@
+.results-logo {
+    display: flex;
+        justify-content: center;
+    margin: 0 0 4rem 0;
+}
+
+.results-logo img {
+    height: 200px;
+}

@@ -1,3 +1,117 @@
-body {
-    color: white;
+label {
+    display: flex;
+        align-items: center;
+        justify-content: space-between;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    font-size: 1.5em;
+    font-weight: 400;
 }
+
+label:hover {
+    font-weight: 700;
+    background-color: #ff000042;
+}
+
+label:hover img {
+    opacity: 80%;
+}
+
+label img {
+    height: 35px;
+}
+
+label input[type="radio"]:checked + img {
+    content: url('../../../public/images/pokebola-cor.png');
+    opacity: 100%;
+}
+
+label input[type="radio"]:checked + img + span + img {
+    content: url('../../../public/images/pokebola-cor.png');
+}
+
+label input[type="radio"]:checked + img + span {
+    font-weight: 600;
+}
+
+input {
+    display: none;
+}
+
+label span {
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+
+    label {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    label span {
+        font-size: 0.8em;
+    }
+
+    label img {
+        height: 25px;
+    }
+
+    legend {
+        font-size: 1.3em;
+        margin-bottom: 0.3em;
+    }
+
+    fieldset {
+        width: 90%;
+        gap: 0.3em;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    label {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    label span {
+        font-size: 0.7em;
+    }
+
+    label img {
+        height: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+
+    label {
+        margin-left: 0;
+        margin-right: 0;
+        justify-content: start;
+        gap: 0.5em;
+    }
+
+    label span {
+        font-size: 0.6em;
+        text-align: start;
+    }
+
+    label img {
+        height: 20px;
+    }
+
+    label input + img + span + img {
+        display: none;
+    }
+
+    label input[type="radio"]:checked + img + span + img {
+        display: none;
+    }
+
+
+}
+
