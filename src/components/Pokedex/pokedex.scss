@@ -7,23 +7,34 @@ $topHeight: 177px;
 $pokedexWidth: 550px;
 $pokedexHeight: 800px;
 $borderWidth: 2px;
-$screenHeight: 270px;
-$screenWidth: 320px;
+$leftScreenHeight: 270px;
+$leftScreenWidth: 320px;
 
 .pokedex {
     z-index: 1;
     position: relative;
+    display: flex;
+    align-items: end;
+
+    &__left,
+    &__right {
+        position: relative;
+    }
+}
+
+.red-frame,
+.lid {
+    background: $red;
+    border: $borderWidth solid black;
 }
 
 .red-frame {
-    background: $red;
+    border-radius: $borderRadius;
     width: $pokedexWidth;
     height: $pokedexHeight;
-    border-radius: $borderRadius;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: $borderWidth solid black;
     
     &::after {
         position: absolute;
@@ -37,6 +48,12 @@ $screenWidth: 320px;
         border: $borderWidth solid black;
         border-radius: 0 0 $borderRadius $borderRadius;
     }
+}
+
+.lid {
+    border-radius: 0 $borderRadius $borderRadius 0;
+    width: calc($pokedexWidth - 50px);
+    height: calc($pokedexHeight - 95px);
 }
 
 @mixin whiteFrameCurve() {
@@ -86,16 +103,24 @@ $screenWidth: 320px;
 
 .screen {
     background: $screenColor;
-    height: $screenHeight;
-    width: $screenWidth;
     overflow: scroll;
     border-radius: 8px;
-
+    
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
     
     &::-webkit-scrollbar {
         display: none;  /* Safari and Chrome */
+    }
+    
+    &--left {
+        height: $leftScreenHeight;
+        width: $leftScreenWidth;
+    }
+
+    &--right {
+        height: 160px;
+        width: 380px;
     }
 }
 

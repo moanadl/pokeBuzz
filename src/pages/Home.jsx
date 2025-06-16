@@ -98,20 +98,34 @@ function Home () {
     // ----- If the form hasn't been submitted, return Form. If it has, return results. -----
 	return (
         <div className="background">
-            <Pokedex> 
-                {finalScore.length > 0 ? 
+            <Pokedex 
+                leftScreenContent={
+                    finalScore.length > 0 ? 
                     <PokemonResults 
-                    finalScore={finalScore} 
-                    pokemonAttributes={pokemonAttributes} 
-                    evolutionsGroups={evolutionsGroups} 
-                    formAnswers={formAnswers} 
+                        finalScore={finalScore} 
+                        pokemonAttributes={pokemonAttributes} 
+                        evolutionsGroups={evolutionsGroups} 
+                        formAnswers={formAnswers} 
                     /> 
                     :
                     <Form 
-                    getFormResults={getFormResults} 
+                        getFormResults={getFormResults} 
                     />
                 }
-            </Pokedex>
+                rightScreenContent={
+                    finalScore.length > 0 ? 
+                    <PokemonResults 
+                        finalScore={finalScore} 
+                        pokemonAttributes={pokemonAttributes} 
+                        evolutionsGroups={evolutionsGroups} 
+                        formAnswers={formAnswers} 
+                    /> 
+                    :
+                    <Form 
+                        getFormResults={getFormResults} 
+                    />
+                }
+            /> 
         </div>
     );
 }
