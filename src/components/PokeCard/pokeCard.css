@@ -1,18 +1,18 @@
 .pokeCard {
     display: grid;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    width: 300px;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
     height: 350px;
-    border: solid 1px red;
+    width: 300px;
     text-align: center;
     background-color: #3b4cca8f;
+    border: solid 1px red;
 }
 
 .pokeCard img {
-    width: 200px;
     max-height: 200px;
+    width: 200px;
 }
 
 h1 {

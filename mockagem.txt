@@ -1,0 +1,77 @@
+/*const mockResult = [
+		{
+			"id": 45,
+			"name": "vileplume",
+			"height": 12,
+			"weight": 186,
+			"type1": "grass",
+			"type2": "poison",
+			"image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/45.svg",
+			"color": "red",
+			"habitat": "grassland"
+		},
+		{
+			"id": 88,
+			"name": "grimer",
+			"height": 9,
+			"weight": 300,
+			"type1": "poison",
+			"type2": null,
+			"image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/88.svg",
+			"color": "purple",
+			"habitat": "urban"
+		},
+		{
+			"id": 110,
+			"name": "weezing",
+			"height": 12,
+			"weight": 95,
+			"type1": "poison",
+			"type2": null,
+			"image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/110.svg",
+			"color": "purple",
+			"habitat": "urban"
+		},
+		{
+			"id": 132,
+			"name": "ditto",
+			"height": 3,
+			"weight": 40,
+			"type1": "normal",
+			"type2": null,
+			"image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/132.svg",
+			"color": "purple",
+			"habitat": "urban"
+		},
+		{
+			"id": 18,
+			"name": "pidgeot",
+			"height": 15,
+			"weight": 395,
+			"type1": "normal",
+			"type2": "flying",
+			"image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/18.svg",
+			"color": "brown",
+			"habitat": "forest"
+		},
+		{
+		  	"id": 148,
+			"name": "dragonair",
+			"height": 40,
+			"weight": 165,
+			"type1": "dragon",
+			"type2": null,
+			"image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/148.svg",
+			"color": "blue",
+			"habitat": "waters-edge"
+		}
+	]*/
+
+
+// findPokemon.mockReturnValue(mockResult);
+
+
+
+// jest.mock('../utils/findPokemon', () => ({
+// 	findPokemon: jest.fn()
+// }));

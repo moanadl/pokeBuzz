@@ -1,9 +1,9 @@
-import './loading.css'
+import './Loading.css'
 
 function Loading () {
 
 	return (
-       <div className="loading">
+       <div className="black-background">
             <div className="loading-pokeball"></div>
             <p>Loading...</p>
         </div>

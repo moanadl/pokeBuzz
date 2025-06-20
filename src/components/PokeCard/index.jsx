@@ -1,4 +1,4 @@
-import './pokeCard.css'
+import './PokeCard.css'
 
 function PokeCard ({name, image}) {
 

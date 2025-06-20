@@ -1,26 +1,32 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Option from "../Option";
 import questionOptions from '../../data/questionOptions.json';
 import questionNameMap from '../../data/questionNameMap.json';
+import "./Question.css"
 
 // ---------- Renders each question of the Form ---------- //
-function Question ({ label, index, getFormAnswers }) {
+function Question ({ label, optionKey, hasError, getFormAnswers, index }) {
 
     const [answer, setAnswer] = useState('');
-
-    const optionKey = Object.keys(questionOptions)[index];
-    const questionName = questionNameMap[optionKey];
-
+//    console.log('optionKey:', optionKey);
+   
+   // const optionKey =  optionKey;
+   const questionName = Object.keys(questionNameMap)[index];
+//    console.log('questionName', questionName);
+//    console.log('questionOptions[optionKey]:', questionOptions[questionName]);
+    
     const handleChange = e => {
         const selectedOption = e.target.value;
         setAnswer(selectedOption);
-        getFormAnswers({ [questionName]: selectedOption }); // From Form component
+        // console.log('selectedOption', selectedOption)
+        getFormAnswers({ [optionKey]: selectedOption }); // From Form component
     };
     
 	return (
-            <fieldset>
+            <fieldset className={hasError ? 'error-fieldset' : ''}>
+                {hasError ? <img src='images/snorlax.png' className="form-error-image" alt=''/> : ''}
                 <legend>{label}</legend>
-                {questionOptions[optionKey].map(option => 
+                {questionOptions[questionName].map(option => 
                     <Option 
                         key={`option-${option.toLowerCase().replace(/\s/g, '')}`} 
                         id={`option-${option.toLowerCase().replace(/\s/g, '')}`} 

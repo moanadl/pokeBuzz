@@ -2,104 +2,38 @@ form {
     display: flex;
         align-items: center;
         flex-direction: column;
+    margin-top: 2em;
 }
 
-fieldset {
-    display: flex;
-        flex-direction: column;
-    margin: 0 0 15px 0;
-    width: 85%;
-    background-color: #f8f8f8b0;
-    border: solid 3px #FF0000;
+.form-button {
+    margin-top: 0.5em;
+    padding: 5px 20px;
+    font-size: 1.6em;
+    border-width: 3px;
 }
 
-legend {
-    padding-left: 25px;
-    padding-right: 25px;
-    text-align: center;
-    font-size: 1.5em;
-    font-weight: 600;
-}
+/* ----- Media queries ----- */
 
-.form-title {
-    display: flex;
-        align-items: center;
-        flex-direction: column;
-    margin: 0 0 1em 0;
-    font-size: 2.5em;
-    text-transform: none;
-}
+@media only screen and (min-width: 600px) {
 
-.form-title img {
-    height: 200px;
-}
-
-button {
-    margin-top: 1rem;
-    padding: 10px 27px;
-    color: #FFDE00;
-    font-family: 'Fredoka';
-    font-size: 2em;
-    background-color: #3B4CCA;
-    border: 5px outset #FF0000;
-}
-
-button:hover {
-    background-color: #FF0000;
-    border: 5px outset #3B4CAA;
-    box-shadow: 1px 1px 14px #3B4CCA;
-}
-
-@media only screen and (max-width: 768px) {
-
-    legend {
-        font-size: 1.3em;
-        margin-bottom: 0.3em;
-    }
-
-    fieldset {
-        width: 80%;
-    }
-
-    .form-title {
-        font-size: 1.8em;
-    }
-
-    .form-title img {
-        height: 150px;
-    }
-
-    button {
-        margin-top: 0.5em;
-        padding: 5px 20px;
-        font-size: 1.6em;
-        border-width: 3px;
+    .form-button {
+        font-size: 1.7em;
     }
 
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 900px) {
 
-    legend {
-        font-size: 1.1em;
+    .form-error-image {
+        top: -80px;
+        left: 680px;
     }
 
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (min-width: 1200px) {
 
-    fieldset {
-        padding-left: 10px;
-        padding-right: 10px;
-        width: 85%;
+    .form-button {
+        font-size: 2em;
     }
-
-    legend {
-        font-size: 0.9em;
-    }
-
-
-
 }
-
-

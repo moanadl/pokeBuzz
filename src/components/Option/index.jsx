@@ -13,7 +13,6 @@ function Option ({ id, name, value, getData, content }) {
                 name={name} 
                 value={value} 
                 onChange={getData}
-                required
                 />
                 <img src='images/pokebola-semcor.svg' alt='Pokebola usada como radio button'/>
                 <span>{content}</span>

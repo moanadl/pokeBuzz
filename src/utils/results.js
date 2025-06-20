@@ -1,4 +1,3 @@
-
 import scoreTable from "../data/scoreTable.json"
 import pokemonTypes from "../data/pokemonTypes.json";
 

@@ -30,8 +30,13 @@ export const GetAPIData = async () => {
             return APIData;
             
         } catch (error) {
-            console.log('An error occurred:', error);
-            return null;
+            const APIData = {};
+
+            APIData.APIPokemon = '';
+            APIData.APISpecies = '';
+            APIData.APIEvolutions = '';
+
+            return APIData;
         };
 
   };

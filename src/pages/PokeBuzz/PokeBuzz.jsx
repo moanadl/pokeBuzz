@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { GetAPIData } from "../services/APIData";
-import Form from "../components/Form";
-import PokemonResults from "../components/PokemonResults";
-import './Home.css'
-import Loading from "../components/Loading";
+import { GetAPIData } from "../../services/APIData";
+import Form from "../../components/Form";
+import PokemonResults from "../../components/PokemonResults";
+import Loading from "../../components/Loading";
+import MoreInfoLink from "../../components/MoreInfoLink/index";
+import Logo from "../../components/Logo/index"
+import ErrorData from "../../components/ErrorData";
 
 // ---------- Renders the Form and the final results ---------- //
-function Home () {    
+function PokeBuzz () {    
     
     // ----- Creating the state for the constants that will be used -----
     const [evolutionsGroups, setEvolutionsGroups] = useState([]);
@@ -15,6 +17,7 @@ function Home () {
     const [formAnswers, setFormAnswers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isProcessing, setIsProcessing] = useState(false);
+    const [isDataRetrieved, setIsDataRetrieved] = useState(true);
     
     // ----- On page load -----
     useEffect (() => {
@@ -63,13 +66,23 @@ function Home () {
                     setEvolutionsGroups(evolutions);
 
                 } else {
+                    setIsProcessing(true);
+                
+                    setTimeout(() => {
+                        setIsProcessing(false);
+                    }, 3000);
+                    setIsDataRetrieved(false);
                     console.warn('Some API data could not be loaded correctly')
                 };
 
                 setIsLoading(false);
             } catch (error) {
-                console.error('Error loading the API data', error);
-                setIsLoading(false);
+                setIsProcessing(true);
+                
+                setTimeout(() => {
+                    setIsProcessing(false);
+                }, 3000);
+                setIsDataRetrieved(false);
             };
         };
 
@@ -89,25 +102,29 @@ function Home () {
     };
 
     // ----- If the form hasn't been submitted, return Form. If it has, return results. -----
-	return (
+    return (
         <> 
-        {isLoading || isProcessing ? (
-            <Loading /> 
-        ) : finalScore.length > 0 ? (
-            <PokemonResults 
-                finalScore={finalScore} 
-                pokemonAttributes={pokemonAttributes} 
-                evolutionsGroups={evolutionsGroups} 
-                formAnswers={formAnswers}
-            />
-        ) : (
-            <Form 
-                getFormResults={handleFormSubmit} 
-            />
-        )}
+            <MoreInfoLink />
+            <Logo logoHome={false}/>
+            {isLoading || isProcessing ? (
+                <Loading /> 
+            ) : !isDataRetrieved ? (
+                <ErrorData />
+            ) : finalScore.length > 0 ? (
+                <PokemonResults 
+                    finalScore={finalScore} 
+                    pokemonAttributes={pokemonAttributes} 
+                    evolutionsGroups={evolutionsGroups} 
+                    formAnswers={formAnswers}
+                />
+            ) : (
+                <Form 
+                    getFormResults={handleFormSubmit} 
+                />
+            )}
         </>
     );
 
 };
 
-export default Home;
+export default PokeBuzz;

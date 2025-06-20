@@ -1,0 +1,64 @@
+.more-info-link {
+    position: absolute;
+        left: 15px;
+        top: 5px;
+    display: flex;
+        align-items: center;
+        gap: 0.5em;
+    cursor: pointer;
+}
+
+.more-info-link:hover {
+    left: 15px;
+    top: 5px;
+    font-weight: bold;
+    zoom: 105%;
+}
+
+.pokebola-info {
+    width: 30px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 13px #3B4CCA;;
+}
+
+.more-info-link p {
+    font-size: 0.7em;
+    text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+
+    .more-info-link {
+        gap: 1em;
+    }
+
+    .pokebola-info {
+        width: 35px;
+    }
+
+    .more-info-link p {
+        font-size: 0.8em;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+    .more-info-link {
+        left: 20px;
+        top: 15px;
+    }
+
+}
+
+@media only screen and (min-width: 900px) {
+
+    .pokebola-info {
+        width: 45px;
+    }
+
+    .more-info-link p {
+        font-size: 0.9em;
+    }
+
+}

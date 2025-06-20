@@ -1,0 +1,13 @@
+.more-info-message p {
+    margin: 0;
+    width: 75vw;
+    font-size: 0.7em;
+    font-weight: 100;
+    text-align: center;
+}
+
+.more-info-message button {
+    display: flex;
+    padding: 5px 15px;
+    font-size: 1em;
+}
