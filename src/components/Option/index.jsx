@@ -3,6 +3,9 @@ import './Option.css'
 // ---------- Renders each option for each Question of the Form ---------- //
 function Option ({ id, name, value, getData, content }) {
 	
+    // <fieldset className={hasError ? 'error-fieldset' : ''}>
+    //             {hasError ? <img src='images/snorlax.png' className="form-error-image" alt=''/> : ''}
+    
 	return (
 
         <div className="radio-options">
@@ -23,3 +26,4 @@ function Option ({ id, name, value, getData, content }) {
 }
 
 export default Option;
+

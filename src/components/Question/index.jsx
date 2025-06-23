@@ -8,17 +8,19 @@ import "./Question.css"
 function Question ({ label, optionKey, hasError, getFormAnswers, index }) {
 
     const [answer, setAnswer] = useState('');
-//    console.log('optionKey:', optionKey);
-   
-   // const optionKey =  optionKey;
+
    const questionName = Object.keys(questionNameMap)[index];
-//    console.log('questionName', questionName);
-//    console.log('questionOptions[optionKey]:', questionOptions[questionName]);
     
     const handleChange = e => {
         const selectedOption = e.target.value;
+        const fieldsetParent = e.target.parentNode.closest('fieldset');
+        const errorImage = fieldsetParent.getElementsByClassName('form-error-image')[0];
+        if (errorImage != undefined) {
+            errorImage.style.display = 'none'
+        }
+        fieldsetParent.classList.remove('error-fieldset');
+
         setAnswer(selectedOption);
-        // console.log('selectedOption', selectedOption)
         getFormAnswers({ [optionKey]: selectedOption }); // From Form component
     };
     
@@ -40,6 +42,3 @@ function Question ({ label, optionKey, hasError, getFormAnswers, index }) {
 }
 
 export default Question;
-
-//Fazer tipo foi feito no Form, mas fazer direto aqui, sem precisar mandar tanta variável para o Form.
-// Encurtar caminhos, otimizar processos, reduzir código. KISS.

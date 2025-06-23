@@ -14,10 +14,6 @@ label:hover {
     background-color: #ff000042;
 }
 
-label:hover img {
-    opacity: 80%;
-}
-
 label img {
     height: 20px;
 }
@@ -32,8 +28,11 @@ label input[type="radio"]:checked + img {
 }
 
 label input[type="radio"]:checked + img + span + img {
-    /* content: url('../../../public/images/pokebola-cor.png'); */
     display: none;
+}
+
+label input[type="radio"]:checked + img + span {
+    padding: 0.1em;
 }
 
 label input[type="radio"]:checked + img + span {
@@ -62,6 +61,7 @@ label span {
 
     label input + img + span + img {
         display: block;
+        z-index: 2;
     }
 
     label input[type="radio"]:checked + img + span + img {

@@ -66,13 +66,14 @@ function Form (props) {
 
 				<button className="form-button">Catch 'em!</button>
 				{formErrors.length > 0 && (
-					<div className="form-errors" style={{ color: 'red', marginTop: '1rem' }}>
+					<div className="form-errors">
 						<p>You need to select one option from the following questions:</p>
 						<ul>
 						{formErrors.map((field, index) => (
 							<li key={index}>{field}</li>
 						))}
 						</ul>
+						<p>Follow the sleepy Snorlax!</p>
 					</div>
 					)}
 			</form>
