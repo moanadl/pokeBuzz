@@ -2,8 +2,9 @@ import questionOptions from '../data/questionOptions.json';
 
 export const findPokemon = (props) => {
 
+    
     const { finalScore, formAnswers, pokemonAttributes, evolutionsGroups } = props;
- 
+
     let chosenPokemon = [];
     const chosenEvolutions = new Set();
     const forbiddenIDs = new Set([144, 145, 146, 149]); // Articuno, Zapdos, Moltres, Dragonite
@@ -67,5 +68,6 @@ export const findPokemon = (props) => {
         scoreIndex++
     }
 
+    // console.log('CHOSENPOKEMON', chosenPokemon)
 	return chosenPokemon;
 }

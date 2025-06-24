@@ -8,9 +8,9 @@ describe('findPokemon', () => {
 
 	const fakeProps = {
 		finalScore: mockFinalScore,
+		formAnswers: mockFormAnswers,
 		pokemonAttributes: mockPokemonAttributes,
-		evolutionsGroups: mockEvolutionsGroups,
-		formAnswers: mockFormAnswers
+		evolutionsGroups: mockEvolutionsGroups
 	};
 	
 	let resultado;
@@ -20,41 +20,37 @@ describe('findPokemon', () => {
 		  resultado = findPokemon(fakeProps);
 		} catch (e) {
 		  console.error('Erro ao executar findPokemon:', e);
-		}
+		};
 	  });
 	
-	//   console.log('formAnswers', fakeProps.formAnswers)
-
-	
-  	it('deve retornar um array com 6 pokémon', () => {
-		console.log('finalScore', fakeProps.finalScore)  
+  	test ('must return array of length 6 (6 Pokémon)', () => {
+		console.log('resultado', resultado)  
 		expect(resultado).toHaveLength(6);
 	});
 
-	it('os pokémon retornados devem ser não nulos', () => {
+	test ('elements returned must not be null', () => {
 		resultado.forEach(pokemon => {
 			expect(pokemon.name).toBeTruthy();
-			})
+        });
 	});
 
-	it('não deve haver Pokémon repetido', () => {
+	test ('there must not be repeated Pokémon', () => {
 		const pokemonNames = resultado.map(p => p.name);
 		const pokemonNamesUnique = new Set(pokemonNames); // Creates an object with unique values
-		//console.log('pokemonNames', pokemonNames, '- pokemonNamesUnique', pokemonNamesUnique);
 		expect(pokemonNames.length).toBe(pokemonNamesUnique.size);
 	});
 
-	it('não deve haver dois ou mais Pokémon de um mesmo grupo de evolução', () => {
+	test ('there must not be two or more Pokémon from the same evolution group', () => {
 		const evolutionsIndex = [];
 		const pokemonNames = resultado.map(p => p.name);
+
 		pokemonNames.forEach((pokemon) => {
-		const index = fakeProps.evolutionsGroups.findIndex(evolution => evolution.first === pokemon || evolution.second === pokemon || evolution.third === pokemon);
-		evolutionsIndex.push(index);
-		})
+            const index = fakeProps.evolutionsGroups.findIndex(evolution => evolution.first === pokemon || evolution.second === pokemon || evolution.third === pokemon);
+            evolutionsIndex.push(index);
+		});
+
 		const evolutionsIndexUnique = new Set(evolutionsIndex);
-		//console.log('evolutionsIndex', evolutionsIndex, '- evolutionsIndexUnique', evolutionsIndexUnique);
 		expect(evolutionsIndex.length).toBe(evolutionsIndexUnique.size);
-	})
+	});
 
-})
-
+});
