@@ -57,11 +57,41 @@ function Pokedex ({leftScreenContent, rightScreenContent}) {
                 </div>
             </div>
             <div className='pokedex__right'>
-                <div className="lid">
-                    <div className="display-wrapper">
-                        <div className="display-wrapper__left">
-                            <div className="screen screen--right">
-                                {rightScreenContent}
+                <div className="lid-wrapper">
+                    <div className="lid">
+                        <div className="lid-top">
+                            <div className="lid-top__layer lid-top__layer--1"></div>
+                            <div className="lid-top__layer lid-top__layer--2"></div>
+                            <div className="lid-top__layer lid-top__layer--3"></div>
+                            <div className="lid-top__layer lid-top__layer--4"></div>
+                        </div>
+                        <div className="display-wrapper">
+                            <div className="display-wrapper__left">
+                                <div className="right-side-divisions">
+                                    <div className="right-side-divisions__top">
+                                        <div className="screen screen--right">
+                                            {rightScreenContent}
+                                        </div>
+                                    </div>
+                                    <div className="right-side-divisions__bottom">
+                                        <div className="blue-buttons-grid-wrapper">
+                                            <div className="blue-buttons-grid">
+                                                <div className="blue-buttons-grid__button b-1"></div>
+                                                <div className="blue-buttons-grid__button b-2"></div>
+                                                <div className="blue-buttons-grid__button b-3"></div>
+                                                <div className="blue-buttons-grid__button b-4"></div>
+                                                <div className="blue-buttons-grid__button b-5"></div>
+                                                <div className="blue-buttons-grid__button b-6"></div>
+                                                <div className="blue-buttons-grid__button b-7"></div>
+                                                <div className="blue-buttons-grid__button b-8"></div>
+                                                <div className="blue-buttons-grid__button b-9"></div>
+                                                <div className="blue-buttons-grid__button b-10"></div>
+                                                <div className="blue-buttons-grid__button b-11"></div>
+                                                <div className="blue-buttons-grid__button b-12"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
