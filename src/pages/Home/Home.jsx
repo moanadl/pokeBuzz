@@ -5,11 +5,16 @@ import MoreInfoLink from '../../components/MoreInfoLink';
 import Loading from '../../components/Loading/index'
 import MoreInfo from '../../components/MoreInfo';
 import ErrorData from '../../components/ErrorData';
+import Pokedex from '../../components/Pokedex';
 
 function Home () {    
 
 	return (
         <div className='home-container'>
+            {/* <Pokedex 
+                leftScreenContent={<WelcomeMessage />}
+                rightScreenContent={<WelcomeMessage />}
+            /> */}
             <Logo logoHome='home'/>
             <MoreInfoLink />
             {/* <Loading /> */}
