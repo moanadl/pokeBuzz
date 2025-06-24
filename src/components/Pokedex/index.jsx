@@ -1,5 +1,8 @@
 import './pokedex.scss'
 
+// don't need to take this test to know that I want to catch you :*
+// TODO: break into smaller components
+// TODO: add missing visual components
 function Pokedex ({leftScreenContent, rightScreenContent}) {
 
 	return (

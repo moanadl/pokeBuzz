@@ -1,88 +1,71 @@
-export const findPokemon = (props) => {
- 
-    console.log('FUNÇÃO RODOU!!')
-    let chosenPokemon = [];
-    const chosenPokemonEvolutionsIndex = [];
-    let indexFinalScore = 0;
-    let numOfColors = 9;
-    const colors = ['Black', 'Blue', 'Brown', 'Gray', 'Green', 'Pink', 'Purple', 'Red', 'Yellow', 'White'];
+import questionOptions from '../data/questionOptions.json';
 
-    const randomColor = () => {
-        let rdmNum = Math.floor(Math.random() * numOfColors);
-        return colors[rdmNum];
+export const findPokemon = (props) => {
+
+    const { finalScore, formAnswers, pokemonAttributes, evolutionsGroups } = props;
+ 
+    let chosenPokemon = [];
+    const chosenEvolutions = new Set();
+    const forbiddenIDs = new Set([144, 145, 146, 149]); // Articuno, Zapdos, Moltres, Dragonite
+    const colors = questionOptions.colorOptions.map(color => color.toLowerCase());
+    const primaryColor = formAnswers.color.toLowerCase();
+
+    const getRandomAltColor = () => {
+        const altColorOptions = colors.filter(color => color !== primaryColor);
+        let rdmIndex = Math.floor(Math.random() * altColorOptions.length);
+        return altColorOptions[rdmIndex];
     }
+
+    const shuffle = (myArray) => { 
+        const array = [...myArray];
+
+        for (let i = array.length - 1; i > 0; i--) { 
+            const j = Math.floor(Math.random() * (i + 1)); 
+            [array[i], array[j]] = [array[j], array[i]]; 
+        };
+
+        return array; 
+    }; 
     
+    let scoreIndex = 0;
+
     // ----- While the number of pokemon is smaller than 6, do the loop -----
     while (chosenPokemon.length < 6 ) {
 
-        let alternativeColor = randomColor().toLowerCase();
+        const targetType = finalScore[scoreIndex].type;
+        let altColor = getRandomAltColor();
 
-        while (alternativeColor === props.formAnswers.color) {
-            alternativeColor = randomColor();
-        }
+        const candidates = pokemonAttributes.filter(attr => 
+            (attr.type1 === targetType || attr.type2 === targetType || attr.habitat === targetType) && 
+            (attr.color === primaryColor || attr.color === altColor))
 
-        //console.log('attr', props.pokemonAttributes);
-        console.log(alternativeColor)
+        const shuffledCandidates = shuffle(candidates);
 
-        const possiblePokemon = props.pokemonAttributes.filter(
-            attr => attr.type1 === props.finalScore[indexFinalScore].type_habitat || 
-            attr.type2 === props.finalScore[indexFinalScore].type_habitat || 
-            attr.habitat === props.finalScore[indexFinalScore].type_habitat)
-            .filter(pokeColor => pokeColor.color === props.formAnswers.color ||
-            pokeColor.color === alternativeColor);
+        for (const pokemon of shuffledCandidates) { // Não executa caso array venha vazio
+            const { id, name } = pokemon;
 
+            // Checks for rare Pokémon
+            if (forbiddenIDs.has(id)) continue;
+
+            // Checks for repeated Pokémon or Pokémon from the same evolution group
+            const evolutionsIndex = evolutionsGroups.findIndex(
+                evolution => evolution.first === name || 
+                evolution.second === name || 
+                evolution.third === name
+            );
+
+            const evolutionKey = evolutionsIndex !== -1 ? `evol-${evolutionsIndex}` : `poke-${name}`;
+
+            if (chosenEvolutions.has(evolutionKey)) continue;
+
+            chosenPokemon.push(pokemon);
+            chosenEvolutions.add(evolutionKey);
             
-    console.log('possiblePokemon', possiblePokemon)  
-
-        let possiblePokemonCopy = possiblePokemon.map((x) => x);
-           
-        const shuffle = (myArray) => { 
-            for (let i = myArray.length - 1; i > 0; i--) { 
-                const j = Math.floor(Math.random() * (i + 1)); 
-                [myArray[i], myArray[j]] = [myArray[j], myArray[i]]; 
-            } 
-            return myArray; 
-        }; 
-
-        const possiblePokemonShuffled = shuffle(possiblePokemonCopy);
-        console.log('possiblePokemonShuffled', possiblePokemonShuffled)
-
-        for (let pokemonIndex in possiblePokemonShuffled) {
-            let currentPokemon = possiblePokemonShuffled[pokemonIndex].name;
-            let pokemonID = possiblePokemonShuffled[pokemonIndex].id;
-            console.log('currentPokemon', currentPokemon);
-            let evolutionsIndex = props.evolutionsGroups.findIndex(evolution => evolution.first === currentPokemon || evolution.second === currentPokemon || evolution.third === currentPokemon );
-  
-            if (pokemonID === 144 || pokemonID === 145 || pokemonID === 146 || pokemonID === 149) {
-                console.log('Pokemon muito raro!!');
-                continue
-            }
-
-            if (evolutionsIndex !== -1) { 
-                if (chosenPokemonEvolutionsIndex.includes(evolutionsIndex)) {
-                    console.log('Já tem uma evolução!')
-                    continue
-                }
-            } else {
-                if (chosenPokemonEvolutionsIndex.includes(currentPokemon)) {
-                    console.log('Já tem esse Pokémon!')
-                    continue
-                }
-            }
-
-            chosenPokemon = [...chosenPokemon, possiblePokemonShuffled[pokemonIndex]]
-            chosenPokemonEvolutionsIndex.push(evolutionsIndex);
-            console.log(chosenPokemon)
-            
-            if (chosenPokemon.length === 6) {
-                break
-            }
+            if (chosenPokemon.length === 6) break
 
         }
-        indexFinalScore++
+        scoreIndex++
     }
-    console.log('SAIU DO WHILE!!!!!!!')
-
 
 	return chosenPokemon;
 }

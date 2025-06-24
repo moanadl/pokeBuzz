@@ -1,0 +1,9 @@
+{        
+    "colorOptions": ["Black", "Blue", "Brown", "Gray", "Green", "Pink", "Purple", "Red", "Yellow", "White"],
+    "transportationOptions": ["Car", "Airplane", "Ship", "Train", "By foot"],
+    "settingOptions": ["Countryside", "Beach", "Mountain", "City", "Cave"],
+    "naturalPhenomenonOptions": ["Volcano", "Earthquake", "Tsunami", "Hurricane", "Storm", "Sand storm", "Blizzard"],
+    "activityOptions": ["Pool party", "Work out", "Circus", "Camping", "Stay in and chill", "Rally", "Hiking"],
+    "chillOptions": ["Gym", "Cemetery", "Mall", "Pool", "Library", "Park", "Sauna"],
+    "taylorOptions": ["Debut", "Fearless TV", "Speak Now TV", "Red TV", "1989 TV", "Reputation", "Lover", "Folklore", "Evermore", "Midnights", "The Tortured Poets Department"]
+}

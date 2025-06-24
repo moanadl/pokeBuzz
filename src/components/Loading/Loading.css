@@ -1,0 +1,43 @@
+.loading-pokeball {
+	position: relative;
+	height: 100px;
+	margin-top: 2em;
+	width: 100px;
+	background: linear-gradient(to bottom, rgb(254, 0, 1) 50%, white 50% );
+	border: 8px solid black;
+	border-radius: 50%;
+	animation: spin 1.5s linear infinite;
+}
+
+.loading-pokeball::before {
+	content: '';
+	position: absolute;
+		top: 42px;
+	height: 8px;
+	width: 90px;
+	background: black;
+	transform: translatey(-50%);
+}
+
+.loading-pokeball::after {
+	content: '';
+	position: absolute;
+		left: 42px;
+		top: 42px;
+	height: 38px;
+	width: 38px;
+	background: white;
+	border-radius: 50%;
+	box-shadow: inset 0 0 0 8px black, inset 0 0 0 10px white, inset 0 0 0 12px black;
+	transform: translate(-50%, -50%);
+}
+
+/* Spin Animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

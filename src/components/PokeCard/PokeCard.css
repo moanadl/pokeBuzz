@@ -1,0 +1,20 @@
+.pokeCard {
+    display: grid;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    height: 350px;
+    width: 300px;
+    text-align: center;
+    background-color: #3b4cca8f;
+    border: solid 1px red;
+}
+
+.pokeCard img {
+    max-height: 200px;
+    width: 200px;
+}
+
+h1 {
+    text-transform: capitalize;
+}

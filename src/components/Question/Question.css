@@ -1,0 +1,105 @@
+.hasError {
+    background-color: red;
+}
+
+.error-fieldset {
+    position: relative;
+    border: 5px dashed red;
+    transition: 0.3s ease;
+}
+
+.form-error-image {
+    position: absolute;
+        right: -25px;
+        top: -25px;
+    width: 120px;
+}
+
+fieldset {
+    display: flex;
+        flex-direction: column;
+        gap: 5px;
+    width: 330px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #f8f8f8b0;
+    border: solid 3px #FF0000;
+    border-radius: 8px;
+}
+
+legend {
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+@media only screen and (min-width: 600px) {
+
+    fieldset {
+        width: 500px;
+    }
+
+    legend {
+        font-size: 1.3em;
+    }
+
+    .form-error-image {
+        right: -40px;
+        top: -70px;
+        width: 170px;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+    fieldset {
+        width: 600px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .form-error-image {
+        right: -30px;
+        top: -80px;
+        width: 200px;
+    }
+
+}
+
+@media only screen and (min-width: 900px) {
+
+    fieldset {
+        gap: 0;
+        width: 750px;
+    }
+
+    legend {
+        font-size: 1.5em;
+    }
+
+    .form-error-image {
+        right: -20px;
+        top: -90px;
+        width: 230px;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+    fieldset {
+        width: 900px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .form-error-image {
+        width: 250px;
+    }
+
+}

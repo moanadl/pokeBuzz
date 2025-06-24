@@ -1,11 +1,9 @@
 import Home from "./pages/Home";
-import './App.scss'
+import './App.css'
 
 // ---------- Renders the Home page ---------- //
 function App() {
-	return (
-		<Home />
-	);
+	return
 }
 
 export default App;

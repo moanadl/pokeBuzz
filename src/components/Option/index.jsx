@@ -1,21 +1,29 @@
 import './Option.css'
 
 // ---------- Renders each option for each Question of the Form ---------- //
-function Option (props) {
+function Option ({ id, name, value, getData, content }) {
 	
+    // <fieldset className={hasError ? 'error-fieldset' : ''}>
+    //             {hasError ? <img src='images/snorlax.png' className="form-error-image" alt=''/> : ''}
+    
 	return (
 
         <div className="radio-options">
-            <input 
+            <label htmlFor={id}>
+                <input 
                 type="radio" 
-                id={props.id} 
-                name={props.name} 
-                value={props.value} 
-                onChange={props.getData}
-                required/>
-            <label htmlFor={props.id}>{props.content}</label>
+                id={id} 
+                name={name} 
+                value={value} 
+                onChange={getData}
+                />
+                <img src='images/pokebola-semcor.svg' alt='Pokebola usada como radio button'/>
+                <span>{content}</span>
+                <img src='images/pokebola-semcor.svg' alt='Pokebola usada como radio button'/>
+            </label>
         </div>
 	)
 }
 
 export default Option;
+

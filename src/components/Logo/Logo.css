@@ -1,0 +1,57 @@
+.logo {
+    display: flex;
+        align-items: center;
+        flex-direction: column;
+    margin: 0;
+    font-size: 1.9em;
+    text-transform: none;
+}
+
+.logo-home {
+    margin-top: 2em;
+}
+
+.logo img {
+    height: 160px;
+    margin-right: 0.5em;
+}
+
+@media only screen and (min-width: 600px) {
+
+    .logo {
+        font-size: 2.3em;
+    }
+
+    .logo-home {
+        margin-top: 1em;
+    }
+
+    .logo img {
+        height: 180px;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+    .logo-home {
+        margin-top: 0.5em;
+    }
+
+}
+
+@media only screen and (min-width: 900px) {
+
+    .logo img {
+        height: 200px;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+    .logo-home {
+        margin-top: 0;
+    }
+
+}
