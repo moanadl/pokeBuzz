@@ -61,7 +61,7 @@ label span {
 
     label input + img + span + img {
         display: block;
-        z-index: 2;
+        z-index: 1;
     }
 
     label input[type="radio"]:checked + img + span + img {

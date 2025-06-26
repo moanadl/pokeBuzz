@@ -1,102 +1,102 @@
 const mockFinalScore = [
     {
-        "type_habitat": "grassland",
+        "type": "grassland",
         "value": 6
     },
     {
-        "type_habitat": "grass",
+        "type": "grass",
         "value": 5
     },
     {
-        "type_habitat": "urban",
+        "type": "urban",
         "value": 5
     },
     {
-        "type_habitat": "waterEdges",
+        "type": "waterEdges",
         "value": 5
     },
     {
-        "type_habitat": "fighting",
+        "type": "fighting",
         "value": 4
     },
     {
-        "type_habitat": "steel",
+        "type": "steel",
         "value": 4
     },
     {
-        "type_habitat": "forest",
+        "type": "forest",
         "value": 4
     },
     {
-        "type_habitat": "fire",
+        "type": "fire",
         "value": 3
     },
     {
-        "type_habitat": "normal",
+        "type": "normal",
         "value": 3
     },
     {
-        "type_habitat": "water",
+        "type": "water",
         "value": 3
     },
     {
-        "type_habitat": "mountain",
+        "type": "mountain",
         "value": 3
     },
     {
-        "type_habitat": "bug",
+        "type": "bug",
         "value": 2
     },
     {
-        "type_habitat": "electric",
+        "type": "electric",
         "value": 2
     },
     {
-        "type_habitat": "ground",
+        "type": "ground",
         "value": 2
     },
     {
-        "type_habitat": "sea",
+        "type": "sea",
         "value": 2
     },
     {
-        "type_habitat": "ice",
+        "type": "ice",
         "value": 1
     },
     {
-        "type_habitat": "rock",
+        "type": "rock",
         "value": 1
     },
     {
-        "type_habitat": "roughTerrain",
+        "type": "roughTerrain",
         "value": 1
     },
     {
-        "type_habitat": "dragon",
+        "type": "dragon",
         "value": 0
     },
     {
-        "type_habitat": "fairy",
+        "type": "fairy",
         "value": 0
     },
     {
-        "type_habitat": "flying",
+        "type": "flying",
         "value": 0
     },
     {
-        "type_habitat": "ghost",
+        "type": "ghost",
         "value": 0
     },
     {
-        "type_habitat": "poison",
+        "type": "poison",
         "value": 0
     },
     {
-        "type_habitat": "psychic",
+        "type": "psychic",
         "value": 0
     },
     {
-        "type_habitat": "cave",
+        "type": "cave",
         "value": 0
     }
 ]

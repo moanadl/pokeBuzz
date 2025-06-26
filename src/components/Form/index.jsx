@@ -64,7 +64,6 @@ function Form (props) {
 						index={index} /> 
 				)}
 
-				<button className="form-button">Catch 'em!</button>
 				{formErrors.length > 0 && (
 					<div className="form-errors">
 						<p>You need to select one option from the following questions:</p>
@@ -76,6 +75,7 @@ function Form (props) {
 						<p>Follow the sleepy Snorlax!</p>
 					</div>
 					)}
+					<button className="form-button">Catch 'em!</button>
 			</form>
 		</section>
 	)
