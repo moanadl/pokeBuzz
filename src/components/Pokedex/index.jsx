@@ -101,20 +101,45 @@ function Pokedex ({leftScreenContent, pokemonHabitat, rightScreenContent, change
                                         </div>
                                     </div>
                                     <div className="right-side-divisions__bottom">
-                                        <div className="blue-buttons-grid-wrapper">
-                                            <div className="blue-buttons-grid">
-                                                <div className="blue-buttons-grid__button b-1"></div>
-                                                <div className="blue-buttons-grid__button b-2"></div>
-                                                <div className="blue-buttons-grid__button b-3"></div>
-                                                <div className="blue-buttons-grid__button b-4"></div>
-                                                <div className="blue-buttons-grid__button b-5"></div>
-                                                <div className="blue-buttons-grid__button b-6"></div>
-                                                <div className="blue-buttons-grid__button b-7"></div>
-                                                <div className="blue-buttons-grid__button b-8"></div>
-                                                <div className="blue-buttons-grid__button b-9"></div>
-                                                <div className="blue-buttons-grid__button b-10"></div>
-                                                <div className="blue-buttons-grid__button b-11"></div>
-                                                <div className="blue-buttons-grid__button b-12"></div>
+                                        <div className="right-side-divisions__row">
+                                            <div className="blue-buttons-grid-wrapper">
+                                                <div className="blue-buttons-grid">
+                                                    <div className="blue-buttons-grid__button b-1"></div>
+                                                    <div className="blue-buttons-grid__button b-2"></div>
+                                                    <div className="blue-buttons-grid__button b-3"></div>
+                                                    <div className="blue-buttons-grid__button b-4"></div>
+                                                    <div className="blue-buttons-grid__button b-5"></div>
+                                                    <div className="blue-buttons-grid__button b-6"></div>
+                                                    <div className="blue-buttons-grid__button b-7"></div>
+                                                    <div className="blue-buttons-grid__button b-8"></div>
+                                                    <div className="blue-buttons-grid__button b-9"></div>
+                                                    <div className="blue-buttons-grid__button b-10"></div>
+                                                    <div className="blue-buttons-grid__button b-11"></div>
+                                                    <div className="blue-buttons-grid__button b-12"></div>
+                                                </div>
+                                            </div>
+                                            <div className="small-rubber-wrapper">
+                                                <div className="small-rubber"></div>
+                                                <div className="small-rubber"></div>
+                                            </div>
+                                        </div>
+                                        <div className="right-side-divisions__row right-light-wrapper">
+                                            <div className="white-buttons-grid-wrapper">
+                                                <div className="white-buttons-grid">
+                                                    <div className="white-buttons-grid__button b-1"></div>
+                                                    <div className="white-buttons-grid__button b-2"></div>
+                                                </div>
+                                            </div>
+                                            <div className="light light--yellow">
+                                                <div className="light__shade light__shade--yellow"></div>
+                                                <div className="light__regular-color light__regular-color--yellow"></div>
+                                                <div className="light__light light__light--yellow"></div>
+                                            </div>
+                                        </div>
+                                        <div className="right-side-divisions__row">
+                                            <div className="rubber-wrapper">
+                                                <div className="rubber"></div>
+                                                <div className="rubber"></div>
                                             </div>
                                         </div>
                                     </div>
