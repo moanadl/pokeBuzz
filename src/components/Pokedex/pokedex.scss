@@ -67,12 +67,26 @@ $lidTopHeight: 75px;
     display: flex;
     flex-direction: column;
     justify-content: end;
+
+    &::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 50%;
+        background: $darkRed;
+        border: $borderWidth solid black;
+        border-radius: 0 8px 8px 8px;
+        transform: translate(0, 8px);
+        z-index: 0;
+    }
 }
 
 .lid {
     width: 100%;
     height: calc($pokedexHeight - 150px);
-    border-radius: 0 $borderRadius $borderRadius 0;
+    border-radius: 0 8px 8px 8px;
+    background-color: $red;
+    z-index: 1;
 }
 
 @mixin whiteFrameCurve() {
@@ -436,13 +450,13 @@ $lidTopHeight: 75px;
 
         &--2 {
             background: $red;
-            @include lidTopCurve(2px, 2px, 57px, calc(100% - 2px), 99%);
+            @include lidTopCurve(2px, 2px, 57px, calc(100% - 1px), 99%);
             z-index: 1;
         }
 
         &--3 {
             background: black;
-            @include lidTopCurve(15px, 15px, 70px, calc(100% - 15px), 99%);
+            @include lidTopCurve(15px, 15px, 70px, calc(100% - 15px), 100%);
             z-index: 1;
         }
 
