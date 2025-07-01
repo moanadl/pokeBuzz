@@ -17,6 +17,7 @@ function Home () {
             /> */}
             <Logo logoHome='home'/>
             <MoreInfoLink />
+            <Pokedex />
             {/* <Loading /> */}
             {/* <ErrorData /> */}
             {/* <MoreInfo /> */}

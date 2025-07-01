@@ -503,3 +503,68 @@ $lidTopHeight: 75px;
     }
 
 }
+
+// ----- Moana -----
+
+.pokedex {
+    zoom: 40%;
+}
+
+.screen--left {
+    background-image: url("../../../public/images/sea.png");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.button-prev-next {
+    position: absolute;
+    display: flex;
+    gap: 2em;
+    bottom: 13%;
+    left: 25%;
+}
+
+.button-prev-next button {
+    width: 110px;
+    padding: 5px;
+    color: #F8F8F8;
+    font-size: 2em;
+    border-color: #2F2F2F;
+    background-color: #3B4CCA;
+}
+
+.red-frame {
+    position: relative;
+}
+
+.screen--right {
+    color: #F8F8F8;
+    padding: 5px 20px;
+}
+
+.screen--right p {
+    margin: 0;
+}
+
+.screen-attributes {
+    display: flex;
+    gap: 16px;
+    font-size: 26px;
+    font-weight: 100;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.screen-attributes-1, .screen-attributes-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pokemon-attribute {
+    text-transform: capitalize;
+}

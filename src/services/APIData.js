@@ -3,15 +3,10 @@ import axios from "axios";
 export const GetAPIData = async (testNumPokemon, testNumEvolution) => {
         try {
 
-            console.log('veio aqui')
-
             const numPokemon = testNumPokemon ? testNumPokemon : 149;
             const numEvolution = testNumEvolution ? testNumEvolution : 76;
 
-            console.log('numeros!!!!!!!!!!!!!!!!!!', numPokemon, numEvolution)
-
             const APIData = {};
-            console.log('APIData function', APIData)
 
             const endpointsPokemon = [];
             const endpointsSpecies = [];
@@ -37,7 +32,6 @@ export const GetAPIData = async (testNumPokemon, testNumEvolution) => {
             APIData.APIPokemon = axiosPokemon;
             APIData.APISpecies = axiosSpecies;
             APIData.APIEvolutions = axiosEvolutions;
-            console.log(APIData)
             
             return APIData;
             

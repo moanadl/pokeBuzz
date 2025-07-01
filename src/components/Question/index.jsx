@@ -15,7 +15,7 @@ function Question ({ label, optionKey, hasError, getFormAnswers, index }) {
         const selectedOption = e.target.value;
         const fieldsetParent = e.target.parentNode.closest('fieldset');
         const errorImage = fieldsetParent.getElementsByClassName('form-error-image')[0];
-        if (errorImage != undefined) {
+        if (errorImage !== undefined) {
             errorImage.style.display = 'none'
         }
         fieldsetParent.classList.remove('error-fieldset');

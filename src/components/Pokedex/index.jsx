@@ -3,7 +3,27 @@ import './pokedex.scss'
 // don't need to take this test to know that I want to catch you :*
 // TODO: break into smaller components
 // TODO: add missing visual components
-function Pokedex ({leftScreenContent, rightScreenContent}) {
+function Pokedex ({leftScreenContent, pokemonHabitat, rightScreenContent, changePokemon}) {
+
+    const habitat = pokemonHabitat;
+    let leftScreenBG = '';
+
+    if (habitat === 'cave') {
+        leftScreenBG = 'cave.jpg'
+    } else if (habitat === 'forest' || habitat === 'grassland') {
+        leftScreenBG = 'forest.jpg';
+    } else if (habitat === 'mountain') {
+        leftScreenBG = 'mountain.jpg';
+    } else if (habitat === 'rough-terrain') {
+        leftScreenBG = 'rough-terrain.jpg';
+    } else if (habitat === 'sea') {
+        leftScreenBG = 'sea.png';
+    } else if (habitat === 'urban') {
+        leftScreenBG = 'urban.jpg';
+    } else {
+        leftScreenBG = 'water-edges.jpg';
+    }
+
 
 	return (
         <div className='pokedex'>
@@ -46,8 +66,8 @@ function Pokedex ({leftScreenContent, rightScreenContent}) {
                         <div className='display-wrapper__left'>
                             <div className='main-content-outline'>
                                 <div className='white-frame-wrapper'>
-                                    <div className='white-frame'>
-                                        <div className='screen screen--left'>
+                                    <div className='white-frame'> 
+                                        <div className='screen screen--left' style={{ backgroundImage: `url("/images/${leftScreenBG}")`}}>
                                             {leftScreenContent}
                                         </div>
                                     </div>
@@ -56,6 +76,10 @@ function Pokedex ({leftScreenContent, rightScreenContent}) {
                             </div>
                         </div>
                         <div className='display-wrapper__right'></div>
+                    </div>
+                    <div className='button-prev-next'>
+                        <button onClick={changePokemon}>Prev</button>
+                        <button onClick={changePokemon}>Next</button>
                     </div>
                 </div>
             </div>

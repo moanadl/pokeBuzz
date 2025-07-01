@@ -5,3 +5,14 @@
         justify-content: center;
     margin-top: 3em;
 }
+
+.pokemon-pokedex {
+    min-width: 150px;
+    max-width: 300px;
+    min-height: 200px;
+    max-height: 250px;
+}
+
+.btn-check-cards {
+    margin-top: 5em;
+}
