@@ -6,6 +6,8 @@ import Loading from '../../components/Loading/index'
 import MoreInfo from '../../components/MoreInfo';
 import ErrorData from '../../components/ErrorData';
 import Pokedex from '../../components/Pokedex';
+import PokedexMobile from '../../components/PokedexMobile';
+
 
 function Home () {    
 
@@ -17,7 +19,8 @@ function Home () {
             /> */}
             <Logo logoHome='home'/>
             <MoreInfoLink />
-            <Pokedex />
+            {/* <Pokedex /> */}
+            <PokedexMobile />
             {/* <Loading /> */}
             {/* <ErrorData /> */}
             {/* <MoreInfo /> */}

@@ -1,4 +1,5 @@
 import './pokedex.scss'
+// import './style.scss'
 
 // don't need to take this test to know that I want to catch you :*
 // TODO: break into smaller components

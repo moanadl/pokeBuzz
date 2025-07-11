@@ -11,7 +11,7 @@ $darkGreen: #002e2a;
 $borderRadius: 20px;
 $screenColor: #232323;
 $topHeight: 177px;
-$pokedexWidth: 550px;
+$pokedexWidth: 300px;
 $pokedexHeight: 435px;
 $borderWidth: 2px;
 $leftScreenHeight: 270px;
@@ -32,13 +32,9 @@ $lidTopHeight: 75px;
     }
 }
 
-.red-frame,
-.lid {
+.red-frame {
     background: $red;
     border: $borderWidth solid black;
-}
-
-.red-frame {
     border-radius: $borderRadius;
     width: $pokedexWidth;
     height: $pokedexHeight;
@@ -60,34 +56,6 @@ $lidTopHeight: 75px;
     }
 }
 
-.lid-wrapper {
-    position: relative;
-    width: calc($pokedexWidth - 50px);
-    height: calc($pokedexHeight - 95px);
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-
-    &::after {
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 50%;
-        background: $darkRed;
-        border: $borderWidth solid black;
-        border-radius: 0 8px 8px 8px;
-        transform: translate(0, 8px);
-        z-index: 0;
-    }
-}
-
-.lid {
-    width: 100%;
-    height: calc($pokedexHeight - 150px);
-    border-radius: 0 8px 8px 8px;
-    background-color: $red;
-    z-index: 1;
-}
 
 @mixin whiteFrameCurve() {
     clip-path: shape(
@@ -103,35 +71,50 @@ $lidTopHeight: 75px;
 
 .white-frame-wrapper {
     position: relative;
-    width: 400px;
-    height: 370px;
+    width: 300px;
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
 }
 
 .white-frame,
 .white-frame-shadow {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
+    position: absolute;
+    top: 35px;
+    width: 210px;
+    height: 178px;
+    border-radius: 5px;
 }
 
 .white-frame {
-    position: absolute;
+    // position: absolute;
+    // top: 85px;
     background: $grey;
     display: flex;
     justify-content: center;
     align-items: center;
     border: $borderWidth solid black;
     border-radius: 8px;
-    @include whiteFrameCurve();
+    // @include whiteFrameCurve();
     z-index: 1;
 }
 
 .white-frame-shadow {
-    top: 2px;
-    position: absolute;
+    // top: 2px;
+    // position: absolute;
     background-color: black;
-    @include whiteFrameCurve();
+    // @include whiteFrameCurve();
     z-index: 0;
+    clip-path: shape(
+        from 0% 0%,
+        hline to 100%,
+        vline to 101%,
+        hline to 10%,
+        line to 0% 91%,
+        vline to 0%,
+        close
+    );
 }
 
 .screen {
@@ -147,30 +130,24 @@ $lidTopHeight: 75px;
     }
     
     &--left {
-        height: $leftScreenHeight;
-        width: $leftScreenWidth;
-    }
-
-    &--right {
-        height: $rightScreenHeight;
-        width: $rightScreenWidth;
+        height: 140px;
+        width: 170px;
     }
 }
 
 .display-wrapper {
     display: flex;
     height: 100%;
-    align-items: center;
+    width: 100%;
+    align-items: flex-end;
 
-    &__right {
-        width: 50px;
-    }
-    
     &__left {
-        flex: 1;
-        height: 100%;
+        // flex: 1;
+        height: 77%;
+        width: 100%;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: start;
         align-items: center;
         outline: $borderWidth solid black;
         border-radius: $borderRadius;
@@ -178,19 +155,19 @@ $lidTopHeight: 75px;
     }
 }
 
-@mixin cameraWrapperCurve($heightLeft, $heightRight, $leftOffset: $borderWidth, $rightOffset: $borderWidth) {
-    clip-path: shape(
-        from calc(0% + $leftOffset) 0,
-        hline to calc(100% - $rightOffset),
-        vline to calc($heightRight),
-        hline to 65%,
-        smooth to 63% calc($heightRight + 3px), 
-        line to 47% calc($heightLeft - 3px),
-        smooth to 45% calc($heightLeft),
-        hline to calc(0% + $leftOffset),
-        close
-    );
-}
+// @mixin cameraWrapperCurve($heightLeft, $heightRight, $leftOffset: $borderWidth, $rightOffset: $borderWidth) {
+//     clip-path: shape(
+//         from calc(0% + $leftOffset) 0,
+//         hline to calc(100% - $rightOffset),
+//         vline to calc($heightRight),
+//         hline to 65%,
+//         smooth to 63% calc($heightRight + 3px), 
+//         line to 47% calc($heightLeft - 3px),
+//         smooth to 45% calc($heightLeft),
+//         hline to calc(0% + $leftOffset),
+//         close
+//     );
+// }
 
 .camera-wrapper {
     position: absolute;
@@ -226,46 +203,132 @@ $lidTopHeight: 75px;
     &__top-portion {
         z-index: 5;
         background: $red;
-        @include cameraWrapperCurve(138px, 73px);
+        // @include cameraWrapperCurve(138px, 73px);
     }
 
     &__border-top-curve {
-        @include cameraWrapperCurve(140px, 75px);
+        // @include cameraWrapperCurve(140px, 75px);
         z-index: 4;
     }
     
     &__shadow {
         background-color: $darkRed;
-        @include cameraWrapperCurve(158px, 93px);
+        // @include cameraWrapperCurve(158px, 93px);
         z-index: 3;
     }
     
 
     &__border-bottom-curve {
-        @include cameraWrapperCurve(160px, 95px);
+        // @include cameraWrapperCurve(160px, 95px);
         z-index: 2;
     }
     
     &__outline-outside-layer {
-        @include cameraWrapperCurve(175px, 110px);
+        // @include cameraWrapperCurve(175px, 110px);
         z-index: 1;
 
     }
 
     &__outline-inside-layer {
-        @include cameraWrapperCurve(177px, 112px, 17px, 65px);
+        // @include cameraWrapperCurve(177px, 112px, 17px, 65px);
         z-index: 0;
     }
 
 }
 
+.camera-wrapper__top-portion {
+    clip-path: shape(
+        from calc(0% + 0px) 0, 
+        hline to calc(100% - 0px), 
+        vline to 45px, 
+        hline to 81%, 
+        smooth to 60% 45px, 
+        line to 48% 70px, 
+        smooth to 45% 75px, 
+        hline to calc(0% + 0px), 
+        close
+    );
+}
+
+.camera-wrapper__border-top-curve {
+    clip-path: shape(
+        from calc(0% + 0px) 0, 
+        hline to calc(100% - 0px), 
+        vline to 47px, 
+        hline to 65%, 
+        smooth to 60% 47px, 
+        line to 46% 75px, 
+        smooth to 45% 77px, 
+        hline to 0, 
+        close
+    );
+}
+
+.camera-wrapper__shadow {
+    clip-path: shape(
+        from calc(0% + 2px) 0, 
+        hline to 100%, 
+        vline to 70px, 
+        hline to 65%, 
+        smooth to 63% 70px, 
+        line to 47% 100px, 
+        smooth to 45% 100px, 
+        hline to -1%, 
+        close
+    );
+}
+
+.camera-wrapper__border-bottom-curve {
+    clip-path: shape(
+        from calc(0% + 2px) 0, 
+        hline to 100%, 
+        vline to 72px, 
+        hline to 65%, 
+        smooth to 63% 72px, 
+        line to 47% 102px, 
+        smooth to 45% 101px, 
+        hline to 0%,
+        close
+    );
+}
+
+.camera-wrapper__outline-outside-layer {
+    clip-path: shape(
+        from calc(0% + 2px) 0, 
+        hline to calc(100% - 2px), 
+        vline to 110px, 
+        hline to 65%, 
+        smooth to 63% 113px, 
+        line to 47% 141px, 
+        smooth to 45% 175px, 
+        hline to calc(0% + 2px),
+        close
+    );
+    display: none;
+}
+
+.camera-wrapper__outline-inside-layer {
+    clip-path: shape(
+        from calc(0% + 17px) 0, 
+        hline to calc(100% - 65px), 
+        vline to 112px, 
+        hline to 65%, 
+        smooth to 63% 115px, 
+        line to 47% 174px, 
+        smooth to 45% 177px, 
+        hline to calc(0% + 17px),
+        close
+    );
+    display: none;
+}
+
 .camera {
-    width: 85px;
-    height: 85px;
+    width: 35px;
+    height: 35px;
     position: absolute;
     z-index: 6;
-    left: 50px;
-    top: 25px;
+    left: 20px;
+    top: 20px;
 
     &__frame,
     &__lenz,
@@ -281,7 +344,7 @@ $lidTopHeight: 75px;
         width: 100%;
         height: 100%;
         background-color: $grey;
-        border: $borderWidth solid black;
+        border: 1px solid black;
     }
 
     &__lenz {
@@ -291,9 +354,12 @@ $lidTopHeight: 75px;
         left: 50%;
         transform: translate(-50%, -53%);
         background: #28abfc;
-        border: $borderWidth solid black;
+        border: 1px solid black;
         overflow: hidden;
+        // animation: blink 500ms infinite;
     }
+
+
 
     &__shade {
         width: 95%;
@@ -301,6 +367,7 @@ $lidTopHeight: 75px;
         background: #19699e;
         top: 7%;
         left: 7%;
+        animation: blink 800ms infinite;
     }
 
     &__regular-color {
@@ -309,6 +376,7 @@ $lidTopHeight: 75px;
         top: 11%;
         left: 11%;
         background: #28abfc;
+        // animation: blink 500ms infinite;
     }
 
     &__light {
@@ -317,28 +385,58 @@ $lidTopHeight: 75px;
         background: #9fdbff;
         top: 20%;
         left: 20%;
+        // animation: blink 500ms infinite;
+    }
+
+        @keyframes blink {
+        // to { }
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+            background-color: #b2d9f0; 
+        }
+        100% {
+            opacity: 1;
+        }
     }
 }
 
 .lights {
-    width: 120px;
+    width: 80px;
     position: absolute;
     z-index: 6;
-    left: 145px;
-    top: 15px;
+    left: 70px;
+    top: 18px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .light {
-    width: 24px;
-    height: 24px;
-    border: black $borderWidth solid;
+    width: 15px;
+    height: 15px;
+    border: black 1px solid;
     position: relative;
     overflow: hidden;
     border-radius: 100%;
     background: #519d5f;
+    
+
+    @keyframes blink {
+        // to { }
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+            // background-color: #b2d9f0; 
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 
     &--red {   
         background: #ea1b3f;
@@ -363,6 +461,7 @@ $lidTopHeight: 75px;
         width: 95%;
         height: 95%;
         transform: translate(5%, 5%);
+        animation: blink 1500ms infinite;
         
         &--red {   
             background: #a0011b;
@@ -416,197 +515,6 @@ $lidTopHeight: 75px;
     }
 }
 
-@mixin lidTopCurve($ox, $oy, $my, $x, $y) {
-    clip-path: shape(
-        from $ox $oy,
-        hline to 35%,
-        smooth to 37% calc($oy + 3px),
-        line to 53% calc($my - 3px),
-        smooth to 55% calc($my),
-        hline to $x,
-        vline to $y,
-        hline to $ox,
-        close
-    );
-}
-
-.lid-top {
-    position: absolute;
-    width: 100%;
-    height: $lidTopHeight;
-    top: 0;
-    left: 0;
-
-    &__layer {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-
-        &--1 {
-            background: black;
-            @include lidTopCurve(0px, 0px, 55px, 100%, 98%);
-            z-index: 1;
-        }
-
-        &--2 {
-            background: $red;
-            @include lidTopCurve(2px, 2px, 57px, calc(100% - 1px), 99%);
-            z-index: 1;
-        }
-
-        &--3 {
-            background: black;
-            @include lidTopCurve(15px, 15px, 70px, calc(100% - 15px), 100%);
-            z-index: 1;
-        }
-
-        &--4 {
-            background: $red;
-            @include lidTopCurve(17px, 17px, 72px, calc(100% - 17px), 100%);
-            z-index: 1;
-        }
-    }
-}
-
-.right-side-divisions {
-    width: 100%;
-    height: calc(100% - $lidTopHeight);
-    align-self: flex-end;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-
-    &__bottom {
-        width: $rightScreenWidth;
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-    }
-
-    &__row {
-        position: relative;
-    }
-}
-
-.blue-buttons-grid-wrapper {
-    height: 100px;
-    position: relative;
-    
-    &::before {
-        content: "";
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        transform: translateY(4px);
-        background: #00285a;
-        border-radius: 6px;
-        border: 2px solid black;
-    }
-}
-
-
-.blue-buttons-grid {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: grid;
-    grid-template-rows: repeat(2, auto);
-    grid-template-columns: repeat(6, auto);
-    grid-gap: 2px;
-    background: #00285a;
-    border: $borderWidth solid black;
-    border-radius: 6px;
-    overflow: hidden;
-    position: absolute;
-
-    &__button {
-        background: #28aafe;
-        justify-items: stretch;
-        align-items: stretch;
-    }
-}
-
-.white-buttons-grid-wrapper {
-    height: 50px;
-    position: relative;
-    width: 33%;
-
-    &::before {
-        content: "";
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        transform: translateY(4px);
-        background: #00285a;
-        border-radius: 6px;
-        border: 2px solid black;
-    }
-}
-
-.white-buttons-grid {
-    display: grid;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    grid-template-rows: auto;
-    grid-template-columns: repeat(2, auto);
-    grid-gap: 2px;
-    background-color: black;
-    border: $borderWidth solid black;
-    border-radius: 6px;
-    overflow: hidden;
-    position: absolute;
-
-    &__button {
-        background: $grey;
-        justify-items: stretch;
-        align-items: stretch;
-    }
-}
-
-.rubber-wrapper {
-    display: flex;
-    gap: 30px;
-}
-
-.rubber {
-    background-color: $darkGreen;
-    flex: 1;
-    height: 50px;
-    border: $borderWidth solid black;
-    border-radius: 6px;
-}
-
-.small-rubber-wrapper {
-    height: 15px;
-    width: 120px;
-    position: absolute;
-    bottom: -30px;
-    right: 0;
-    display: flex;
-    gap: 5px;
-}
-
-.small-rubber {
-    background-color: $darkGreen;
-    flex: 1;
-    border: solid $borderWidth black;
-    height: 100%;
-    border-radius: 6px;
-}
-
-.right-light-wrapper {
-    .light {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: 35px;
-        height: 35px;
-    } 
-}
 // // ----- Moana -----
 
 // .pokedex {
@@ -614,7 +522,6 @@ $lidTopHeight: 75px;
 // }
 
 .screen--left {
-    background-image: url("../../../public/images/sea.png");
     background-position: center;
     background-size: cover;
     display: flex;
@@ -624,46 +531,42 @@ $lidTopHeight: 75px;
     border: solid 1px #00000052;
 }
 
-.button-prev-next {
-    position: absolute;
-    display: flex;
-    gap: 2em;
-    bottom: 13%;
-    left: 25%;
-}
+// .button-prev-next {
+//     position: absolute;
+//     display: flex;
+//     gap: 2em;
+//     bottom: 13%;
+//     left: 25%;
+// }
 
 .button-prev-next button {
-    width: 110px;
-    padding: 5px;
     color: #F8F8F8;
     font-size: 2em;
     border-color: #2F2F2F;
     background-color: #3B4CCA;
+    position: absolute;
+    display: flex;
+    font-size: 18px;
+    padding: 0;
+    border-width: 1px;
+    width: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 .red-frame {
     position: relative;
 }
 
-.screen--right {
-    color: #F8F8F8;
-    padding: 15px 20px;
-    display: flex;
-    // align-items: center;
-}
-
-.screen--right p {
-    margin: 0;
-}
-
 .screen-attributes {
-    // display: flex;
-    // gap: 16px;
     font-size: 30px;
+    background: #2F2F2F;
     font-weight: 100;
-    // align-items: center;
-    // justify-content: space-between;
-    width: 100%;
+    width: 210px;
+    height: 75px;
+    border-radius: 5px;
+    border: ridge 1px #413f3f;
+    box-shadow: 1px 1px 2px black;
         overflow-y: scroll;
 }
 

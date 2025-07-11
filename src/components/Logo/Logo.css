@@ -12,8 +12,16 @@
 }
 
 .logo img {
-    height: 160px;
-    margin-right: 0.5em;
+    height: 150px;
+    /* margin-right: 0.5em; */
+}
+
+@media only screen and (min-width: 480px) {
+
+    .logo img {
+        height: 160px;
+    }
+
 }
 
 @media only screen and (min-width: 600px) {

@@ -5,7 +5,7 @@
         flex-direction: column;
         gap: 2em;
     padding: 1em 1em;
-    width: 300px;
+    width: 250px;
     border: solid 3px #FF0000;
     box-shadow: 1px 1px 20px #2F2F2F;
 
@@ -13,7 +13,7 @@
 
 .welcome-container p {
     margin: 0;
-    font-size: 1em;
+    font-size: 14px;
     text-align: center;
 }
 
@@ -25,9 +25,23 @@
 }
 
 .home-button {
-    width: 135px;
+    width: 100px;
     padding: 5px 0;
-    font-size: 1em;
+    font-size: 15px;
+}
+
+@media only screen and (min-width: 480px) {
+
+    .welcome-container {
+        width: 300px;
+    }
+
+    .home-button {
+        width: 135px;
+        font-size: 1em;
+    }
+
+
 }
 
 

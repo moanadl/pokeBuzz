@@ -1,6 +1,6 @@
 import './PokeCard.css'
 
-function PokeCard ({name, image, habitat}) {
+function PokeCard ({name, image, type1, type2, habitat, height, weight}) {
 
     let leftScreenBG = '';
 
@@ -25,7 +25,12 @@ function PokeCard ({name, image, habitat}) {
             <div className='pokeCard-img' style={{ backgroundImage: `url("/images/${leftScreenBG}")`}}>
                 <img className='pokemon-img' src={image} alt={name}/>
             </div>
-            <p>{name}</p>
+            <div className='pokeCard-attributes'>
+                <p>Name: <span className='pokemon-attribute'>{name}</span></p>
+                <p>Type: <span className='pokemon-attribute'>{type1}</span></p>
+                <p>Habitat: <span className='pokemon-attribute'>{habitat}</span></p>
+            </div>
+
         </div>
     );
 }

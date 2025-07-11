@@ -1,34 +1,61 @@
 .pokeCard {
-    display: grid;
-        align-items: center;
-        justify-content: center;
-    height: 400px;
-    width: 350px;
-    text-align: center;
-    background-color: #2F2F2F;
-    border: solid 2px #F8F8F8;
-    color: #F8F8F8;
-    box-shadow: 1px 1px 5px black;
+    display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: start;
+    height: 420px;
+    width: 300px;
+    padding: 13px;
+    border: ridge 3px #2F2F2F;
+    color: black;
+    background: linear-gradient(135deg, #6b6b47, #FFDE00, #332d03);
+    border-radius: 5px;
+    box-shadow: 
+        inset 0 0 8px rgba(255, 255, 255, 0.2),
+        inset 0 0 20px rgba(255, 255, 255, 0.1),
+        0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.7s ease, box-shadow 0.7s ease;
+}
+
+.pokeCard:hover {
+  transform: scale(1.02);
+    box-shadow: inset 0 0 12px rgb(255 255 255 / 71%), 
+    inset 0 0 25px rgb(15 9 255 / 29%), 
+    0 6px 15px rgb(0 0 0);
 }
 
 .pokeCard-img {
+    display: flex;
+        align-items: center;
+        justify-content: center;
+    align-self: center;
     background-position: center;
     background-size: cover;
-    width: 320px;
+    width: 260px;
     height: 270px;
-    align-items: center;
-    justify-content: center;
-    border: solid 2px #F8F8F8;
-    box-shadow: 1px 1px 20px black;
+    border: ridge 2px #2F2F2F;
+    box-shadow: 1px 1px 5px black;
 }
 
 .pokemon-img {
     max-height: 220px;
     max-width: 250px;
+    filter: drop-shadow(1px 1px 2px black);
+}
+
+.pokeCard-attributes {
+    display: flex;
+        flex-direction: column;
+        gap: 5px;
 }
 
 .pokeCard p {
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0 10px;
+}
+
+.pokemon-attribute {
     text-transform: capitalize;
-    font-weight: 100;
-    font-size: 20px;
+        font-weight: 400;
 }
