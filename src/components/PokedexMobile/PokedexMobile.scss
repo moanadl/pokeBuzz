@@ -4,27 +4,27 @@
     box-sizing: border-box;
 }
 
-$red: #dc0a2d;
+$borderRadius: 20px;
+$borderWidth: 2px;
+$darkGreen: #002e2a;
 $darkRed: #89061c;
 $grey: #dedede;
-$darkGreen: #002e2a;
-$borderRadius: 20px;
-$screenColor: #232323;
-$topHeight: 177px;
-$pokedexWidth: 300px;
-$pokedexHeight: 435px;
-$borderWidth: 2px;
 $leftScreenHeight: 270px;
 $leftScreenWidth: 320px;
+$lidTopHeight: 75px;
+$pokedexHeight: 435px;
+$pokedexWidth: 300px;
+$red: #dc0a2d;
 $rightScreenHeight: 180px;
 $rightScreenWidth: 380px;
-$lidTopHeight: 75px;
+$screenColor: #232323;
+$topHeight: 177px;
 
 .pokedex {
-    z-index: 1;
     position: relative;
+    z-index: 1;
     display: flex;
-    align-items: end;
+        align-items: end;
 
     &__left,
     &__right {
@@ -33,149 +33,50 @@ $lidTopHeight: 75px;
 }
 
 .red-frame {
+    display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    height: $pokedexHeight;
+    width: $pokedexWidth;
     background: $red;
     border: $borderWidth solid black;
     border-radius: $borderRadius;
-    width: $pokedexWidth;
-    height: $pokedexHeight;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     
     &::after {
-        position: absolute;
         content: "";
-        background: $darkRed;
-        bottom: -20px;
-        left: 0;
-        right: 0;
-        height: 40px;
+        position: absolute;
+            bottom: -10px;
+            left: 0;
+            right: 0;
         z-index: -1;
+        height: 40px;
+        background: $darkRed;
         border: $borderWidth solid black;
         border-radius: 0 0 $borderRadius $borderRadius;
     }
+
 }
 
-
-@mixin whiteFrameCurve() {
+@mixin cameraWrapperCurve($xOrigin, $yOrigin, $xBottomRight, $yTopRight, $xTopMiddle, $xBottomMiddle, $yBottomMiddle, ) {
     clip-path: shape(
-        from 0% 0%,
-        hline to 100%,
-        vline to 100%,
-        hline to 10%,
-        line to 0% 90%,
-        vline to 0%,
+        from $xOrigin $yOrigin,
+        hline to $xBottomRight,
+        vline to $yTopRight,
+        hline to $xTopMiddle,
+        line to $xBottomMiddle $yBottomMiddle,
+        hline to $xOrigin,
         close
     );
 }
-
-.white-frame-wrapper {
-    position: relative;
-    width: 300px;
-    height: 230px;
-    display: flex;
-    justify-content: center;
-    align-items: start;
-}
-
-.white-frame,
-.white-frame-shadow {
-    position: absolute;
-    top: 35px;
-    width: 210px;
-    height: 178px;
-    border-radius: 5px;
-}
-
-.white-frame {
-    // position: absolute;
-    // top: 85px;
-    background: $grey;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: $borderWidth solid black;
-    border-radius: 8px;
-    // @include whiteFrameCurve();
-    z-index: 1;
-}
-
-.white-frame-shadow {
-    // top: 2px;
-    // position: absolute;
-    background-color: black;
-    // @include whiteFrameCurve();
-    z-index: 0;
-    clip-path: shape(
-        from 0% 0%,
-        hline to 100%,
-        vline to 101%,
-        hline to 10%,
-        line to 0% 91%,
-        vline to 0%,
-        close
-    );
-}
-
-.screen {
-    background: $screenColor;
-    overflow: scroll;
-    border-radius: 8px;
-    
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-    
-    &::-webkit-scrollbar {
-        display: none;  /* Safari and Chrome */
-    }
-    
-    &--left {
-        height: 140px;
-        width: 170px;
-    }
-}
-
-.display-wrapper {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    align-items: flex-end;
-
-    &__left {
-        // flex: 1;
-        height: 77%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-        outline: $borderWidth solid black;
-        border-radius: $borderRadius;
-        outline-offset: -15px;
-    }
-}
-
-// @mixin cameraWrapperCurve($heightLeft, $heightRight, $leftOffset: $borderWidth, $rightOffset: $borderWidth) {
-//     clip-path: shape(
-//         from calc(0% + $leftOffset) 0,
-//         hline to calc(100% - $rightOffset),
-//         vline to calc($heightRight),
-//         hline to 65%,
-//         smooth to 63% calc($heightRight + 3px), 
-//         line to 47% calc($heightLeft - 3px),
-//         smooth to 45% calc($heightLeft),
-//         hline to calc(0% + $leftOffset),
-//         close
-//     );
-// }
 
 .camera-wrapper {
-    position: absolute;
-    height: $topHeight;
+    // position: absolute;
+    // height: $topHeight;
+    height: 27%;
     width: 100%;
-    left: 0;
-    background: transparent;
-    border-radius: $borderRadius $borderRadius 0 0;
+    // left: 0;
+    // background: transparent;
+    // border-radius: $borderRadius $borderRadius 0 0;
 
     &__top-portion,
     &__border-top-curve,
@@ -203,123 +104,35 @@ $lidTopHeight: 75px;
     &__top-portion {
         z-index: 5;
         background: $red;
-        // @include cameraWrapperCurve(138px, 73px);
+        @include cameraWrapperCurve(0%, 0%, 100%, 40%, 65%, 45%, 65%);
     }
 
     &__border-top-curve {
-        // @include cameraWrapperCurve(140px, 75px);
+        @include cameraWrapperCurve(0%, 0%, 100%, 41%, 65%, 45%, 66%);
         z-index: 4;
     }
     
     &__shadow {
         background-color: $darkRed;
-        // @include cameraWrapperCurve(158px, 93px);
+        @include cameraWrapperCurve(0%, 0%, 100%, 65%, 65%, 45%, 88%);
         z-index: 3;
     }
-    
 
     &__border-bottom-curve {
-        // @include cameraWrapperCurve(160px, 95px);
+        @include cameraWrapperCurve(0%, 0%, 100%, 66%, 65%, 45%, 89%);
         z-index: 2;
     }
     
     &__outline-outside-layer {
-        // @include cameraWrapperCurve(175px, 110px);
+        @include cameraWrapperCurve(5.2%, 100%, 95.1%, 70.5%, 65%, 45%, 93.5%);
         z-index: 1;
-
     }
 
     &__outline-inside-layer {
-        // @include cameraWrapperCurve(177px, 112px, 17px, 65px);
+        @include cameraWrapperCurve(4.6%, 100%, 95.7%, 69%, 65%, 45%, 92%);
         z-index: 0;
     }
 
-}
-
-.camera-wrapper__top-portion {
-    clip-path: shape(
-        from calc(0% + 0px) 0, 
-        hline to calc(100% - 0px), 
-        vline to 45px, 
-        hline to 81%, 
-        smooth to 60% 45px, 
-        line to 48% 70px, 
-        smooth to 45% 75px, 
-        hline to calc(0% + 0px), 
-        close
-    );
-}
-
-.camera-wrapper__border-top-curve {
-    clip-path: shape(
-        from calc(0% + 0px) 0, 
-        hline to calc(100% - 0px), 
-        vline to 47px, 
-        hline to 65%, 
-        smooth to 60% 47px, 
-        line to 46% 75px, 
-        smooth to 45% 77px, 
-        hline to 0, 
-        close
-    );
-}
-
-.camera-wrapper__shadow {
-    clip-path: shape(
-        from calc(0% + 2px) 0, 
-        hline to 100%, 
-        vline to 70px, 
-        hline to 65%, 
-        smooth to 63% 70px, 
-        line to 47% 100px, 
-        smooth to 45% 100px, 
-        hline to -1%, 
-        close
-    );
-}
-
-.camera-wrapper__border-bottom-curve {
-    clip-path: shape(
-        from calc(0% + 2px) 0, 
-        hline to 100%, 
-        vline to 72px, 
-        hline to 65%, 
-        smooth to 63% 72px, 
-        line to 47% 102px, 
-        smooth to 45% 101px, 
-        hline to 0%,
-        close
-    );
-}
-
-.camera-wrapper__outline-outside-layer {
-    clip-path: shape(
-        from calc(0% + 2px) 0, 
-        hline to calc(100% - 2px), 
-        vline to 110px, 
-        hline to 65%, 
-        smooth to 63% 113px, 
-        line to 47% 141px, 
-        smooth to 45% 175px, 
-        hline to calc(0% + 2px),
-        close
-    );
-    display: none;
-}
-
-.camera-wrapper__outline-inside-layer {
-    clip-path: shape(
-        from calc(0% + 17px) 0, 
-        hline to calc(100% - 65px), 
-        vline to 112px, 
-        hline to 65%, 
-        smooth to 63% 115px, 
-        line to 47% 174px, 
-        smooth to 45% 177px, 
-        hline to calc(0% + 17px),
-        close
-    );
-    display: none;
 }
 
 .camera {
@@ -339,7 +152,6 @@ $lidTopHeight: 75px;
         border-radius: 100%;
     }
 
-
     &__frame {
         width: 100%;
         height: 100%;
@@ -356,10 +168,7 @@ $lidTopHeight: 75px;
         background: #28abfc;
         border: 1px solid black;
         overflow: hidden;
-        // animation: blink 500ms infinite;
     }
-
-
 
     &__shade {
         width: 95%;
@@ -376,7 +185,6 @@ $lidTopHeight: 75px;
         top: 11%;
         left: 11%;
         background: #28abfc;
-        // animation: blink 500ms infinite;
     }
 
     &__light {
@@ -385,11 +193,9 @@ $lidTopHeight: 75px;
         background: #9fdbff;
         top: 20%;
         left: 20%;
-        // animation: blink 500ms infinite;
     }
 
-        @keyframes blink {
-        // to { }
+    @keyframes blink {
         0% {
             opacity: 1;
         }
@@ -425,13 +231,11 @@ $lidTopHeight: 75px;
     
 
     @keyframes blink {
-        // to { }
         0% {
             opacity: 1;
         }
         50% {
             opacity: 0.5;
-            // background-color: #b2d9f0; 
         }
         100% {
             opacity: 1;
@@ -458,6 +262,7 @@ $lidTopHeight: 75px;
     }
 
     &__shade {
+
         width: 95%;
         height: 95%;
         transform: translate(5%, 5%);
@@ -515,11 +320,88 @@ $lidTopHeight: 75px;
     }
 }
 
+.display-wrapper { // Pokédex mainframe
+    display: flex;
+        align-items: flex-end;
+    height: 100%;
+    width: 100%;
+
+    &__left {  // Display mainframe
+        display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: start;
+        height: 78%;
+        width: 100%;
+        border-radius: $borderRadius;
+        outline: $borderWidth solid black;
+        outline-offset: -15px;
+    }
+
+}
+
+.white-frame-wrapper {
+    position: relative;
+    display: flex;
+        align-items: start;
+        justify-content: center;
+    height: 230px;
+    width: 300px;
+}
+
+.white-frame,
+.white-frame-shadow {
+    position: absolute;
+        top: 35px;
+    height: 178px;
+    width: 210px;
+    border-radius: 8px;
+}
+
+.white-frame {
+    display: flex;
+        align-items: center;
+        justify-content: center;
+    z-index: 1;
+    background: $grey;
+    border: 1px solid black;
+    clip-path: shape(
+        from 0% 0%,
+        hline to 100%,
+        vline to 100%,
+        hline to 10%,
+        line to 0% 90%,
+        vline to 0%,
+        close
+    );
+}
+
+.white-frame-shadow {
+    z-index: 0;
+    background-color: black;
+    clip-path: shape(
+        from 0% 0%,
+        hline to 100%,
+        vline to 101%,
+        hline to 10%,
+        line to 0% 91%,
+        vline to 0%,
+        close
+    );
+}
+
+.screen {
+    background: $screenColor;
+    border-radius: 8px;
+    
+    &--left {
+        height: 140px;
+        width: 170px;
+    }
+}
+
 // // ----- Moana -----
 
-// .pokedex {
-//     zoom: 35%;
-// }
 
 .screen--left {
     background-position: center;
@@ -531,27 +413,35 @@ $lidTopHeight: 75px;
     border: solid 1px #00000052;
 }
 
-// .button-prev-next {
-//     position: absolute;
-//     display: flex;
-//     gap: 2em;
-//     bottom: 13%;
-//     left: 25%;
-// }
+.button-prev-next {
+    position: absolute;
+    display: flex;
+        justify-content: space-between;
+    width: 87%;
+    margin: 0 19px;
+    // gap: 2em;
+    bottom: 195px;
+    left: 0; // Só para sobrepor o pokedexMobile
+    z-index: 5;
+}
 
 .button-prev-next button {
     color: #F8F8F8;
     font-size: 2em;
-    border-color: #2F2F2F;
+    border: solid 1px #3B4CCA;
     background-color: #3B4CCA;
-    position: absolute;
     display: flex;
+        // align-items: center;
+        justify-content: center;
     font-size: 18px;
     padding: 0;
-    border-width: 1px;
-    width: 20px;
-    align-items: center;
-    justify-content: center;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+}
+
+.button-prev-next svg {
+    height: 19px;
 }
 
 .red-frame {
@@ -559,60 +449,43 @@ $lidTopHeight: 75px;
 }
 
 .screen-attributes {
-    font-size: 30px;
+    font-size: 14px;
     background: #2F2F2F;
+    color: white;
     font-weight: 100;
     width: 210px;
     height: 75px;
     border-radius: 5px;
     border: ridge 1px #413f3f;
     box-shadow: 1px 1px 2px black;
-        overflow-y: scroll;
+    overflow-y: scroll;
 }
 
-// .screen-attributes-1, .screen-attributes-2 {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 10px;
-// }
+.attributes {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 5px;
+}
+.attributes p {
+    margin: 0;
+    padding:0;
+}
 
-// .pokemon-attribute {
-//     text-transform: capitalize;
-// }
+.pokemon-attribute {
+   text-transform: none;
+}
 
-// ::-webkit-scrollbar {
-//   width: 7px;
-//   background-color: #f8f8f838;
-// }
+.pokemon-attribute-name {
+    text-transform: capitalize;
+    font-weight: 400;
+} 
 
-
-// // .wrapper::-webkit-scrollbar {
-// //     display: block;
-// //     width: 5px;
-// // }
-// ::-webkit-scrollbar-track {
-//     // background: #f8f8f871;
-// }
+.screen-attributes::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ffffffc5;
+}
     
-// ::-webkit-scrollbar-thumb {
-//     background-color: #FFDE00;
-// }
-
-// ::-webkit-scrollbar-track-piece:end {
-//     // background: green;
-//     // margin-bottom: 10px; 
-// }
-
-// ::-webkit-scrollbar-track-piece:start {
-//     // background: transparent;
-//     // margin-top: 10px;
-// }
-
-// .rubber {
-//     color: #F8F8F8;
-//     display: flex;
-//     font-weight: 100;
-//     font-size: 22px;
-//     align-items: center;
-//     justify-content: center;
-// }
+.screen-attributes::-webkit-scrollbar-thumb {
+    background-color: #3B4CCA;
+}

@@ -1,8 +1,16 @@
 import './PokedexMobile.scss'
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleChevronRight, faCircleChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
-function PokedexMobile ({leftScreenContent, pokemonHabitat, rightScreenContent, changePokemon}) {
+function PokedexMobile ({leftScreenContent, pokemonHabitat, attributesScreenContent, changePokemon}) {
+    
+    const arrowRight = <FontAwesomeIcon icon={faCircleChevronRight} />
+    const arrowLeft = <FontAwesomeIcon icon={faCircleChevronLeft} />
 
-    const habitat = pokemonHabitat;
+    console.log(attributesScreenContent)
+
+    // const pokemonHabitat = pokemonHabitat;
     let leftScreenBG = '';
 
     if (pokemonHabitat === 'cave') {
@@ -60,13 +68,12 @@ function PokedexMobile ({leftScreenContent, pokemonHabitat, rightScreenContent, 
                         <div className='camera-wrapper__outline-inside-layer'></div>
                     </div>
                     <div className='display-wrapper'>
-                                        <div className='button-prev-next'>
-                    <button onClick={changePokemon}>&lt;</button>
-                    <button onClick={changePokemon}>&gt;</button>
-                </div>
+                        <div className='button-prev-next'>
+                            <button onClick={changePokemon} value='left'>{arrowLeft}</button>
+                            <button onClick={changePokemon} value='right'>{arrowRight}</button>
+                        </div>
                         <div className='display-wrapper__left'>
                             <div className='main-content-outline'>
-                                    {/* <button onClick={changePokemon}>&lt;</button> */}
                                 <div className='white-frame-wrapper'>
                                     <div className='white-frame'>
                                         <div className='screen screen--left' style={{ backgroundImage: `url("/images/${leftScreenBG}")`}}>
@@ -75,10 +82,8 @@ function PokedexMobile ({leftScreenContent, pokemonHabitat, rightScreenContent, 
                                     </div>
                                     <div className='white-frame-shadow'></div>
                                 </div>
-                                    {/* <button onClick={changePokemon}>&gt;</button> */}
                             </div>
-                            <div className='screen-attributes'>
-                        </div>
+                            <div className='screen-attributes'>{attributesScreenContent}</div>
 
                         </div>
                     </div>

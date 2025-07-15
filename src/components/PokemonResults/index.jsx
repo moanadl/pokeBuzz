@@ -14,16 +14,22 @@ function PokemonResults (props) {
     const [isPokedex, setIsPokedex] = useState(true);
 
     const changePokemon = (e) => {
-        const command = e.target.innerText;
+        const command = e.currentTarget.value;
+        console.log(command)
         
-        if (command === '>') {
+        if (command === 'right') {
+            console.log('Clicou direita');
             setIndex((prevIndex) => (prevIndex + 1) % chosenPokemon.length); // Loop circular
+            console.log(index)
         }
 
-        if (command === '<') {
-            setIndex((prevIndex) => (prevIndex - 1) % chosenPokemon.length); // Loop circular
+        if (command === 'left') {
+            console.log('Clicou esquerda');
+            setIndex((prevIndex) => (prevIndex - 1 + chosenPokemon.length) % chosenPokemon.length); // Loop circular
+            console.log(index)
         }
     }
+
 
     const currentPokemon = chosenPokemon[index];
 
@@ -42,16 +48,16 @@ function PokemonResults (props) {
                         pokemonWeight={currentPokemon.weight/10}
                         pokemonHeight={currentPokemon.height*10}
                         leftScreenContent={<img className='pokemon-pokedex' src={currentPokemon.image} />}
-                        rightScreenContent={
-                            <div className="screen-attributes">
-                                <div className="screen-attributes-1">
-                                    <p><b>Name:</b> <span className='pokemon-attribute'>{currentPokemon.name}</span></p>
-                                    <p><b>1st type:</b> <span className='pokemon-attribute'>{currentPokemon.type1}</span></p>
-                                    {currentPokemon.type2 ? <p><b>2nd type:</b> <span className='pokemon-attribute'>{currentPokemon.type2}</span></p> : <p><b>2nd type:</b> <span className='pokemon-attribute'>-</span></p>}
+                        attributesScreenContent={
+                            <div className="attributes">
+                                {/* <div className="screen-attributes-1"> */}
+                                    <p><b>Name:</b> <span className='pokemon-attribute-name'>{currentPokemon.name}</span></p>
+                                    <p><b>1<sup>st</sup> type:</b> <span className='pokemon-attribute'>{currentPokemon.type1}</span></p>
+                                    {currentPokemon.type2 ? <p><b>2nd type:</b> <span className='pokemon-attribute'>{currentPokemon.type2}</span></p> : <p><b>2<sup>nd</sup> type:</b> <span className='pokemon-attribute'>-</span></p>}
                                     <p><b>Habitat:</b> <span className='pokemon-attribute'>{currentPokemon.habitat}</span></p>
-                                    <p><b>Height:</b> <span className='pokemon-attribute'>{currentPokemon.height*10}</span> cm</p>
-                                    <p><b>Weight:</b> <span className='pokemon-attribute'>{currentPokemon.weight/10}</span> kg</p>
-                                </div>
+                                    <p><b>Height:</b> <span className='pokemon-attribute'>{currentPokemon.height*10} cm</span> </p>
+                                    <p><b>Weight:</b> <span className='pokemon-attribute'>{currentPokemon.weight/10} kg</span> </p>
+                                {/* </div> */}
                                 {/* <div className="screen-attributes-2">
                                     <p>Habitat: <span className='pokemon-attribute'>{currentPokemon.habitat}</span></p>
                                     <p>Height: <span className='pokemon-attribute'>{currentPokemon.height}</span></p>

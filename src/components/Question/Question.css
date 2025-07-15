@@ -19,7 +19,7 @@ fieldset {
     display: flex;
         flex-direction: column;
         gap: 5px;
-    width: 280px;
+    width: 300px;
     margin-bottom: 15px;
     padding-left: 10px;
     padding-right: 10px;

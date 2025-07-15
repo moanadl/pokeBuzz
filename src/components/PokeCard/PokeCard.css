@@ -56,6 +56,6 @@
 }
 
 .pokemon-attribute {
-    text-transform: capitalize;
-        font-weight: 400;
+    /* text-transform: capitalize; */
+    font-weight: 400;
 }
