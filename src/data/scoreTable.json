@@ -69,7 +69,9 @@
             { "value": "folklore", "points": { "bug": 2, "fairy": 3, "grass": 3, "rock": 1, "water": 2, "cave": 2, "forest": 3, "grassland": 3, "mountain": 1, "waterEdges": 2 } },
             { "value": "evermore", "points": { "bug": 2, "electric": 1, "fairy": 3, "fire": 2, "grass": 3, "rock": 1, "cave": 2, "forest": 3, "grassland": 3} },
             { "value": "midnights", "points": { "bug": 1, "fairy": 2, "normal": 2, "poison": 3, "mountain": 1, "urban": 3} },
-            { "value": "thetorturedpoetsdepartment", "points": { "fighting": 3, "ghost": 2, "poison": 3, "psychic": 3, "cave": 1, "mountain": 1 } }
+            { "value": "thetorturedpoetsdepartment", "points": { "fighting": 3, "ghost": 2, "poison": 3, "psychic": 3, "cave": 1, "mountain": 1 } },
+            { "value": "donthaveone", "points": { "bug": 1, "dragon": 1, "electric": 1, "fairy": 1, "fighting": 1, "fire": 1, "flying": 1, "ghost": 1, "grass": 1, "ground": 1, "ice": 1, "normal": 1, "poison": 1, "psychic": 1, "rock": 1, "steel": 1, "water": 1, "cave": 1, "forest": 1, "grassland": 1, "mountain": 1, "roughTerrain": 1, "sea": 1, "urban": 1, "waterEdges": 1 } },
+            { "value": "dontlike", "points": { "bug": 3, "fighting": 3,  "ground": 1, "ice": 2, "normal": 2, "poison": 3, "psychic": 2, "rock": 3, "steel": 3, "cave": 2, "roughTerrain": 1 } }
         ]
     }
 ]

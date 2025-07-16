@@ -20,7 +20,7 @@ function Home () {
             <Logo logoHome='home'/>
             <MoreInfoLink />
             {/* <Pokedex /> */}
-            <PokedexMobile />
+            {/* <PokedexMobile /> */}
             {/* <Loading /> */}
             {/* <ErrorData /> */}
             {/* <MoreInfo /> */}
