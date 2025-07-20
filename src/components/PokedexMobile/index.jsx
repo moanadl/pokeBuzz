@@ -1,5 +1,5 @@
-import './PokedexMobile.scss'
-import ReactDOM from 'react-dom'
+
+import '../Pokedex/Pokedex.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleChevronRight, faCircleChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
@@ -8,7 +8,7 @@ function PokedexMobile ({leftScreenContent, pokemonHabitat, attributesScreenCont
     const arrowRight = <FontAwesomeIcon icon={faCircleChevronRight} />
     const arrowLeft = <FontAwesomeIcon icon={faCircleChevronLeft} />
 
-    console.log(attributesScreenContent)
+    // console.log(attributesScreenContent)
 
     // const pokemonHabitat = pokemonHabitat;
     let leftScreenBG = '';

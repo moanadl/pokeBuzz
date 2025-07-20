@@ -1,10 +1,14 @@
-import './pokedex.scss'
-// import './style.scss'
+import './Pokedex.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleChevronRight, faCircleChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
 // don't need to take this test to know that I want to catch you :*
 // TODO: break into smaller components
 // TODO: add missing visual components
-function Pokedex ({leftScreenContent, pokemonHabitat, rightScreenContent, changePokemon}) {
+function Pokedex ({leftScreenContent, pokemonHabitat, attributesScreenContent, changePokemon}) {
+
+     const arrowRight = <FontAwesomeIcon icon={faCircleChevronRight} />
+    const arrowLeft = <FontAwesomeIcon icon={faCircleChevronLeft} />
 
     const habitat = pokemonHabitat;
     let leftScreenBG = '';
@@ -64,6 +68,10 @@ function Pokedex ({leftScreenContent, pokemonHabitat, rightScreenContent, change
                         <div className='camera-wrapper__outline-inside-layer'></div>
                     </div>
                     <div className='display-wrapper'>
+                        <div className='button-prev-next'>
+                            <button onClick={changePokemon} value='left'>{arrowLeft}</button>
+                            <button onClick={changePokemon} value='right'>{arrowRight}</button>
+                        </div>
                         <div className='display-wrapper__left'>
                             <div className='main-content-outline'>
                                 <div className='white-frame-wrapper'>
@@ -78,10 +86,6 @@ function Pokedex ({leftScreenContent, pokemonHabitat, rightScreenContent, change
                         </div>
                         <div className='display-wrapper__right'></div>
                     </div>
-                    <div className='button-prev-next'>
-                        <button onClick={changePokemon}>Prev</button>
-                        <button onClick={changePokemon}>Next</button>
-                    </div>
                 </div>
             </div>
             <div className='pokedex__right'>
@@ -94,11 +98,11 @@ function Pokedex ({leftScreenContent, pokemonHabitat, rightScreenContent, change
                             <div className="lid-top__layer lid-top__layer--4"></div>
                         </div>
                         <div className="display-wrapper">
-                            <div className="display-wrapper__left">
+                            <div className="display-wrapper__right">
                                 <div className="right-side-divisions">
                                     <div className="right-side-divisions__top">
-                                        <div className="screen screen--right">
-                                            {rightScreenContent}
+                                        <div className="screen screen--right screen-attributes">
+                                            {attributesScreenContent}
                                         </div>
                                     </div>
                                     <div className="right-side-divisions__bottom">

@@ -26,7 +26,7 @@ function PokeCard ({name, image, type1, type2, habitat, height, weight}) {
                 <img className='pokemon-img' src={image} alt={name}/>
             </div>
             <div className='pokeCard-attributes'>
-                <p>Name: <span className='pokemon-attribute'>{name}</span></p>
+                <p>Name: <span className='pokemon-attribute-name'>{name}</span></p>
                 <p>Type: <span className='pokemon-attribute'>{type1}</span></p>
                 <p>Habitat: <span className='pokemon-attribute'>{habitat}</span></p>
             </div>
