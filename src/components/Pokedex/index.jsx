@@ -83,6 +83,27 @@ function Pokedex ({leftScreenContent, pokemonHabitat, attributesScreenContent, c
                                     <div className='white-frame-shadow'></div>
                                 </div>
                             </div>
+
+                            <div className='bottom-details-wrapper'>
+                                <div className="dark-circle-wrapper">
+                                    <div className='dark-circle'></div>
+                                </div>
+                                <div className="central-elements">
+                                    <div className="leds-wrapper">
+                                        <div className="led led--red"></div>
+                                        <div className="led led--blue"></div>
+                                    </div>
+                                    <div className="green-element"></div>
+                                </div>
+                                <div className="directional">
+                                    <div className="horizontal-element-wrapper">
+                                        <div className="horizontal-element"></div>
+                                    </div>
+                                    <div className="vertical-element-wrapper">
+                                        <div className="vertical-element"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className='display-wrapper__right'></div>
                     </div>
