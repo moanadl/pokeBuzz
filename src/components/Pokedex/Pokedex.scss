@@ -6,6 +6,8 @@
     box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
 // ----- Shortcuts ----- //
 
 $borderRadius: 20px;
@@ -87,9 +89,6 @@ $screenColor: #232323;
     position: absolute;
     height: 27%;
     width: 100%;
-    // left: 0;
-    // background: transparent;
-    // border-radius: $borderRadius $borderRadius 0 0;
 
     &__top-portion,
     &__border-top-curve,
@@ -346,7 +345,6 @@ $screenColor: #232323;
     width: 100%;
 
     &__left {  // Display mainframe
-        // flex: 1;
         display: flex;
             align-items: center;
             flex-direction: column;
@@ -472,6 +470,9 @@ $screenColor: #232323;
         flex-direction: column;
         gap: 4px;
     padding: 5px;
+    font-family: "Play", sans-serif;
+    font-weight: 400;
+    color: #00ff00;
 }
 
 .attributes p { 

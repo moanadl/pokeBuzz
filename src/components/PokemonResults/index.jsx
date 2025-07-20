@@ -51,19 +51,12 @@ function PokemonResults (props) {
                         leftScreenContent={<img className='pokemon-pokedex' src={currentPokemon.image} />}
                         attributesScreenContent={
                             <div className="attributes">
-                                {/* <div className="screen-attributes-1"> */}
                                     <p><b>Name:</b> <span className='pokemon-attribute-name'>{currentPokemon.name}</span></p>
                                     <p><b>1<sup>st</sup> type:</b> <span className='pokemon-attribute'>{currentPokemon.type1}</span></p>
-                                    {currentPokemon.type2 ? <p><b>2nd type:</b> <span className='pokemon-attribute'>{currentPokemon.type2}</span></p> : <p><b>2<sup>nd</sup> type:</b> <span className='pokemon-attribute'>-</span></p>}
+                                    {currentPokemon.type2 ? <p><b>2<sup>nd</sup> type:</b> <span className='pokemon-attribute'>{currentPokemon.type2}</span></p> : <p><b>2<sup>nd</sup> type:</b> <span className='pokemon-attribute'>-</span></p>}
                                     <p><b>Habitat:</b> <span className='pokemon-attribute'>{currentPokemon.habitat}</span></p>
                                     <p><b>Height:</b> <span className='pokemon-attribute'>{currentPokemon.height*10} cm</span> </p>
                                     <p><b>Weight:</b> <span className='pokemon-attribute'>{currentPokemon.weight/10} kg</span> </p>
-                                {/* </div> */}
-                                {/* <div className="screen-attributes-2">
-                                    <p>Habitat: <span className='pokemon-attribute'>{currentPokemon.habitat}</span></p>
-                                    <p>Height: <span className='pokemon-attribute'>{currentPokemon.height}</span></p>
-                                    <p>Weight: <span className='pokemon-attribute'>{currentPokemon.weight}</span></p>
-                                </div> */}
                             </div>
                             }
                     />
@@ -77,7 +70,7 @@ function PokemonResults (props) {
                             <div className="attributes">
                                     <p><b>Name:</b> <span className='pokemon-attribute-name'>{currentPokemon.name}</span></p>
                                     <p><b>1<sup>st</sup> type:</b> <span className='pokemon-attribute'>{currentPokemon.type1}</span></p>
-                                    {currentPokemon.type2 ? <p><b>2nd type:</b> <span className='pokemon-attribute'>{currentPokemon.type2}</span></p> : <p><b>2<sup>nd</sup> type:</b> <span className='pokemon-attribute'>-</span></p>}
+                                    {currentPokemon.type2 ? <p><b>2<sup>nd</sup> type:</b> <span className='pokemon-attribute'>{currentPokemon.type2}</span></p> : <p><b>2<sup>nd</sup> type:</b> <span className='pokemon-attribute'>-</span></p>}
                                     <p><b>Habitat:</b> <span className='pokemon-attribute'>{currentPokemon.habitat}</span></p>
                                     <p><b>Height:</b> <span className='pokemon-attribute'>{currentPokemon.height*10} cm</span> </p>
                                     <p><b>Weight:</b> <span className='pokemon-attribute'>{currentPokemon.weight/10} kg</span> </p>
