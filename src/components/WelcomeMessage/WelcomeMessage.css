@@ -82,7 +82,13 @@
 
 }
 
+@media only screen and (max-height: 700px) {
 
+    .welcome-container p {
+        font-size: 20px;
+    }
+
+}
 
 
 

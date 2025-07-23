@@ -63,3 +63,19 @@
     }
 
 }
+
+@media only screen and (max-height: 700px) {
+
+    .logo {
+        font-size: 30px;
+    }
+
+    .logo-home {
+        margin-top: 0;
+    }
+
+    .logo img {
+        height: 150px;
+    }
+
+}

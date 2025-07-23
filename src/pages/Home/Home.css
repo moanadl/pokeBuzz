@@ -31,3 +31,11 @@
     } */
 
 }
+
+@media only screen and (max-height: 700px) {
+
+    .home-container {
+        gap: 2rem;
+    }
+
+}
