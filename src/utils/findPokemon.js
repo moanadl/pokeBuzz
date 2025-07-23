@@ -1,9 +1,14 @@
 import questionOptions from '../data/questionOptions.json';
+import { filterPokemon } from './filterPokemon';
 
 export const findPokemon = (props) => {
 
     
     const { finalScore, formAnswers, pokemonAttributes, evolutionsGroups } = props;
+
+    if (finalScore.length === 0 || pokemonAttributes.length === 0 || evolutionsGroups.length === 0) {
+        return [];
+    }
 
     let chosenPokemon = [];
     const chosenEvolutions = new Set();
@@ -36,9 +41,11 @@ export const findPokemon = (props) => {
         const targetType = finalScore[scoreIndex].type;
         let altColor = getRandomAltColor();
 
-        const candidates = pokemonAttributes.filter(attr => 
-            (attr.type1 === targetType || attr.type2 === targetType || attr.habitat === targetType) && 
-            (attr.color === primaryColor || attr.color === altColor))
+        // const candidates = pokemonAttributes.filter(attr => 
+        //     (attr.type1 === targetType || attr.type2 === targetType || attr.habitat === targetType) && 
+        //     (attr.color === primaryColor || attr.color === altColor))
+        
+        const candidates = filterPokemon(pokemonAttributes, targetType, primaryColor, altColor);
 
         const shuffledCandidates = shuffle(candidates);
 

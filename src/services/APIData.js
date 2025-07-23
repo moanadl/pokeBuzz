@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const GetAPIData = async (testNumPokemon, testNumEvolution) => {
         try {
+            console.log('Deu certo')
 
             const numPokemon = testNumPokemon ? testNumPokemon : 149;
             const numEvolution = testNumEvolution ? testNumEvolution : 76;
@@ -36,6 +37,7 @@ export const GetAPIData = async (testNumPokemon, testNumEvolution) => {
             return APIData;
             
         } catch (error) {
+            console.log('Deu errado')
             const APIData = {};
 
             APIData.APIPokemon = '';

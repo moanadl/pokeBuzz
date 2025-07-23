@@ -13,17 +13,8 @@ function Home () {
 
 	return (
         <div className='home-container'>
-            {/* <Pokedex 
-                // leftScreenContent={<WelcomeMessage />}
-                // rightScreenContent={<WelcomeMessage />}
-            /> */}
             <Logo logoHome='home'/>
             <MoreInfoLink />
-            <Pokedex />
-            <PokedexMobile />
-            {/* <Loading /> */}
-            {/* <ErrorData /> */}
-            {/* <MoreInfo /> */}
             <WelcomeMessage  />
         </div>
     );

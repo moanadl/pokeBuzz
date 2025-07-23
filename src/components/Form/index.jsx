@@ -26,7 +26,8 @@ function Form (props) {
 	const sendFormAnswers = (e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
-		console.log(formData);
+		// console.log(formData);
+		console.log('FormAnswers:', formAnswers)
 
 		const missingFields = [];
 
@@ -36,7 +37,7 @@ function Form (props) {
 			}
 		});
 
-		 if (missingFields.length > 0) {
+		if (missingFields.length > 0) {
 			setFormErrors(missingFields);
 			return;
 		}
@@ -61,11 +62,12 @@ function Form (props) {
 						optionKey={question.key}
 						hasError={formErrors.includes(question.label)}
 						getFormAnswers={getFormAnswers}
-						index={index} /> 
+						index={index}
+						testid={question.key} /> 
 				)}
 
 				{formErrors.length > 0 && (
-					<div className="form-errors">
+					<div data-testid='form-errors' className="form-errors">
 						<p>You need to select one option from the following questions:</p>
 						<ul>
 						{formErrors.map((field, index) => (
