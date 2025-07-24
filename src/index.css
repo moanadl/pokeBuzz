@@ -27,18 +27,22 @@ body {
     width: 90vw;
 }
 
+p {
+    margin: 0;
+}
+
 button {
     color: #FFDE00;
     font-family: 'Fredoka';
     background-color: #3B4CCA;
-    border: 5px outset #FF0000;
+    border: 3px outset #FF0000;
     cursor: pointer;
-}
 
-button:hover {
-    background-color: #FF0000;
-    border: 5px outset #3B4CAA;
-    box-shadow: 1px 1px 14px #3B4CCA;
+    &:hover {
+        background-color: #FF0000;
+        border: 3px outset #3B4CAA;
+        box-shadow: 1px 1px 14px #3B4CCA;
+    }
 }
 
 .black-background {
@@ -63,4 +67,5 @@ button:hover {
     .black-background {
         gap: 50px;
     }
+    
 }

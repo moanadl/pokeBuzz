@@ -11,7 +11,7 @@ function ErrorData () {
                     
                     <Link to="/"><button className='error-button'>Back to home</button></Link>
                     
-                    <img src="/images/psyduck.png" alt="" />
+                    <img src="/images/psyduck.png" alt="Confused Psyduck" />
             </div>
         </div>
         </>

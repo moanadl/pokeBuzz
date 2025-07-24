@@ -1,18 +1,9 @@
 .card-container {
     display: grid;
         justify-items: center;
-    grid-template-columns: 1fr;
-    margin-top: 3em;
     justify-self: center;
-    row-gap: 20px;
-}
-
-.pokemon-pokedex {
-    min-width: 130px;
-    max-width: 140px;
-    min-height: 100px;
-    max-height: 130px;
-    filter: drop-shadow(1px 1px 2px black);
+    margin-top: 48px;
+    row-gap: 40px;
 }
 
 .results-btn {
@@ -21,20 +12,11 @@
         align-items: center;
     margin-top: 3em;
     gap: 10px;
-}
 
-.results-btn button {
-    width: 150px;
-    font-size: 18px;
-}
-
-@media only screen and (min-width: 480px) {
-
-    .results-btn button {
+    button {
         width: 190px;
         font-size: 24px;
     }
-
 }
 
 @media only screen and (min-width: 768px) {
@@ -42,6 +24,7 @@
     .card-container {
         grid-template-columns: 350px 350px;
     }
+
 }
 
 @media only screen and (min-width: 1200px) {
@@ -56,7 +39,6 @@
 
     .card-container {
         grid-template-columns: 450px 450px 450px;
-        row-gap: 30px;
     }
 
 }

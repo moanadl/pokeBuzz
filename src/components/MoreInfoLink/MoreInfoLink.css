@@ -1,18 +1,22 @@
 .more-info-link {
     position: absolute;
         left: 15px;
-        top: 5px;
+        top: 10px;
     display: flex;
         align-items: center;
-        gap: 0.5em;
+        gap: 8px;
     cursor: pointer;
-}
 
-.more-info-link:hover {
-    left: 15px;
-    top: 5px;
-    font-weight: bold;
-    zoom: 105%;
+    &:hover {
+        font-weight: bold;
+        zoom: 105%;
+    }
+
+    p {
+        font-size: 12px;
+        text-align: center;
+    }
+
 }
 
 .pokebola-info {
@@ -21,23 +25,18 @@
     box-shadow: 1px 1px 13px #3B4CCA;;
 }
 
-.more-info-link p {
-    font-size: 0.7em;
-    text-align: center;
-}
-
 @media only screen and (min-width: 600px) {
 
     .more-info-link {
-        gap: 1em;
+        gap: 16px;
+
+        p {
+            font-size: 12px;
+        }
     }
 
     .pokebola-info {
         width: 35px;
-    }
-
-    .more-info-link p {
-        font-size: 0.8em;
     }
 
 }
@@ -58,7 +57,7 @@
     }
 
     .more-info-link p {
-        font-size: 0.9em;
+        font-size: 15px;
     }
 
 }

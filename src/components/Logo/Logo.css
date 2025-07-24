@@ -3,39 +3,29 @@
         align-items: center;
         flex-direction: column;
     margin: 0;
-    font-size: 1.9em;
-    text-transform: none;
+    font-size: 26px;
+
+    img {
+        height: 150px;
+    }
 }
 
 .logo-home {
-    margin-top: 2em;
-}
-
-.logo img {
-    height: 150px;
-    /* margin-right: 0.5em; */
-}
-
-@media only screen and (min-width: 480px) {
-
-    .logo img {
-        height: 160px;
-    }
-
+    margin-top: 60px;
 }
 
 @media only screen and (min-width: 600px) {
 
     .logo {
-        font-size: 2.3em;
+        font-size: 32px;
+
+        img {
+            height: 180px;
+        }
     }
 
     .logo-home {
-        margin-top: 1em;
-    }
-
-    .logo img {
-        height: 180px;
+        margin-top: 36px;
     }
 
 }
@@ -43,7 +33,7 @@
 @media only screen and (min-width: 768px) {
 
     .logo-home {
-        margin-top: 0.5em;
+        margin-top: 16px;
     }
 
 }
@@ -68,14 +58,15 @@
 
     .logo {
         font-size: 30px;
+
+        img {
+            height: 150px;
+        }
+
     }
 
     .logo-home {
         margin-top: 0;
-    }
-
-    .logo img {
-        height: 150px;
     }
 
 }

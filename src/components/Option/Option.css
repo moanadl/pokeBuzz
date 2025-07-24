@@ -1,84 +1,83 @@
 label {
     display: flex;
         align-items: center;
-        gap: 0.5em;
+        gap: 14px;
         justify-content: start;
-    margin-left: 0;
-    margin-right: 0;
-    font-size: 1.7em;
     font-weight: 400;
-}
 
-label:hover {
-    font-weight: 700;
-    background-color: #ff000042;
-}
+    &:hover {
+        font-weight: 700;
+        background-color: #ff000042;
+    }
 
-label img {
-    height: 20px;
-}
+    img {
+        height: 20px;
+    }
 
-label input + img + span + img {
-    display: none;
-}
+    input + img + span + img {
+        display: none;
+    }
 
-label input[type="radio"]:checked + img {
-    content: url('../../../public/images/pokebola-cor.png');
-    opacity: 100%;
-}
+    input[type="radio"]:checked + img {
+        content: url('../../../public/images/pokebola-cor.png');
+    }
 
-label input[type="radio"]:checked + img + span + img {
-    display: none;
-}
+    input[type="radio"]:checked + img + span + img {
+        display: none;
+    }
 
-label input[type="radio"]:checked + img + span {
-    padding: 0.1em;
-}
+    input[type="radio"]:checked + img + span {
+        font-weight: 600;
+    }
 
-label input[type="radio"]:checked + img + span {
-    font-weight: 600;
+     span {
+        font-size: 16px;
+    }
+
 }
 
 input {
     display: none;
 }
 
-label span {
-    font-size: 0.6em;
-    text-align: start;
-}
-
 @media only screen and (min-width: 600px) {
 
     label {
-       justify-content: space-between;
-       font-size: 2em;
-    }
+        justify-content: space-between;
 
-    label img {
-        height: 30px;
-    }
+        img {
+            height: 30px;
+        }
 
-    label input + img + span + img {
-        display: block;
-        z-index: 1;
-    }
+        input + img + span + img {
+            display: block;
+            z-index: 1;
+        }
 
-    label input[type="radio"]:checked + img + span + img {
-        content: url('../../../public/images/pokebola-cor.png');
-        display: block;
-    }
+        input[type="radio"]:checked + img + span + img {
+            content: url('../../../public/images/pokebola-cor.png');
+            display: block;
+        }
 
+        span {
+            font-size: 20px;
+        }
+       
+    }
+    
 }
 
 @media only screen and (min-width: 900px) {
     
-    label img {
-        height: 35px;
-    }
-
     label {
-        font-size: 2.3em;
-    }
 
+        img {
+            height: 35px;
+        }
+
+        span {
+            font-size: 22px;
+        }
+    }
+    
 }

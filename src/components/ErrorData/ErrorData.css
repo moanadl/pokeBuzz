@@ -2,49 +2,49 @@
     position: relative;
     display: flex;
         align-items: center;
-        gap: 1em;
+        gap: 35px;
         flex-direction: column;
     width: 320px;
-    padding: 1em;
+    padding: 32px;
     border: solid 3px #FF0000;
     box-shadow: 1px 1px 20px #2F2F2F;
-}
 
-.error-container p {
-    margin: 0;
-    font-size: 0.5em;
-}
+        p {
+            font-size: 16px;
+        }
 
-.error-container img {
-    position: absolute;
-        bottom: 0px;
-        right: -20px;
-    width: 100px;
+        img {
+             position: absolute;
+                bottom: 0px;
+                right: -25px;
+            width: 100px;
+        }
 }
 
 .error-button {
     width: 170px;
-    font-size: 0.6em;
+    font-size: 20px;
 }
 
 @media only screen and (min-width: 600px) {
 
     .error-container {
         width: 450px;
-    }
 
-    .error-container p {
-        font-size: 0.7em;
+        p {
+            font-size: 23px;
+        }
+
+        img {
+            right: -10px;
+            width: 140px;
+        }
+
     }
 
     .error-button {
         width: 180px;
-        font-size: 0.7em;
-    }
-
-    .error-container img {
-        right: -10px;
-        width: 140px;
+        font-size: 23px;
     }
 
 }
@@ -52,13 +52,14 @@
 @media only screen and (min-width: 768px) {
 
     .error-container {
-        gap: 2em;
-    }
+        gap: 64px;
 
-    .error-container img {
-        bottom: 10px;
-        right: -10px;
-        width: 150px;
+        img {
+            bottom: 10px;
+            right: -10px;
+            width: 150px;
+        }
+
     }
 
 }
@@ -67,16 +68,15 @@
 
     .error-container {
         width: 600px;
-    }
 
-    .error-container p {
-        font-size: 0.9em;
+        p {
+            font-size: 30px;
+        }
     }
 
     .error-button {
         width: 220px;
-        font-size: 0.9em;
+        font-size: 30px;
     }
 
 }
-
