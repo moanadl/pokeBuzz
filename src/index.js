@@ -5,16 +5,21 @@ import Home from './pages/Home/Home';
 import PokeBuzz from './pages/PokeBuzz/PokeBuzz';
 import './index.css';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+	[
+		{
+			path: '/',
+			element: <Home />
+		},
+		{
+			path: 'pokeBuzz',
+			element: <PokeBuzz />
+		}
+	],
 	{
-		path: '/',
-		element: <Home />
-	},
-	{
-		path: 'pokeBuzz',
-		element: <PokeBuzz />
+		basename: process.env.PUBLIC_URL
 	}
-]);
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
