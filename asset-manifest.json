@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/pokebuzz/static/css/main.b6538736.css",
+    "main.js": "/pokebuzz/static/js/main.3f0756cb.js",
+    "static/media/pokebola-cor.png": "/pokebuzz/static/media/pokebola-cor.2e4159a779009c2f1266.png",
+    "index.html": "/pokebuzz/index.html",
+    "main.b6538736.css.map": "/pokebuzz/static/css/main.b6538736.css.map",
+    "main.3f0756cb.js.map": "/pokebuzz/static/js/main.3f0756cb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6538736.css",
+    "static/js/main.3f0756cb.js"
+  ]
+}
