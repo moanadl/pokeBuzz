@@ -2,12 +2,9 @@ import './Pokedex.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleChevronRight, faCircleChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
-// don't need to take this test to know that I want to catch you :*
-// TODO: break into smaller components
-// TODO: add missing visual components
 function Pokedex ({leftScreenContent, pokemonHabitat, attributesScreenContent, changePokemon}) {
 
-     const arrowRight = <FontAwesomeIcon icon={faCircleChevronRight} />
+    const arrowRight = <FontAwesomeIcon icon={faCircleChevronRight} />
     const arrowLeft = <FontAwesomeIcon icon={faCircleChevronLeft} />
 
     const habitat = pokemonHabitat;
@@ -28,7 +25,6 @@ function Pokedex ({leftScreenContent, pokemonHabitat, attributesScreenContent, c
     } else {
         leftScreenBG = 'water-edges.jpg';
     }
-
 
 	return (
         <div className='pokedex'>
@@ -69,8 +65,8 @@ function Pokedex ({leftScreenContent, pokemonHabitat, attributesScreenContent, c
                     </div>
                     <div className='display-wrapper'>
                         <div className='button-prev-next'>
-                            <button onClick={changePokemon} value='left'>{arrowLeft}</button>
-                            <button onClick={changePokemon} value='right'>{arrowRight}</button>
+                            <button onClick={changePokemon} value='left' aria-label='Previous Pokémon'>{arrowLeft}</button>
+                            <button onClick={changePokemon} value='right' aria-label='Next Pokémon'>{arrowRight}</button>
                         </div>
                         <div className='display-wrapper__left'>
                             <div className='main-content-outline'>

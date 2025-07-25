@@ -20,6 +20,12 @@ label {
 
     input[type="radio"]:checked + img {
         content: url('../../../public/images/pokebola-cor.png');
+
+    }
+
+    input[type="radio"]:focus + img {
+        outline: 4px solid #ff0000;
+        border-radius: 50%;
     }
 
     input[type="radio"]:checked + img + span + img {
@@ -37,7 +43,9 @@ label {
 }
 
 input {
-    display: none;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
 @media only screen and (min-width: 600px) {
@@ -57,6 +65,16 @@ input {
         input[type="radio"]:checked + img + span + img {
             content: url('../../../public/images/pokebola-cor.png');
             display: block;
+        }
+
+        input[type="radio"]:focus + img + span {
+            font-weight: 700;
+            background-color: #ff000042;
+        }
+
+        input[type="radio"]:focus + img + span + img {
+            outline: 3px solid #ff0000;
+            border-radius: 50%;
         }
 
         span {

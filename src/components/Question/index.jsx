@@ -4,7 +4,6 @@ import questionOptions from '../../data/questionOptions.json';
 import questionNameMap from '../../data/questionNameMap.json';
 import "./Question.css"
 
-// ---------- Renders each question of the Form ---------- //
 function Question ({ label, optionKey, hasError, getFormAnswers, index, testid}) {
 
     const [answer, setAnswer] = useState('');
@@ -15,9 +14,11 @@ function Question ({ label, optionKey, hasError, getFormAnswers, index, testid})
         const selectedOption = e.target.value;
         const fieldsetParent = e.target.parentNode.closest('fieldset');
         const errorImage = fieldsetParent.getElementsByClassName('form-error-image')[0];
+
         if (errorImage !== undefined) {
             errorImage.style.display = 'none'
         }
+
         fieldsetParent.classList.remove('error-fieldset');
 
         setAnswer(selectedOption);
@@ -26,7 +27,9 @@ function Question ({ label, optionKey, hasError, getFormAnswers, index, testid})
     
 	return (
             <fieldset data-testid={testid} className={hasError ? 'error-fieldset' : ''}>
-                {hasError ? <img src='images/snorlax.png' className="form-error-image" alt='Snorlax indicating unanswered question'/> : ''}
+
+                {hasError ? <img src='images/snorlax.png' className="form-error-image" role='alert' alt='Snorlax indicating unanswered question'/> : ''}
+
                 <legend>{label}</legend>
                 {questionOptions[questionName].map(option => 
                     <Option 
@@ -37,8 +40,9 @@ function Question ({ label, optionKey, hasError, getFormAnswers, index, testid})
                         content={option} 
                         getData={handleChange} />
                 )}
+
             </fieldset>
-	)
-}
+	);
+};
 
 export default Question;

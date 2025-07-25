@@ -38,11 +38,12 @@ button {
     border: 3px outset #FF0000;
     cursor: pointer;
 
-    &:hover {
+    &:hover, &:focus {
         background-color: #FF0000;
         border: 3px outset #3B4CAA;
         box-shadow: 1px 1px 14px #3B4CCA;
     }
+
 }
 
 .black-background {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { findPokemon } from "../../utils/findPokemon";
 import PokeCard from "../PokeCard";
@@ -7,16 +7,12 @@ import PokedexMobile from "../PokedexMobile";
 import "./PokemonResults.css";
 import useWindowDimensions from "../../utils/getViewport";
 
-
-// ---------- Finds the final 6 pokemons and render them ---------- //
 function PokemonResults (props) {
 
-    const [chosenPokemon] = useState(() =>findPokemon(props)); // Lazy initialization
+    const [chosenPokemon] = useState(() => findPokemon(props)); // Lazy initialization
     const [index, setIndex] = useState(0);
     const [isPokedex, setIsPokedex] = useState(true);
     const widthViewport = useWindowDimensions().width;
-    console.log("Viewport atual:", widthViewport);
-    console.log(typeof widthViewport)
 
     const changePokemon = (e) => {
         const command = e.currentTarget.value;
@@ -48,7 +44,7 @@ function PokemonResults (props) {
                         pokemonHabitat={currentPokemon.habitat}
                         pokemonWeight={currentPokemon.weight/10}
                         pokemonHeight={currentPokemon.height*10}
-                        leftScreenContent={<img className='pokemon-pokedex' src={currentPokemon.image} />}
+                        leftScreenContent={<img className='pokemon-pokedex' src={currentPokemon.image} alt={currentPokemon.name} />}
                         attributesScreenContent={
                             <div className="attributes">
                                     <p><b>Name:</b> <span className='pokemon-attribute-name'>{currentPokemon.name}</span></p>
@@ -58,10 +54,13 @@ function PokemonResults (props) {
                                     <p><b>Height:</b> <span className='pokemon-attribute'>{currentPokemon.height*10} cm</span> </p>
                                     <p><b>Weight:</b> <span className='pokemon-attribute'>{currentPokemon.weight/10} kg</span> </p>
                             </div>
-                            }
+                        }
                     />
+
                     :
-                    <PokedexMobile changePokemon={changePokemon}
+
+                    <PokedexMobile 
+                        changePokemon={changePokemon}
                         pokemonHabitat={currentPokemon.habitat}
                         pokemonWeight={currentPokemon.weight/10}
                         pokemonHeight={currentPokemon.height*10}
@@ -74,23 +73,27 @@ function PokemonResults (props) {
                                     <p><b>Habitat:</b> <span className='pokemon-attribute'>{currentPokemon.habitat}</span></p>
                                     <p><b>Height:</b> <span className='pokemon-attribute'>{currentPokemon.height*10} cm</span> </p>
                                     <p><b>Weight:</b> <span className='pokemon-attribute'>{currentPokemon.weight/10} kg</span> </p>
-                                </div>
-                                }
+                            </div>
+                        }
                     />
                         
-                    }
+                }
+
             </div> 
+
             :
+
             <div className="card-container">
                 {chosenPokemon.map(attr => {
-                return <PokeCard key={attr.name} name={attr.name} image={attr.image} type1={attr.type1} type2={attr.type2} habitat={attr.habitat} height={attr.height} weight={attr.weight}/>
+                return <PokeCard key={attr.name} name={attr.name} image={attr.image} type1={attr.type1} habitat={attr.habitat} />
                 })}
-            </div> }
+            </div>
+             
+            }
 
             <div className='results-btn'>
                 <button className="btn-change-view" onClick={changeView}>{isPokedex ? 'Check all cards' : 'Check Pokedex'}</button>
-                <Link to="/"><button className="btn-try-again" onClick={changeView}>Try again!</button></Link>
-                
+                <Link to="/" className="btn-try-again">Try again!</Link>
             </div>
 
 		</section>

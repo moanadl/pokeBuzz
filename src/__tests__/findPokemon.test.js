@@ -1,11 +1,11 @@
 import { findPokemon } from "../utils/findPokemon";
-import mockPokemonAttributes from "../__mocks__/pokemonAttributes";
-import mockFinalScore from "../__mocks__/finalScore";
-import mockEvolutionsGroups from "../__mocks__/evolutionsGroups";
-import mockFormAnswers from "../__mocks__/formAnswers";
 import { filterPokemon } from "../utils/filterPokemon";
+import mockPokemonAttributes from "../__mocks__/pokemonAttributes";
+import mockEvolutionsGroups from "../__mocks__/evolutionsGroups";
+import mockFinalScore from "../__mocks__/finalScore";
+import mockFormAnswers from "../__mocks__/formAnswers";
 
-describe('findPokemon', () => {
+describe('Final results', () => {
 
 	const fakeProps = {
 		finalScore: mockFinalScore,
@@ -13,44 +13,48 @@ describe('findPokemon', () => {
 		pokemonAttributes: mockPokemonAttributes,
 		evolutionsGroups: mockEvolutionsGroups
 	};
-		
-  	test ('must return array of length 6 (6 Pokémon)', () => {
-		const resultado = findPokemon(fakeProps);
-		expect(resultado).toHaveLength(6);
-	});
 
-	test ('elements returned must not be null', () => {
+	describe ('When findPokemon is called', () => {
 
-		const resultado = findPokemon(fakeProps);
-		resultado.forEach(pokemon => {
-			expect(pokemon.name).toBeTruthy();
-        });
-	});
-
-	test ('there must not be repeated Pokémon', () => {
-
-		const resultado = findPokemon(fakeProps);
-		const pokemonNames = resultado.map(p => p.name);
-		const pokemonNamesUnique = new Set(pokemonNames); // Creates an object with unique values
-		expect(pokemonNames.length).toBe(pokemonNamesUnique.size);
-	});
-
-	test ('there must not be two or more Pokémon from the same evolution group', () => {
-
-		const resultado = findPokemon(fakeProps);
-		const evolutionsIndex = [];
-		const pokemonNames = resultado.map(p => p.name);
-
-		pokemonNames.forEach((pokemon) => {
-            const index = fakeProps.evolutionsGroups.findIndex(evolution => evolution.first === pokemon || evolution.second === pokemon || evolution.third === pokemon);
-            evolutionsIndex.push(index);
+		test ('must return array of length 6 (6 Pokémon)', () => {
+			const resultado = findPokemon(fakeProps);
+			expect(resultado).toHaveLength(6);
 		});
 
-		const evolutionsIndexUnique = new Set(evolutionsIndex);
-		expect(evolutionsIndex.length).toBe(evolutionsIndexUnique.size);
-	});
+		test ('elements returned must not be null', () => {
 
-	describe('Given filter', () => {
+			const resultado = findPokemon(fakeProps);
+			resultado.forEach(pokemon => {
+				expect(pokemon.name).toBeTruthy();
+			});
+		});
+
+		test ('there must not be repeated Pokémon', () => {
+
+			const resultado = findPokemon(fakeProps);
+			const pokemonNames = resultado.map(p => p.name);
+			const pokemonNamesUnique = new Set(pokemonNames); // Creates an object with unique values
+			expect(pokemonNames.length).toBe(pokemonNamesUnique.size);
+		});
+
+		test ('there must not be two or more Pokémon from the same evolution group', () => {
+
+			const resultado = findPokemon(fakeProps);
+			const evolutionsIndex = [];
+			const pokemonNames = resultado.map(p => p.name);
+
+			pokemonNames.forEach((pokemon) => {
+				const index = fakeProps.evolutionsGroups.findIndex(evolution => evolution.first === pokemon || evolution.second === pokemon || evolution.third === pokemon);
+				evolutionsIndex.push(index);
+			});
+
+			const evolutionsIndexUnique = new Set(evolutionsIndex);
+			expect(evolutionsIndex.length).toBe(evolutionsIndexUnique.size);
+		});
+
+	});  	
+
+	describe('When filterPokemon is called', () => {
 
 		test('return one or more Pokémon when it is supposed to', () => {
 			const filtered = filterPokemon(mockPokemonAttributes, 'grassland', 'black', 'green');
@@ -75,11 +79,12 @@ describe('findPokemon', () => {
 			});
 
 		});
+
 	});
 
 	describe('Given irregular input', () => {
 
-		test('retorna [] se finalScore estiver vazio', () => {
+		test('returns [] if finalScore is empty', () => {
 			const resultado = findPokemon({
 				finalScore: [],
 				formAnswers: mockFormAnswers,
@@ -90,7 +95,7 @@ describe('findPokemon', () => {
 			expect(resultado.length).toBe(0);
 		});
 
-		test('retorna [] se pokemonAttributes estiver vazio', () => {
+		test('returns [] if pokemonAttributes is empty', () => {
 			const resultado = findPokemon({
 				finalScore: mockFinalScore,
 				formAnswers: mockFormAnswers,
@@ -101,7 +106,7 @@ describe('findPokemon', () => {
 			expect(resultado.length).toBe(0);
 		});
 
-		test('retorna [] se evolutionsGroups estiver vazio', () => {
+		test('returns [] if evolutionsGroups is empty', () => {
 			const resultado = findPokemon({
 				finalScore: mockFinalScore,
 				formAnswers: mockFormAnswers,

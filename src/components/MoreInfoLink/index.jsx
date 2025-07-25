@@ -7,17 +7,27 @@ function MoreInfoLink () {
 
     const [isMoreInfo, setIsMoreInfo] = useState(false);
 
-    const toggleMoreInfo = () => {
+    const toggleMoreInfo = (e) => {
+
+        if (e.key !== "Enter" && e.key !== ' ' && e.type !== 'click') {
+            return
+        }
+
         isMoreInfo ? setIsMoreInfo(false) : setIsMoreInfo(true);
+
     };
 
 	return (
         <>
             {isMoreInfo ? (<MoreInfo toggleMoreInfo={toggleMoreInfo} />) : ''}
+            <div className='more-info-link' onClick={toggleMoreInfo} onKeyDown={toggleMoreInfo} role='button' tabIndex={0} aria-label='Click fore more info about this app' >
 
-            <div className='more-info-link' onClick={toggleMoreInfo}>
-                <img src='images/pokebola-cor.png' alt='' className='pokebola-info'/>
-                <p>Learn more about<br/> this project</p>
+                <img src='images/pokebola-cor.png' aria-hidden='true' className='pokebola-info'/>
+
+                <div className='more-info-span'>
+                    <span>Learn more about</span><span>this project</span>
+                </div>
+                
             </div>
         </>
 

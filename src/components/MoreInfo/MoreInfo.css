@@ -14,6 +14,12 @@
 
 }
 
+.more-info-p {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;  
+}
+
 .contact-links {
     display: flex;
         align-items: center;

@@ -97,7 +97,6 @@ describe('Form component', () => {
 
         });
 
-
     })
 
     test ('Given form is answered correctly, error does not display', () => {
@@ -125,14 +124,12 @@ describe('Form component', () => {
         const taylor = screen.getByLabelText(/Folklore/i);
         fireEvent.click(taylor);
 
-        console.log(screen.queryByRole("button", { name: /Catch 'em/i}));
         const submitButton = screen.getByRole("button", { name: /Catch 'em!/i }); 
         fireEvent.click(submitButton);
 
         expect(screen.queryByText(/You need to select one option/i)).not.toBeInTheDocument();
         expect(screen.queryByTestId('form-errors')).not.toBeInTheDocument();
-    })
 
-   
+    })
 
 });

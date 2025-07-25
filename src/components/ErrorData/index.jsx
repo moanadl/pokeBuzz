@@ -1,19 +1,29 @@
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './ErrorData.css'
 
 function ErrorData () {
 
+    const firstFocusable = useRef(null);
+    
+        useEffect(() => {
+            firstFocusable.current?.focus();
+        }, []);
+
 	return (
         <>
-        <div className='black-background'>
-            <div className="error-container">
-                    <p>Oops! Something went wrong with our pokedex!<br/><br/>Please, come back a bit later and try again!</p>
-                    
-                    <Link to="/"><button className='error-button'>Back to home</button></Link>
-                    
-                    <img src="/images/psyduck.png" alt="Confused Psyduck" />
+            <div className='black-background'>
+                <div className="error-container" role='alert'>
+                    <div>
+                        <p>Oops! Something went wrong with our pokedex!</p>
+                        <p>Please, come back a bit later and try again!</p>
+                    </div>
+                        
+                        <Link to="/" className='error-button' ref={firstFocusable}>Back to home</Link>
+                        
+                        <img src="/images/psyduck.png" aria-hidden='true' />
+                </div>
             </div>
-        </div>
         </>
     );
 }

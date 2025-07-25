@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const GetAPIData = async (testNumPokemon, testNumEvolution) => {
         try {
-            console.log('Deu certo')
 
             const numPokemon = testNumPokemon ? testNumPokemon : 149;
             const numEvolution = testNumEvolution ? testNumEvolution : 76;
@@ -13,13 +12,11 @@ export const GetAPIData = async (testNumPokemon, testNumEvolution) => {
             const endpointsSpecies = [];
             const endpointsEvolutions = [];
             
-            // for (let i = 1; i <= numPokemon || 149; i++) {
             for (let i = 1; i <= numPokemon; i++) {
                 endpointsPokemon.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
                 endpointsSpecies.push(`https://pokeapi.co/api/v2/pokemon-species/${i}`)
             }
             
-            // for (let i = 1; i <= numEvolution || 76; i++) {
             for (let i = 1; i <= numEvolution; i++) {
                 endpointsEvolutions.push(`https://pokeapi.co/api/v2/evolution-chain/${i}`)
             }
@@ -37,7 +34,6 @@ export const GetAPIData = async (testNumPokemon, testNumEvolution) => {
             return APIData;
             
         } catch (error) {
-            console.log('Deu errado')
             const APIData = {};
 
             APIData.APIPokemon = '';

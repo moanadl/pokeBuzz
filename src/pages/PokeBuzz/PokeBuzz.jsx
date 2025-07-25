@@ -7,10 +7,8 @@ import MoreInfoLink from "../../components/MoreInfoLink/index";
 import Logo from "../../components/Logo/index"
 import ErrorData from "../../components/ErrorData";
 
-// ---------- Renders the Form and the final results ---------- //
 function PokeBuzz () {    
     
-    // ----- Creating the state for the constants that will be used -----
     const [evolutionsGroups, setEvolutionsGroups] = useState([]);
     const [pokemonAttributes, setPokemonAttributes] = useState([]);
     const [finalScore, setfinalScore] = useState([]);
@@ -26,7 +24,6 @@ function PokeBuzz () {
             
             try {
 
-                // Gets the data from the API
                 const { APIPokemon, APISpecies, APIEvolutions } = await GetAPIData();
 
                 // ----- If the data returned alright... -----
@@ -50,6 +47,7 @@ function PokeBuzz () {
                         };
 
                     });
+
                     // ----- Creates an array grouping all evolutions of an especies -----
                     const evolutions = APIEvolutions.map(data => {
                         const evolutionsData = data.data;
@@ -90,7 +88,7 @@ function PokeBuzz () {
 
     }, []);
 
-    // ----- Sets the form anwsers and the calculated results for type/habitat received from the Form component -----
+    // ----- Sets the form anwsers and the calculates results for type/habitat received from the Form component -----
     const handleFormSubmit = async (finalScore, formAnswers) => {
         setIsProcessing(true);
         setfinalScore(finalScore);

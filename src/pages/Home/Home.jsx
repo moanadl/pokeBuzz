@@ -1,19 +1,16 @@
 import WelcomeMessage from '../../components/WelcomeMessage';
-import './Home.css'
 import Logo from "../../components/Logo"
 import MoreInfoLink from '../../components/MoreInfoLink';
+import './Home.css'
 import Loading from '../../components/Loading/index'
-import MoreInfo from '../../components/MoreInfo';
 import ErrorData from '../../components/ErrorData';
-import Pokedex from '../../components/Pokedex';
-import PokedexMobile from '../../components/PokedexMobile';
 
 
 function Home () {    
 
 	return (
         <div className='home-container'>
-            <Logo logoHome='home'/>
+            <Logo logoHome='home'/> 
             <MoreInfoLink />
             <WelcomeMessage  />
         </div>

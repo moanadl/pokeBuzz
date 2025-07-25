@@ -3,7 +3,6 @@ import { filterPokemon } from './filterPokemon';
 
 export const findPokemon = (props) => {
 
-    
     const { finalScore, formAnswers, pokemonAttributes, evolutionsGroups } = props;
 
     if (finalScore.length === 0 || pokemonAttributes.length === 0 || evolutionsGroups.length === 0) {
@@ -35,21 +34,16 @@ export const findPokemon = (props) => {
     
     let scoreIndex = 0;
 
-    // ----- While the number of pokemon is smaller than 6, do the loop -----
     while (chosenPokemon.length < 6 ) {
 
         const targetType = finalScore[scoreIndex].type;
         let altColor = getRandomAltColor();
-
-        // const candidates = pokemonAttributes.filter(attr => 
-        //     (attr.type1 === targetType || attr.type2 === targetType || attr.habitat === targetType) && 
-        //     (attr.color === primaryColor || attr.color === altColor))
         
         const candidates = filterPokemon(pokemonAttributes, targetType, primaryColor, altColor);
 
         const shuffledCandidates = shuffle(candidates);
 
-        for (const pokemon of shuffledCandidates) { // Não executa caso array venha vazio
+        for (const pokemon of shuffledCandidates) { // Doesn't executeif array is empty
             const { id, name } = pokemon;
 
             // Checks for rare Pokémon
@@ -75,6 +69,5 @@ export const findPokemon = (props) => {
         scoreIndex++
     }
 
-    // console.log('CHOSENPOKEMON', chosenPokemon)
 	return chosenPokemon;
 }

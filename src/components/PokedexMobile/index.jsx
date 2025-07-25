@@ -1,4 +1,3 @@
-
 import '../Pokedex/Pokedex.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleChevronRight, faCircleChevronLeft } from '@fortawesome/free-solid-svg-icons'
@@ -8,22 +7,20 @@ function PokedexMobile ({leftScreenContent, pokemonHabitat, attributesScreenCont
     const arrowRight = <FontAwesomeIcon icon={faCircleChevronRight} />
     const arrowLeft = <FontAwesomeIcon icon={faCircleChevronLeft} />
 
-    // console.log(attributesScreenContent)
-
-    // const pokemonHabitat = pokemonHabitat;
+    const habitat = pokemonHabitat;
     let leftScreenBG = '';
 
-    if (pokemonHabitat === 'cave') {
+    if (habitat === 'cave') {
         leftScreenBG = 'cave.jpg'
-    } else if (pokemonHabitat === 'forest' || pokemonHabitat === 'grassland') {
+    } else if (habitat === 'forest' || habitat === 'grassland') {
         leftScreenBG = 'forest.jpg';
-    } else if (pokemonHabitat === 'mountain') {
+    } else if (habitat === 'mountain') {
         leftScreenBG = 'mountain.jpg';
-    } else if (pokemonHabitat === 'rough-terrain') {
+    } else if (habitat === 'rough-terrain') {
         leftScreenBG = 'rough-terrain.jpg';
-    } else if (pokemonHabitat === 'sea') {
+    } else if (habitat === 'sea') {
         leftScreenBG = 'sea.png';
-    } else if (pokemonHabitat === 'urban') {
+    } else if (habitat === 'urban') {
         leftScreenBG = 'urban.jpg';
     } else {
         leftScreenBG = 'water-edges.jpg';

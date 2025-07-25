@@ -8,15 +8,35 @@
 
 .results-btn {
     display: flex;
-    flex-direction: column;
         align-items: center;
+        gap: 10px;
+        flex-direction: column;
     margin-top: 3em;
-    gap: 10px;
 
     button {
         width: 190px;
         font-size: 24px;
     }
+}
+
+.btn-try-again {
+    width: 190px;
+    padding: 1px 6px;
+    font-size: 24px;
+    color: #FFDE00;
+    font-family: 'Fredoka';
+    background-color: #3B4CCA;
+    border: 3px outset #FF0000;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+
+        &:hover, &:focus {
+        background-color: #FF0000;
+        border: 3px outset #3B4CAA;
+        box-shadow: 1px 1px 14px #3B4CCA;
+    }
+    
 }
 
 @media only screen and (min-width: 768px) {

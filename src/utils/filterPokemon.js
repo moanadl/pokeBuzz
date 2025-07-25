@@ -5,4 +5,3 @@ export const filterPokemon = (pokemonAttributes, targetType, primaryColor, altCo
     );
 };
         
-       

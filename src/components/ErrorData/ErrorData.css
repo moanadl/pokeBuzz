@@ -9,6 +9,12 @@
     border: solid 3px #FF0000;
     box-shadow: 1px 1px 20px #2F2F2F;
 
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;  
+        }
+
         p {
             font-size: 16px;
         }
@@ -19,11 +25,27 @@
                 right: -25px;
             width: 100px;
         }
+        
 }
 
 .error-button {
     width: 170px;
-    font-size: 20px;
+    padding: 5px 0;
+    font-size: 16px;
+    color: #FFDE00;
+    font-family: 'Fredoka';
+    background-color: #3B4CCA;
+    border: 3px outset #FF0000;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+
+    &:hover, &:focus {
+        background-color: #FF0000;
+        border: 3px outset #3B4CAA;
+        box-shadow: 1px 1px 14px #3B4CCA;
+    }
+    
 }
 
 @media only screen and (min-width: 600px) {

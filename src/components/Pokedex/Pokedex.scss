@@ -356,6 +356,14 @@ $screenColor: #232323;
         background-color: #3B4CCA;
         border: 1px solid #3B4CCA;
         border-radius: 50%;
+
+        &:hover, &:focus {
+            color: #3B4CCA;
+            background-color: #F8F8F8;
+            border: 1px solid #F8F8F8;
+            outline: 1px solid #FFDE00;
+        }
+
     }
 
     svg {
