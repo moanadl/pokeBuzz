@@ -1,7 +1,7 @@
 {
   "name": "pokebuzz",
   "version": "0.1.0",
-  "homepage": "https://moanadl.github.io/pokebuzz",
+  "homepage": "https://moanadl.github.io/pokeBuzz",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
