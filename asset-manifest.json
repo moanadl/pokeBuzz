@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/pokebuzz/static/css/main.b6538736.css",
-    "main.js": "/pokebuzz/static/js/main.c3fa61d9.js",
-    "static/media/pokebola-cor.png": "/pokebuzz/static/media/pokebola-cor.2e4159a779009c2f1266.png",
-    "index.html": "/pokebuzz/index.html",
-    "main.b6538736.css.map": "/pokebuzz/static/css/main.b6538736.css.map",
-    "main.c3fa61d9.js.map": "/pokebuzz/static/js/main.c3fa61d9.js.map"
+    "main.css": "/pokeBuzz/static/css/main.962d318d.css",
+    "main.js": "/pokeBuzz/static/js/main.7d405b82.js",
+    "static/media/pokebola-cor.png": "/pokeBuzz/static/media/pokebola-cor.2e4159a779009c2f1266.png",
+    "index.html": "/pokeBuzz/index.html",
+    "main.962d318d.css.map": "/pokeBuzz/static/css/main.962d318d.css.map",
+    "main.7d405b82.js.map": "/pokeBuzz/static/js/main.7d405b82.js.map"
   },
   "entrypoints": [
-    "static/css/main.b6538736.css",
-    "static/js/main.c3fa61d9.js"
+    "static/css/main.962d318d.css",
+    "static/js/main.7d405b82.js"
   ]
 }
