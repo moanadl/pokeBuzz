@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 // import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
-import PokeBuzz from './pages/PokeBuzz/PokeBuzz';
+import PokeBuzzQuiz from './pages/PokeBuzzQuiz/PokeBuzzQuiz';
 import './index.css';
 
 // const router = createBrowserRouter(
@@ -28,7 +28,7 @@ root.render(
 		<HashRouter>
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/pokeBuzz" element={<PokeBuzz />} />
+				<Route path="/pokeBuzz" element={<PokeBuzzQuiz />} />
 			</Routes>
 		</HashRouter>
 		{/* <RouterProvider router={router} /> */}
