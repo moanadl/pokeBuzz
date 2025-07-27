@@ -14,11 +14,10 @@ function Option ({ id, name, value, getData, content }) {
                 value={value} 
                 onChange={getData}
                 />
-                <img src='images/pokebola-semcor.svg' alt='Pokebola used as radio button'/>
+                <img src={process.env.PUBLIC_URL + '/images/pokebola-semcor.svg'} alt='Pokebola used as radio button'/>
                 <span>{content}</span>
-                <img src='images/pokebola-semcor.svg' alt='Pokebola used as radio button'/>
+                <img src={process.env.PUBLIC_URL + '/images/pokebola-semcor.svg'} alt='Pokebola used as radio button'/>
             </label>
-
         </div>
 	)
 }

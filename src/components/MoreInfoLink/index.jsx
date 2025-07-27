@@ -22,7 +22,7 @@ function MoreInfoLink () {
             {isMoreInfo ? (<MoreInfo toggleMoreInfo={toggleMoreInfo} />) : ''}
             <div className='more-info-link' onClick={toggleMoreInfo} onKeyDown={toggleMoreInfo} role='button' tabIndex={0} aria-label='Click fore more info about this app' >
 
-                <img src='images/pokebola-cor.png' aria-hidden='true' className='pokebola-info'/>
+                <img src={process.env.PUBLIC_URL + "/images/pokebola-cor.png"} aria-hidden='true' className='pokebola-info'/>
 
                 <div className='more-info-span'>
                     <span>Learn more about</span><span>this project</span>

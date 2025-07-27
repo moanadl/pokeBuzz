@@ -23,7 +23,7 @@ function PokeCard ({name, image, type1, habitat}) {
 	return (
         <div className='pokeCard'>
 
-            <div className='pokeCard-img' style={{ backgroundImage: `url("/images/${leftScreenBG}")`}}>
+            <div className='pokeCard-img' style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/${leftScreenBG})`}}>
                 <img className='pokemon-img' src={image} alt={name}/>
             </div>
             

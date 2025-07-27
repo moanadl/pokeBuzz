@@ -72,7 +72,7 @@ function Pokedex ({leftScreenContent, pokemonHabitat, attributesScreenContent, c
                             <div className='main-content-outline'>
                                 <div className='white-frame-wrapper'>
                                     <div className='white-frame'> 
-                                        <div className='screen screen--left' style={{ backgroundImage: `url("/images/${leftScreenBG}")`}}>
+                                        <div className='screen screen--left' style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/${leftScreenBG})`}}>
                                             {leftScreenContent}
                                         </div>
                                     </div>

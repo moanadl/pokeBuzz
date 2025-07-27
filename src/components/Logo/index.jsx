@@ -4,7 +4,7 @@ function Logo (props) {
 
 	return (
         <h1 className={props.logoHome === 'home' ? 'logo logo-home' : 'logo'}>
-            Find out your team of <img src="images/logo-pokemon.png" alt='Pokémon'/>
+            Find out your team of <img src={process.env.PUBLIC_URL + "/images/logo-pokemon.png"} alt='Pokémon'/>
         </h1>
     );
 }
