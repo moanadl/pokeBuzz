@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/pokeBuzz/static/css/main.3c86db64.css",
+    "main.js": "/pokeBuzz/static/js/main.8cc05d51.js",
+    "static/media/pokebola-cor.png": "/pokeBuzz/static/media/pokebola-cor.2e4159a779009c2f1266.png",
+    "index.html": "/pokeBuzz/index.html",
+    "main.3c86db64.css.map": "/pokeBuzz/static/css/main.3c86db64.css.map",
+    "main.8cc05d51.js.map": "/pokeBuzz/static/js/main.8cc05d51.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3c86db64.css",
+    "static/js/main.8cc05d51.js"
+  ]
+}
