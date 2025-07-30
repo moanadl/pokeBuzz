@@ -8,7 +8,6 @@
     Texto padrão (grafite escuro): #2F2F2F
 */
 
-
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
 /* font-family: "Fredoka", sans-serif */
 
@@ -23,7 +22,7 @@ body {
     color: #2F2F2F;
     font-family: "Fredoka", sans-serif;
     background-color: #F8F8F8;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     width: 90vw;
 }
 
@@ -56,8 +55,8 @@ button {
         flex-direction: column;
         gap: 32px;
         justify-content: center;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     color: white;
     font-size: 2rem;
     background-color: #000000fc;

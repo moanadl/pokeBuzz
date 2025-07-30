@@ -16,6 +16,7 @@ function PokemonResults (props) {
 
     const changePokemon = (e) => {
         const command = e.currentTarget.value;
+        console.log(currentPokemon)
         
         if (command === 'right') {
             setIndex((prevIndex) => (prevIndex + 1) % chosenPokemon.length); // Loop circular

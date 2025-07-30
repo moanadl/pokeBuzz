@@ -28,7 +28,7 @@ function Question ({ label, optionKey, hasError, getFormAnswers, index, testid})
 	return (
             <fieldset data-testid={testid} className={hasError ? 'error-fieldset' : ''}>
 
-                {hasError ? <img src='images/snorlax.png' className="form-error-image" role='alert' alt='Snorlax indicating unanswered question'/> : ''}
+                {hasError ? <img src={`${process.env.PUBLIC_URL}/images/snorlax.png`} className="form-error-image" role='alert' alt='Snorlax indicating unanswered question'/> : ''}
 
                 <legend>{label}</legend>
                 {questionOptions[questionName].map(option => 

@@ -30,6 +30,8 @@ function Pokedex ({leftScreenContent, pokemonHabitat, attributesScreenContent, c
         <div className='pokedex'>
             <div className="pokedex__left">
                 <div className='red-frame'>
+                    <div className='red-frame-outline-black'></div>
+                    <div className='red-frame-outline-red'></div>
                     <div className='camera-wrapper'>
                         <div className='camera'>
                             <div className='camera__frame'></div>
@@ -60,8 +62,6 @@ function Pokedex ({leftScreenContent, pokemonHabitat, attributesScreenContent, c
                         <div className='camera-wrapper__border-top-curve'></div>
                         <div className='camera-wrapper__shadow'></div>
                         <div className='camera-wrapper__border-bottom-curve'></div>
-                        <div className='camera-wrapper__outline-outside-layer'></div>
-                        <div className='camera-wrapper__outline-inside-layer'></div>
                     </div>
                     <div className='display-wrapper'>
                         <div className='button-prev-next'>
@@ -72,7 +72,7 @@ function Pokedex ({leftScreenContent, pokemonHabitat, attributesScreenContent, c
                             <div className='main-content-outline'>
                                 <div className='white-frame-wrapper'>
                                     <div className='white-frame'> 
-                                        <div className='screen screen--left' style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/${leftScreenBG})`}}>
+                                        <div className='screen screen--left' style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/${leftScreenBG})` }}>
                                             {leftScreenContent}
                                         </div>
                                     </div>
@@ -106,8 +106,12 @@ function Pokedex ({leftScreenContent, pokemonHabitat, attributesScreenContent, c
                 </div>
             </div>
             <div className='pokedex__right'>
-                <div className="lid-wrapper">
+                <div className="lid-wrapper">                   
+                    <div className='lid-top__eraser--black'></div>
+                    <div className='lid-top__eraser--white'></div>
                     <div className="lid">
+                        <div className='red-frame-outline-black'></div>
+                        <div className='red-frame-outline-red'></div>
                         <div className="lid-top">
                             <div className="lid-top__layer lid-top__layer--1"></div>
                             <div className="lid-top__layer lid-top__layer--2"></div>

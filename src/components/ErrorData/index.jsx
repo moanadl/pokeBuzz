@@ -21,7 +21,7 @@ function ErrorData () {
                         
                         <Link to="/" className='error-button' ref={firstFocusable}>Back to home</Link>
                         
-                        <img src="/images/psyduck.png" aria-hidden='true' />
+                        <img src={`${process.env.PUBLIC_URL}/images/psyduck.png`} aria-hidden='true' />
                 </div>
             </div>
         </>

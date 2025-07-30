@@ -34,6 +34,8 @@ function PokeBuzz () {
                         const pokemonData = data.data;
                         const speciesData = APISpecies[index]?.data || {};
 
+                        console.log(pokemonData)
+
                         return {
                             id: pokemonData.id,
                             name: pokemonData.name,

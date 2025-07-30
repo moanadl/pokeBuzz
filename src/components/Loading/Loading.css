@@ -3,7 +3,6 @@
 .loading-pokeball {
 	position: relative;
 	height: 100px;
-	margin-top: 64px;
 	width: 100px;
 	background: linear-gradient(to bottom, rgb(254, 0, 1) 50%, white 50% );
 	border: 8px solid black;

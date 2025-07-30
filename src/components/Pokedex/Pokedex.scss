@@ -81,9 +81,7 @@ $screenColor: #232323;
     &__top-portion,
     &__border-top-curve,
     &__shadow,
-    &__border-bottom-curve,
-    &__outline-outside-layer,
-    &__outline-inside-layer {
+    &__border-bottom-curve {
         position: absolute;
         height: 100%;
         width: 100%;
@@ -91,13 +89,11 @@ $screenColor: #232323;
     }
 
     &__border-top-curve,
-    &__border-bottom-curve,
-    &__outline-inside-layer {
+    &__border-bottom-curve {
         background-color: black;
     }
 
-    &__top-portion,
-    &__outline-outside-layer {
+    &__top-portion {
         background-color: $red;
     }
 
@@ -122,29 +118,63 @@ $screenColor: #232323;
         z-index: 2;
         @include clipPathShortcut(0%, 0%, 100%, 66%, 65%, 45%, 89%);
     }
-    
-    &__outline-outside-layer {
-        z-index: 1;
-        @include clipPathShortcut(5%, 100%, 95%, 70.5%, 65%, 45%, 93.5%);
+
+}
+
+.red-frame {
+
+    .red-frame-outline-black {
+        clip-path: polygon(      
+                13px 107px, 
+                134px 107px, 
+                193px 80px, 
+                283px 80px, 
+                283px 413px, 
+                281px 416px, 
+                279px 417px, 
+                275px 418px, 
+                276px 418px, 
+                18px 418px,
+                16px 417px, 
+                15px 416px, 
+                14px 415px, 
+                13px 414px, 
+                13px 107px
+                );
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: black;
     }
 
-    &__outline-inside-layer {
-        z-index: 0;
-        clip-path: shape(
-            from 4.3% 100%, 
-            line to 20% 95%, 
-            hline to 90%,
-            line to 95% 100%,
-            hline to 95.7%, 
-            vline to 69%, 
-            hline to 65%, 
-            line to 45% 92%, 
-            hline to 4.3%, 
-            close
-        );
+    .red-frame-outline-red {
+        clip-path: polygon(
+            15px 109px, 
+            134px 109px, 
+            193px 82px, 
+            281px 82px, 
+            281px 411px, 
+            280px 413px, 
+            279px 414px, 
+            278px 415px, 
+            276px 416px, 
+            20px 416px,
+            18px 415px, 
+            17px 414px, 
+            16px 413px, 
+            15px 411px, 
+            15px 109px
+            );
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: #dc0a2d;
     }
 
 }
+
+
+
 
 .camera {
     position: absolute;
@@ -258,7 +288,7 @@ $screenColor: #232323;
     }
     
     &--yellow {   
-        display: none;
+        background: #ecd74f;
     }
     
     &--green {
@@ -282,6 +312,10 @@ $screenColor: #232323;
             background: #a0011b;
         }
         
+        &--yellow {   
+            background: #a08908;
+        }
+
         &--green {
             background: #2f6b3e;
         }
@@ -297,6 +331,10 @@ $screenColor: #232323;
             background: #ea1b3f;
         }
         
+        &--yellow {   
+            background: #ecd74f;
+        }
+        
         &--green {
             background: #519d5f;
         }
@@ -310,6 +348,10 @@ $screenColor: #232323;
         
         &--red {   
             background: #ffabbc;
+        }
+
+        &--yellow {   
+            background: #fff996;
         }
         
         &--green {
@@ -331,9 +373,9 @@ $screenColor: #232323;
             justify-content: start;
         height: 78%;
         width: 100%;
-        border-radius: 20px;
-        outline: 2px solid black;
-        outline-offset: -15px;
+        // border-radius: 20px;
+        // outline: 2px solid black;
+        // outline-offset: -15px;
     }
 }
 
@@ -368,6 +410,7 @@ $screenColor: #232323;
 
     svg {
         height: 19px;
+        width: 19px;
     }
 
 }
@@ -434,6 +477,7 @@ $screenColor: #232323;
 }
 
 .screen-attributes {
+    z-index: 2;
     height: 75px;
     width: 210px;
     font-size: 14px;
@@ -517,6 +561,7 @@ $screenColor: #232323;
             justify-content: space-between;
         padding: 0 30px;
         width: 100%;
+        z-index: 2;
     }
 
     .dark-circle-wrapper {
@@ -653,9 +698,6 @@ $screenColor: #232323;
                 justify-content: start;
             height: 325px;
             width: 100%;
-            border-radius: 20px;
-            outline: 2px solid black;
-            outline-offset: -15px;
         }
 
     }
@@ -679,15 +721,96 @@ $screenColor: #232323;
             border-radius: 0 8px 8px 8px;
             transform: translate(0, 8px);
         }
+
+        .lid-top__eraser--black {
+            position: absolute;
+            z-index: 2;
+            height: 100%;
+            width: 100.5%;
+            background-color: black;
+            clip-path: polygon(
+                97px 1.5px, 
+                97.1% 0px, 
+                99.1% 25px, 
+                153px 25px
+            );
+        }
+
+        .lid-top__eraser--white {
+            position: absolute;
+            z-index: 2;
+            height: 100%;
+            width: 101%;
+            background-color: #f8f8f8;
+            clip-path: polygon(
+                101px 0px, 
+                100% 0px, 
+                100% 23px, 
+                153px 23px, 
+                99px 0px
+            );
+        }
+
     }
 
     .lid {
         z-index: 1;
-        height: 295px;
+        height: 354px;
         width: 100%;
         background: $red;
         border: 2px solid black;
         border-radius: 0 8px 8px 8px;
+
+        .red-frame-outline-black {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: black;
+            clip-path: polygon(
+                13px 3px, 
+                96px 3px, 
+                150px 25px, 
+                263px 25px, 
+                263px 333px, 
+                263px 334px, 
+                262px 336px, 
+                261px 337px, 
+                259px 338px, 
+                20px 338px, 
+                20px 338px, 
+                19px 338px, 
+                16px 338px, 
+                14px 337px, 
+                13px 335px, 
+                13px 3px
+            );
+        }
+
+        .red-frame-outline-red {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: #dc0a2d;
+            clip-path: polygon(
+                15px 5px, 
+                96px 5px, 
+                150px 27px, 
+                261px 27px, 
+                261px 334px, 
+                260px 335px, 
+                259px 336px, 
+                257px 336px, 
+                257px 336px, 
+                18px 336px, 
+                20px 337px, 
+                17px 336px, 
+                19px 337px, 
+                15px 335px, 
+                15px 330px, 
+                15px 5px
+            );
+        }
+
     }
 
     .lid-top {
@@ -702,84 +825,84 @@ $screenColor: #232323;
             height: 100%;
             width: 100%;
 
-            &--1 {
-                background: black;
-                z-index: 1;
-                clip-path: shape(
-                    from 0% 0%, 
-                    hline to 35%, 
-                    smooth to 37% 2px, 
-                    line to 55% 25px, 
-                    smooth to 55% 33%, 
-                    hline to 100%, 
-                    vline to 100%, 
-                    hline to 99%, 
-                    line to 98% 50%, 
-                    line to 94% 100%, 
-                    line to 93% 50%, 
-                    hline to 10%, 
-                    line to 7% 100%, 
-                    line to 4% 90%, 
-                    line to 0% 100%, 
-                    hline to 0%, 
-                    close
-                );
+            // &--1 {
+            //     background: black;
+            //     z-index: 1;
+            //     clip-path: shape(
+            //         from 0% 0%, 
+            //         hline to 35%, 
+            //         smooth to 37% 2px, 
+            //         line to 55% 25px, 
+            //         smooth to 55% 33%, 
+            //         hline to 100%, 
+            //         vline to 100%, 
+            //         hline to 99%, 
+            //         line to 98% 50%, 
+            //         line to 94% 100%, 
+            //         line to 93% 50%, 
+            //         hline to 10%, 
+            //         line to 7% 100%, 
+            //         line to 4% 90%, 
+            //         line to 0% 100%, 
+            //         hline to 0%, 
+            //         close
+            //     );
 
-            }
+            // }
 
-            &--2 {
-                background: $red;
-                z-index: 1;
-                clip-path: shape(
-                    from 2px 2px, 
-                    hline to 35%, 
-                    smooth to 37% 6%, 
-                    line to 54% 36%, 
-                    smooth to 56% 36%, 
-                    hline to 99.3%, 
-                    vline to 100%, 
-                    hline to 2px, 
-                    close
-                );
+            // &--2 {
+            //     background: $red;
+            //     z-index: 1;
+            //     clip-path: shape(
+            //         from 2px 2px, 
+            //         hline to 35%, 
+            //         smooth to 37% 6%, 
+            //         line to 54% 36%, 
+            //         smooth to 56% 36%, 
+            //         hline to 99.3%, 
+            //         vline to 100%, 
+            //         hline to 2px, 
+            //         close
+            //     );
 
-            }
+            // }
 
-            &--3 {
-                background: black;
-                z-index: 1;
-                clip-path: shape(
-                    from 5.3% 7%, 
-                    hline to 35%, 
-                    line to 55% 42%, 
-                    smooth to 50% 40%, 
-                    hline to 94.7%, 
-                    vline to 100%, 
-                    hline to 94.1%, 
-                    line to 83% 61%, 
-                    hline to 15%, 
-                    line to 6% 100%, 
-                    hline to 5.3%, 
-                    close
-                );
+            // &--3 {
+            //     background: black;
+            //     z-index: 1;
+            //     clip-path: shape(
+            //         from 5.3% 7%, 
+            //         hline to 35%, 
+            //         line to 55% 42%, 
+            //         smooth to 50% 40%, 
+            //         hline to 94.7%, 
+            //         vline to 100%, 
+            //         hline to 94.1%, 
+            //         line to 83% 61%, 
+            //         hline to 15%, 
+            //         line to 6% 100%, 
+            //         hline to 5.3%, 
+            //         close
+            //     );
 
-            }
+            // }
 
-            &--4 {
-                background: $red;
-                z-index: 1;
-                clip-path: shape(
-                    from 6% 10%, 
-                    hline to 35%, 
-                    smooth to 43% 25%, 
-                    line to 54% 44%, 
-                    smooth to 50% 43%, 
-                    hline to 93.9%, 
-                    vline to 100%, 
-                    hline to 6%, 
-                    close
-                );
+            // &--4 {
+            //     background: $red;
+            //     z-index: 1;
+            //     clip-path: shape(
+            //         from 6% 10%, 
+            //         hline to 35%, 
+            //         smooth to 43% 25%, 
+            //         line to 54% 44%, 
+            //         smooth to 50% 43%, 
+            //         hline to 93.9%, 
+            //         vline to 100%, 
+            //         hline to 6%, 
+            //         close
+            //     );
 
-            }
+            // }
 
         }
 
@@ -916,39 +1039,6 @@ $screenColor: #232323;
         background-color: $darkGreen;
         border: 1px solid black;
         border-radius: 4px;
-    }
-
-    .light {
-
-        &--yellow {  
-            display: block; 
-            background: #ecd74f;
-        }
-
-        &__shade {
-            
-            &--yellow {   
-                background: #a08908;
-            }
-        
-        }
-
-        &__regular-color {
-
-            &--yellow {   
-                background: #ecd74f;
-            }
-
-        }
-
-        &__light {
-
-            &--yellow {   
-                background: #fff996;
-            }
-
-        }
-
     }
 
     .small-rubber-wrapper {

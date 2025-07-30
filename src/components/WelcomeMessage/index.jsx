@@ -13,7 +13,7 @@ function WelcomeMessage () {
                 
                 <Link to="/pokeBuzz" className='home-button'>Start quizz!</Link>
                 
-                <img src={process.env.PUBLIC_URL + "/images/pikachu.png"} aria-hidden='true' />
+                <img src={`${process.env.PUBLIC_URL}/images/pikachu.png`} aria-hidden='true' />
             </div>
         </>
     );

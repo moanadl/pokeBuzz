@@ -1,10 +1,13 @@
 .home-container {
     display: flex;
+    /* display: grid;
+        grid-template-rows: 1fr 2fr; */
         align-items: center;
         flex-direction: column;
-        gap: 64px;
+        gap: 15vh;
         justify-content: start;
-    height: 75vh;
+        /* justify-items: center; */
+    height: min-content;
 }
 
 @media only screen and (min-width: 600px) {
@@ -23,10 +26,10 @@
 
 }
 
-@media only screen and (max-height: 700px) {
+/* @media only screen and (max-height: 700px) {
 
     .home-container {
         gap: 32px;
     }
 
-}
+} */
