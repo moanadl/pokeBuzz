@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+## English version _(versão em português logo a seguir)_
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🎮 PokeBuzz
 
-## Available Scripts
+PokeBuzz is an interactive web app that reveals your ideal Pokémon team based on your answers to a fun, BuzzFeed-style quiz. It’s a personal project made to challenge myself, learn, have fun, and, of course, share with all Pokémon fans out there!
 
-In the project directory, you can run:
+## ✨ About the project
 
-### `npm start`
+This project was born from my desire to combine learning and fun. I’ve always enjoyed building apps that keep me motivated during development, and PokeBuzz is exactly that kind of project.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The idea had been in my mind for a while, but balancing work and a career change takes a lot of effort and persistence. Time isn’t always abundant, but with dedication, I was able to bring this idea to life — and I learned a lot in the process.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧠 Challenges and learnings
 
-### `npm test`
+- **Pokémon selection logic**: One of the core parts of this app was designing an algorithm that selects 6 Pokémon based on user answers. I spent time crafting rules and constraints that made sense within the Pokémon universe, and then worked to refactor the code to make it cleaner and more efficient.
+  
+- **React.js as project foundation**: I’m really glad I chose React for this app. It pushed me to explore and practice several concepts like `useState`, `useEffect`, `useRef`, routing with `react-router-dom`, component structure, and page organization.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Using the PokéAPI**: The PokéAPI is a fantastic and well-documented tool. Working with it was both fun and flexible, allowing for creative handling of the data.
 
-### `npm run build`
+- **Nostalgic styling and UI**: One of the biggest challenges was the design. I wanted something clean, intuitive, and that gave off that classic Pokémon nostalgia. I had the support of the amazing [Roberto Mendes](https://github.com/robertompfm) in designing the Pokédex layout, and that collaboration taught me a lot about working with others, GitHub versioning, and idea exchange.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Accessibility**: One of my main goals was to apply accessibility best practices, based on the [WCAG guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/). I included keyboard navigation, proper contrast, `aria-labels`, and screen reader support.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Deploying with GitHub Pages**: Since this isn’t a traditional static site, deploying to GitHub Pages required a manual build process and some specific configuration. It involved several errors and retries, but taught me a lot — with help from friends, research, and of course, ChatGPT!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 Technologies used
 
-### `npm run eject`
+- React.js  
+- JavaScript (ES6+)  
+- PokéAPI  
+- React Router  
+- CSS3 (mobile-first approach)  
+- Git & GitHub  
+- GitHub Pages (for deploy)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📲 Try it now!
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+👉 [Access the app here](https://moanadl.github.io/pokeBuzz/#/)  
+(Click to discover your dream Pokémon team!)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Fully functional on both **mobile** and **desktop** versions.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🔧 Run it locally
 
-## Learn More
+1. Clone the repository:
+  ```
+  git clone https://github.com/moanadl/pokeBuzz.git
+  cd pokebuzz
+  ```
+2. Install the dependencies:
+  ```
+  npm install
+  ```
+3. Start the app:
+  ```
+  npm start
+  ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🌐 Upcoming features
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Multi-language support (English and Portuguese);
+- Option to share results on social media.
 
-### Code Splitting
+## 💬 Feedback and contributions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project is open to constructive feedback, new ideas, and suggestions for improvement. If you'd like to share thoughts or collaborate, feel free to reach out — I'm always happy to learn and grow with the help of the community.
 
-### Analyzing the Bundle Size
+<br>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+-----------------------------
 
-### Making a Progressive Web App
+<br>
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Versão em português
+<br>
 
-### Advanced Configuration
+# 🎮 PokeBuzz
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+PokeBuzz é um app interativo que descobre qual seria o seu time Pokémon ideal com base nas suas respostas a um formulário no maior estilo BuzzFeed. Um projeto feito para me desafiar, aprender, me divertir e, claro, compartilhar com todos os fãs de Pokémon!
 
-### Deployment
+## ✨ Sobre o projeto
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Esse projeto nasceu da vontade de unir aprendizado com diversão. Sempre gostei de criar aplicações que me motivassem durante o desenvolvimento, e o PokeBuzz representa exatamente isso.
 
-### `npm run build` fails to minify
+A ideia já existia há algum tempo, mas conciliar trabalho com uma transição de carreira exige organização e, principalmente, persistência. O tempo nem sempre é grande, mas com dedicação consegui transformar esse projeto em algo real — e aprendi muito no processo.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🧠 Desafios e aprendizados
+
+- **Lógica de seleção dos Pokémon**: Um dos pontos centrais do app foi criar um algoritmo que selecionasse 6 Pokémon com base nas respostas do usuário. Tive que pensar cuidadosamente em como aplicar regras e restrições que fizessem sentido dentro do universo Pokémon, e refatorar esse código até deixá-lo mais limpo, funcional e eficiente.
+  
+- **React.js como base do projeto**: Fiquei muito feliz de ter escolhido o React para este app. Ele me desafiou a estudar e praticar diversas funcionalidades, como `useState`, `useEffect`, `useRef`, roteamento (`react-router-dom`), componentes e organização em páginas.
+
+- **Consumo da PokéAPI**: A PokéAPI é uma ferramenta incrível e bem documentada. Trabalhar com ela foi divertido e me deu liberdade para explorar diferentes abordagens de manipulação de dados.
+
+- **Estilização e UI nostálgica**: Um dos maiores desafios foi o design. Eu queria algo simples, intuitivo e que remetesse à boa e velha nostalgia Pokémon. Tive ajuda do incrível [Roberto Mendes] (https://github.com/robertompfm) na concepção da Pokedex, o que me proporcionou grande aprendizado sobre colaboração, versionamento com GitHub e troca de ideias.
+
+- **Acessibilidade**: Um dos meus focos foi aplicar boas práticas de acessibilidade com base nas [WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/), do W3C. Adicionei navegação por teclado, contraste adequado, `aria-labels` e compatibilidade com leitores de tela.
+
+- **Deploy no GitHub Pages**: Por não ser um site estático tradicional, a publicação no GitHub Pages exigiu build manual e algumas configurações específicas. Foi um processo cheio de erros e tentativas, mas que rendeu um aprendizado imenso — e, claro, contou com ajuda de amigos, muita pesquisa e o suporte do ChatGPT.
+
+## 🚀 Tecnologias utilizadas
+
+- React.js  
+- JavaScript (ES6+)  
+- PokéAPI  
+- React Router  
+- CSS3 (com abordagem mobile-first)  
+- Git & GitHub  
+- GitHub Pages (para deploy)
+
+## 📲 Acesse e divirta-se!
+
+👉 [Acesse o app aqui](https://moanadl.github.io/pokeBuzz/#/)  
+(clique e descubra qual seria o seu time Pokémon dos sonhos!)
+
+Funciona perfeitamente tanto na **versão mobile** quanto na **desktop**.
+
+## 🔧 Como rodar localmente
+
+1. Clone o repositório:
+  ```
+  git clone https://github.com/moanadl/pokeBuzz.git
+  cd pokebuzz
+  ```
+2. Instale as dependências:
+  ```
+  npm install
+  ```
+3. Rode o app:
+  ```
+  npm start
+  ```
+
+## 🌐 Próximas features
+ - Multi-language (versão em inglês e português);
+ - Opção de compartilhar o resultado nas redes sociais.
+
+## 💬 Contribuições e feedbacks
+Esse projeto está aberto a críticas construtivas, ideias de melhoria e novas funcionalidades. Se tiver sugestões ou quiser trocar ideia sobre o projeto, me chama! Vai ser um prazer continuar aprendendo e evoluindo com a ajuda da comunidade.
+   
